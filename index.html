@@ -1,160 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <link rel="icon" href="./img/icon/favicon.ico">
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Subhadra Bro</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="./css/index.css" type="text/css">
-    <link rel="stylesheet" href="./css/nav.css" type="text/css">
-    <link rel="stylesheet" href="/css/fot.css" type="text/css">
-    <script type="text/javascript" src="./js/index.js"></script>
+    <title>Subhadra Bro - Web Portfolio</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script> <!-- Include Tailwind CSS -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dark-base': '#1e293b',   // From Palette 3 - Very dark gray/almost black
+                        'dark-secondary': '#334155', // From Palette 3 - Very dark gray/blue-gray
+                        'vibrant-teal': '#2dd4bf',  // From Palette 1 - Light, refreshing teal
+                        'vibrant-blue': '#6366f1',  // From Palette 1 - Classic blue
+                        'light-text': '#fafafa',    // From Palette 2 & 3 - Very light gray/off-white (or use pure #ffffff if you prefer)
+                        'neutral-gray': '#9ca3af',  // From Palette 2 - Light gray
+                    },
+                },
+            },
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body>
-    <div class="nav">
-        <nav>
-            <input type="checkbox" name="res-menu" id="res-menu">
-            <label for="res-menu">
-                <i class="fas fa-bars" id="s1"></i>
-                <i class="fas fa-times" id="s2"></i>
-            </label>
-            <h1>Subhadra Bro</h1>
-            <ul>
-                <li><a href="./index.html">Home</a></li>
-                <li><a href="./lod.html">Services</a></li>
-                <li><a href="./pages/projets.html" target="_blank" rel="noopener noreferrer">Projets</a></li>
-                <li><a href="./lod.html">Contact Us</a></li>
-                <li><a href="./own.html" target="_blank" rel="noopener noreferrer">Channel Owner</a></li>
-                <li><a href="./lod.html">Your FeedBack</a></li>
-            </ul>
-        </nav>
-    </div>
 
-    <div class="intro">
-        <div class="intro-text">
-            <br><h3>Hello,</h3><br>
-            <h4>Welcome<br>Subhadra Bro Official Web Syte</h4><br>
-            <a href="#oi"><h4>See Other</h4></a>
+<body class="bg-gray-100 font-sans">
+
+    <!-- Navigation Bar -->
+    <nav class="bg-dark-base p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="./" class="text-light-text text-xl font-bold">Subhadra Bro</a>
+            <div class="hidden md:flex space-x-6">
+                <a href="./" class="text-light-text hover:text-vibrant-teal">Home</a>
+                <a href="./pages/projects.html" class="text-neutral-gray hover:text-vibrant-teal">Projects</a>
+                <a href="./pages/services.html" class="text-neutral-gray hover:text-vibrant-teal">Services</a>
+                <a href="./pages/terms.html" class="text-neutral-gray hover:text-vibrant-teal">Terms & Conditions</a>
+                <a href="./pages/contact.html" class="text-neutral-gray hover:text-vibrant-teal">Contact Me</a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-light-text focus:outline-none">
+                    <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
+                        <path v-if="!isOpen" fill-rule="evenodd" clip-rule="evenodd"
+                            d="M4 5h16a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V6a1 1 0 011-1zm0 7h16a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2a1 1 0 011-1zm0 7h16a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2a1 1 0 011-1z" />
+                        <path v-if="isOpen" fill-rule="evenodd" clip-rule="evenodd"
+                            d="M4 5h16a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V6a1 1 0 011-1zm0 7h16a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2a1 1 0 011-1zm0 7h16a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2a1 1 0 011-1z" />
+                    </svg>
+                </button>
+            </div>
         </div>
-    </div>
-
-    <div class="oi" id="oi">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/a6A0gc7TkaA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div><br>
-    <div class="con1" id="mm">
-        <div class="side0">
-            <h3 align="center">Subscrib On YouTube</h3>
-            <center><a href="https://www.youtube.com/channel/UCeDeaDD8dpdMT2gO3VHY1JQ" target="_blank"><img src="./img/youtube.png" alt="Youtube" width="60px" height="40px"></a></center>
+        <!-- Mobile Menu (Hidden by default) -->
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-dark-secondary rounded-lg mt-5">
+                <a href="./"
+                    class="block bg-dark-secondary text-light-text px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="./pages/projects.html"
+                    class="block text-neutral-gray hover:bg-dark-base hover:text-vibrant-teal px-3 py-2 rounded-md text-base font-medium">Projects</a>
+                <a href="./pages/services.html"
+                    class="block text-neutral-gray hover:bg-dark-base hover:text-vibrant-teal px-3 py-2 rounded-md text-base font-medium">Services</a>
+                <a href="./pages/terms.html"
+                    class="block text-neutral-gray hover:bg-dark-base hover:text-vibrant-teal px-3 py-2 rounded-md text-base font-medium">Terms
+                    & Conditions</a>
+                <a href="./pages/contact.html"
+                    class="block text-neutral-gray hover:bg-dark-base hover:text-vibrant-teal px-3 py-2 rounded-md text-base font-medium">Contact
+                    Me</a>
+            </div>
         </div>
-    </div>
+    </nav>
 
-    <div class="con2">
+    <!-- Hero Section -->
+    <header class="bg-dark-secondary text-light-text py-20">
+        <div class="container mx-auto text-center">
+            <h1 class="text-5xl font-bold mb-4">Welcome to My Web Portfolio</h1>
+            <p class="text-xl mb-8">Showcasing my projects and services in web development and more.</p>
+            <a href="./pages/projects.html"
+                class="bg-vibrant-teal text-dark-base font-bold py-3 px-8 rounded-full hover:bg-vibrant-teal hover:text-light-text transition-colors duration-300">View
+                My Projects</a>
+        </div>
+    </header>
 
-        <a href="./lod.html">
-            <div class="blog" style="--clor:#ffffff">
-                <div class="content">
-                    <div class="img">
-                        <img src="./img/png/YT-Logo.png" width="200" height="200" alt="Games"><br>
-                    </div>
-                    <div class="text">
-                        <h3><b>Youtube videos playlist</b></h3><br>
-                        <P>youtube content</P>
+    <!-- About Me Section -->
+    <section class="py-16 bg-dark-base">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-8 text-light-text">About Me</h2>
+            <img src="./img/user.jpg" alt="Subhadra Poshitha"
+                class="rounded-full w-40 h-40 mx-auto mb-4 border-4 border-vibrant-teal">
+            <p class="text-neutral-gray text-lg leading-relaxed max-w-2xl mx-auto">
+                Hello, I'm Subhadra Poshitha, a passionate individual interested in web development, Arduino projects,
+                and exploring the digital world. This website is a space to showcase my projects, offer my services, and
+                connect with people who share similar interests. I'm always learning and striving to improve my skills.
+                Feel free to explore my work and get in touch!
+            </p>
+        </div>
+    </section>
+
+    <!-- Featured Projects/Services Section -->
+    <section class="bg-dark-secondary py-16">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12 text-light-text">Featured Projects & Services</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+
+                <!-- Project/Service Card 1 -->
+                <div class="bg-dark-base rounded-lg shadow-md hover:shadow-lg overflow-hidden m-4">
+                    <img class="w-full h-48 object-cover"
+                        src="./img/web.jpg"
+                        alt="Web Design Project">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2 text-light-text">Web Design</h3>
+                        <p class="text-neutral-gray mb-4">Modern and responsive website designs tailored to your needs.
+                        </p>
+                        <a href="./pages/services.html"
+                            class="inline-block bg-vibrant-teal text-dark-base py-2 px-4 rounded-full hover:bg-vibrant-teal hover:text-light-text transition-colors duration-300">Learn
+                            More</a>
                     </div>
                 </div>
+
+                <!-- Project/Service Card 2 -->
+                <div class="bg-dark-base rounded-lg shadow-md hover:shadow-lg overflow-hidden m-4">
+                    <img class="w-full h-48 object-cover"
+                        src="./img/proj.png"
+                        alt="Project">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2 text-light-text">Projects</h3>
+                        <p class="text-neutral-gray mb-4">Innovative solutions for various applications.
+                        </p>
+                        <a href="./pages/projects.html"
+                            class="inline-block bg-vibrant-teal text-dark-base py-2 px-4 rounded-full hover:bg-vibrant-teal hover:text-light-text transition-colors duration-300">View
+                            Projects</a>
+                    </div>
+                </div>
+
+                <!-- Project/Service Card 3 -->
+                <div class="bg-dark-base rounded-lg shadow-md hover:shadow-lg overflow-hidden m-4">
+                    <img class="w-full h-48 object-cover"
+                        src="/img//seo.png" alt="SEO Services">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2 text-light-text">SEO Optimization</h3>
+                        <p class="text-neutral-gray mb-4">Improve your website's visibility and reach a wider audience.
+                        </p>
+                        <a href="./pages/services.html"
+                            class="inline-block bg-vibrant-teal text-dark-base py-2 px-4 rounded-full hover:bg-vibrant-teal hover:text-light-text transition-colors duration-300">Explore
+                            Services</a>
+                    </div>
+                </div>
+
             </div>
-        </a>
+        </div>
+    </section>
 
-        <a href="./lod.html">
-            <div class="blog" style="--clor:#ffffff">
-                <div class="content">
-                    <div class="img">
-                        <img src="./img/apple+music.png" width="150" height="150" alt="Music"><br>
-                    </div>
-                    <div class="text">
-                        <h3><b>Song playlist</b></h3><br>
-                        <P>මෙහිදී ඔබට ගීත ලබාගත හැක.</P>
-                    </div>
-                </div>
-            </div>
-        </a>
+    <!-- Contact Call to Action Section -->
+    <section class="bg-dark-base text-light-text py-16">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-8">Ready to work together?</h2>
+            <p class="text-xl mb-8">Let's discuss your project or how I can help you.</p>
+            <a href="./pages/contact.html"
+                class="bg-vibrant-teal text-dark-base font-bold py-3 px-8 rounded-full hover:bg-vibrant-teal hover:text-light-text transition-colors duration-300">Contact
+                Me Now</a>
+        </div>
+    </section>
 
-        <a href="./arduino.html">
-            <div class="blog" style="--clor:#ffffff">
-                <div class="content">
-                    <div class="img">
-                        <img src="./img/arduinol.png" width="150" height="150" alt="Arduino"><br>
-                    </div>
-                    <div class="text">
-                        <h3><b>Arduino playlist</b></h3><br> 
-                        <P>Arduino යනු නිදහස් මූලාශ්‍ර පරිගණක දෘඩාංග හා මෘදුකාංග සමාගමක්ය.</P>
-                    </div>
-                </div>
-            </div>
-        </a>
-
-        <a href="./lod.html">
-            <div class="blog" style="--clor:#ffffff">
-                <div class="content">
-                    <div class="img">
-                        <img src="./img/Termux_2.png" width="150" height="150" alt="Termux"><br>
-                    </div>
-                    <div class="text">
-                        <h3><b>Termux playlist</b></h3><br>
-                        <P>ටර්මක්ස් යනු ඇන්ඩ්‍රොයිඩ් ටර්මිනල් ඉමුලේටරයක් ​​සහ ලිනක්ස් පරිසර යෙදුමකි.</P>
-                    </div>
-                </div>
-            </div>
-        </a>
-
-    </div>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="footer-col">
-                    <h4>Company</h4>
-                    <ul>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Our Services</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Affiliate Program</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Get Help</h4>
-                    <ul>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Shipping</a></li>
-                        <li><a href="#">Returns</a></li>
-                        <li><a href="#">Order Status</a></li>
-                        <li><a href="#">Payment Options</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Online Shop</h4>
-                    <ul>
-                        <li><a href="#">Watch</a></li>
-                        <li><a href="#">Bag</a></li>
-                        <li><a href="#">Shoes</a></li>
-                        <li><a href="#">Dress</a></li>
-
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Follow Us</h4>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://www.youtube.com/channel/UCeDeaDD8dpdMT2gO3VHY1JQ"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
+    <!-- Footer -->
+    <footer class="bg-dark-secondary text-light-text py-8">
+        <div class="container mx-auto text-center">
+            <p>© 2023 Subhadra Bro. All rights reserved.</p>
+            <div class="mt-4">
+                <a href="https://www.youtube.com/channel/UCeDeaDD8dpdMT2gO3VHY1JQ" target="_blank"
+                    class="text-neutral-gray hover:text-vibrant-teal mx-2"><i class="fab fa-youtube text-xl"></i></a>
+                <a href="https://t.me/Subadra_Poshitha" target="_blank"
+                    class="text-neutral-gray hover:text-vibrant-teal mx-2"><i class="fab fa-telegram text-xl"></i></a>
+                <a href="mailto:subadraposhithapr@gmail.com" class="text-neutral-gray hover:text-vibrant-teal mx-2"><i
+                        class="fas fa-envelope text-xl"></i></a>
             </div>
         </div>
     </footer>
 
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
 </body>
+
 </html>

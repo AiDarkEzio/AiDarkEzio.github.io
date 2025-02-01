@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me - Subhadra Bro</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dark-base': '#1e293b',   // From Palette 3 - Very dark gray/almost black
+                        'dark-secondary': '#334155', // From Palette 3 - Very dark gray/blue-gray
+                        'vibrant-teal': '#2dd4bf',  // From Palette 1 - Light, refreshing teal
+                        'vibrant-blue': '#6366f1',  // From Palette 1 - Classic blue
+                        'light-text': '#fafafa',    // From Palette 2 & 3 - Very light gray/off-white (or use pure #ffffff if you prefer)
+                        'neutral-gray': '#9ca3af',  // From Palette 2 - Light gray
+                        // Add your transparent red colors here:
+                        'transparent-red-subtle': 'rgba(255, 150, 150, 0.05)', // Subtle red tint, highly transparent
+                        'transparent-red-hint': 'rgba(255, 100, 100, 0.1)',  // Slight red tint, mostly opaque
+                        'transparent-red-more': 'rgba(255, 50, 50, 0.3)',   // More noticeable red tint, more transparent
+                    },
+                },
+            },
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body class="bg-dark-secondary font-sans">
+    <div id="customAlertOverlay" class="custom-alert-overlay">
+        <div class="custom-alert-box">
+            <span class="custom-alert-close" onclick="hideCustomAlert()">×</span>
+            <p id="customAlertMessage"></p>
+        </div>
+    </div>
+
+    <!-- Navigation Bar (same as index.html) -->
+    <nav class="bg-dark-base p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../" class="text-light-text text-xl font-bold">Subhadra Bro</a>
+            <div class="hidden md:flex space-x-6">
+                <a href="../" class="text-neutral-gray hover:text-vibrant-teal">Home</a>
+                <a href="./projects.html" class="text-neutral-gray hover:text-vibrant-teal">Projects</a>
+                <a href="./services.html" class="text-neutral-gray hover:text-vibrant-teal">Services</a>
+                <a href="./terms.html" class="text-neutral-gray hover:text-vibrant-teal">Terms & Conditions</a>
+                <a href="./contact.html" class="text-light-text hover:text-vibrant-teal">Contact Me</a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-light-text focus:outline-none">
+                    <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
+                        <path v-if="!isOpen" fill-rule="evenodd" clip-rule="evenodd"
+                            d="M4 5h16a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V6a1 1 0 011-1zm0 7h16a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2a1 1 0 011-1zm0 7h16a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2a1 1 0 011-1z" />
+                        <path v-if="isOpen" fill-rule="evenodd" clip-rule="evenodd"
+                            d="M4 5h16a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V6a1 1 0 011-1zm0 7h16a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2a1 1 0 011-1zm0 7h16a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2a1 1 0 011-1z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-dark-secondary rounded-lg mt-5">
+                <a href="../"
+                    class="block text-neutral-gray hover:bg-dark-base hover:text-vibrant-teal px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="./projects.html"
+                    class="block text-neutral-gray hover:bg-dark-base hover:text-vibrant-teal px-3 py-2 rounded-md text-base font-medium">Projects</a>
+                <a href="./services.html"
+                    class="block text-neutral-gray hover:bg-dark-base hover:text-vibrant-teal px-3 py-2 rounded-md text-base font-medium">Services</a>
+                <a href="./terms.html"
+                    class="block text-neutral-gray hover:bg-dark-base hover:text-vibrant-teal px-3 py-2 rounded-md text-base font-medium">Terms
+                    & Conditions</a>
+                <a href="./contact.html"
+                    class="block bg-dark-secondary text-light-text px-3 py-2 rounded-md text-base font-medium">Contact
+                    Me</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Section -->
+    <section class="py-16">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-8 text-light-text">Contact Me</h2>
+            <p class="text-center font-bold text-red-500 bg-red-100 bg-transparent-red-hint p-1 rounded-lg">The contact form is not currently connected to a
+                backend service. Please use email or Telegram to contact me directly. Thank you!</p>
+            <div class="grid grid-cols-1 md:grid-cols-2">
+
+                <!-- Contact Form -->
+                <div class="m-4">
+                    <form class="bg-dark-base shadow-md hover:shadow-lg rounded px-8 pt-6 pb-8 mb-4">
+                        <div class="mb-4">
+                            <label class="block text-light-text text-sm font-bold mb-2" for="name">
+                                Name
+                            </label>
+                            <input
+                                class="shadow font-medium appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline bg-neutral-gray text-gray-900 placeholder-gray-600"
+                                id="name" type="text" placeholder="Enter your name">
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-light-text text-sm font-bold mb-2" for="email">
+                                Email
+                            </label>
+                            <input
+                                class="shadow font-medium appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline bg-neutral-gray text-gray-900 placeholder-gray-600"
+                                id="email" type="email" placeholder="Enter your email">
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-light-text text-sm font-bold mb-2" for="message">
+                                Message
+                            </label>
+                            <textarea
+                                class="shadow font-medium appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline bg-neutral-gray text-gray-900 placeholder-gray-600"
+                                id="message" rows="5" placeholder="Write your message here"></textarea>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <button
+                                class="bg-vibrant-blue hover:bg-vibrant-teal text-dark-base font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                                type="submit">
+                                Send Message
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="m-4">
+                    <div class="bg-dark-base shadow-md hover:shadow-lg rounded p-8">
+                        <h3 class="text-xl font-bold mb-4 text-light-text">Contact Information</h3>
+                        <p class="text-neutral-gray mb-4">Feel free to reach out to me through the contact form or using
+                            the
+                            details below:</p>
+                        <ul class="list-none text-neutral-gray">
+                            <li class="mb-2"><i class="fas fa-envelope mr-2 text-vibrant-blue"></i> Email: <a
+                                    href="mailto:subadraposhithapr@gmail.com"
+                                    class="text-vibrant-teal hover:underline">subadraposhithapr@gmail.com</a></li>
+                            <li class="mb-2"><i class="fab fa-youtube mr-2 text-vibrant-blue"></i> YouTube: <a
+                                    href="https://www.youtube.com/channel/UCeDeaDD8dpdMT2gO3VHY1JQ" target="_blank"
+                                    class="text-vibrant-teal hover:underline">Subhadra Bro</a></li>
+                            <li><i class="fab fa-telegram mr-2 text-vibrant-blue"></i> Telegram: <a
+                                    href="https://t.me/Subadra_Poshitha" target="_blank"
+                                    class="text-vibrant-teal hover:underline">@Subhadra_Poshitha</a></li>
+                            <!-- Add phone number or other contact methods if desired -->
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (same as index.html) -->
+    <footer class="bg-dark-base text-light-text py-8">
+        <div class="container mx-auto text-center">
+            <p>© 2023 Subhadra Bro. All rights reserved.</p>
+            <div class="mt-4">
+                <a href="https://www.youtube.com/channel/UCeDeaDD8dpdMT2gO3VHY1JQ" target="_blank"
+                    class="text-neutral-gray hover:text-vibrant-teal mx-2"><i class="fab fa-youtube text-xl"></i></a>
+                <a href="https://t.me/Subadra_Poshitha" target="_blank"
+                    class="text-neutral-gray hover:text-vibrant-teal mx-2"><i class="fab fa-telegram text-xl"></i></a>
+                <a href="mailto:subadraposhithapr@gmail.com" class="text-neutral-gray hover:text-vibrant-teal mx-2"><i
+                        class="fas fa-envelope text-xl"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuButtonContact = document.getElementById('mobile-menu-button');
+        const mobileMenuContact = document.getElementById('mobile-menu');
+
+        mobileMenuButtonContact.addEventListener('click', () => {
+            mobileMenuContact.classList.toggle('hidden');
+        });
+    </script>
+    <script>
+        function showCustomAlert(message) {
+            document.getElementById('customAlertMessage').textContent = message;
+            document.getElementById('customAlertOverlay').style.display = "block";
+        }
+
+        function hideCustomAlert() {
+            document.getElementById('customAlertOverlay').style.display = "none";
+        }
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const contactForm = document.querySelector('form');
+            contactForm.addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const message = document.getElementById('message').value;
+
+                const formData = { // Create an object to send as JSON
+                    name: name,
+                    email: email,
+                    message: message
+                };
+
+                fetch('/server-endpoint', { // Replace '/your-server-endpoint' with your actual server URL
+                    method: 'POST', // Or 'GET' depending on your server-side logic
+                    headers: {
+                        'Content-Type': 'application/json' // Tell the server we're sending JSON
+                    },
+                    body: JSON.stringify(formData) // Convert the JavaScript object to JSON string
+                })
+                    .then(response => {
+                        if (response.ok) {
+                            return response.json(); // Or response.text() if your server returns plain text
+                        } else {
+                            throw new Error('Network response was not ok');
+                        }
+                    })
+                    .then(data => {
+                        console.log('Success:', data); // Handle successful response from server
+                        // alert('Message sent successfully!'); // User feedback
+                        showCustomAlert('Message sent successfully!'); // Custom alert
+                        contactForm.reset(); // Clear the form
+                    })
+                    .catch((error) => {
+                        console.error('Error:', error); // Handle errors
+                        // alert('Error sending message. Please try again later.');
+                        showCustomAlert('Error sending message. Please try again later.'); // Custom alert
+                    });
+            });
+        });
+    </script>
+</body>
+
+</html>
