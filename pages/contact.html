@@ -31,16 +31,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
         integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Toastr CSS -->
+    <link rel="stylesheet" href="../css/toastr.min.css">
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/toastr.min.js"></script>
 </head>
 
 <body class="bg-dark-secondary font-sans">
-    <div id="customAlertOverlay" class="custom-alert-overlay">
-        <div class="custom-alert-box">
-            <span class="custom-alert-close" onclick="hideCustomAlert()">×</span>
-            <p id="customAlertMessage"></p>
-        </div>
-    </div>
-
     <!-- Navigation Bar (same as index.html) -->
     <nav class="bg-dark-base p-4">
         <div class="container mx-auto flex justify-between items-center">
@@ -86,8 +83,8 @@
     <section class="py-16">
         <div class="container mx-auto">
             <h2 class="text-3xl font-bold text-center mb-8 text-light-text">Contact Me</h2>
-            <p class="text-center font-bold text-red-500 bg-red-100 bg-transparent-red-hint p-1 rounded-lg">The contact form is not currently connected to a
-                backend service. Please use email or Telegram to contact me directly. Thank you!</p>
+            <!-- <p class="text-center font-bold text-red-500 bg-red-100 bg-transparent-red-hint p-1 rounded-lg">The contact form is not currently connected to a
+                backend service. Please use email or Telegram to contact me directly. Thank you!</p> -->
             <div class="grid grid-cols-1 md:grid-cols-2">
 
                 <!-- Contact Form -->
@@ -120,7 +117,7 @@
                         <div class="flex items-center justify-between">
                             <button
                                 class="bg-vibrant-blue hover:bg-vibrant-teal text-dark-base font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                                type="submit">
+                                type="submit" id="submit-button">
                                 Send Message
                             </button>
                         </div>
@@ -177,55 +174,85 @@
         });
     </script>
     <script>
-        function showCustomAlert(message) {
-            document.getElementById('customAlertMessage').textContent = message;
-            document.getElementById('customAlertOverlay').style.display = "block";
-        }
-
-        function hideCustomAlert() {
-            document.getElementById('customAlertOverlay').style.display = "none";
-        }
-    </script>
-    <script>
         document.addEventListener('DOMContentLoaded', function () {
             const contactForm = document.querySelector('form');
+            const submitButton = document.getElementById('submit-button');
+            let originalButtonText = submitButton.textContent; // Store the original text
+    
             contactForm.addEventListener('submit', function (event) {
-                event.preventDefault();
-
+                event.preventDefault(); // Prevent default form submission (page reload)
+    
+                // **Start: Button State Update**
+                submitButton.disabled = true;
+                submitButton.textContent = 'Sending Message..';
+                // **End: Button State Update**
+    
                 const name = document.getElementById('name').value;
                 const email = document.getElementById('email').value;
                 const message = document.getElementById('message').value;
-
-                const formData = { // Create an object to send as JSON
+    
+                if (!message) {
+                    toastr.error('Please fill in message field.');
+                    // **Start: Revert Button State on Validation Error (Important!)**
+                    submitButton.textContent = originalButtonText; // Revert text
+                    submitButton.disabled = false;          // Re-enable button
+                    // **End: Revert Button State on Validation Error**
+                    return;
+                }
+                if (!email) {
+                    toastr.error('Please fill in email field.');
+                    // **Start: Revert Button State on Validation Error (Important!)**
+                    submitButton.textContent = originalButtonText; // Revert text
+                    submitButton.disabled = false;          // Re-enable button
+                    // **End: Revert Button State on Validation Error**
+                    return;
+                }
+                if (!name) {
+                    toastr.error('Please fill in name field.');
+                    // **Start: Revert Button State on Validation Error (Important!)**
+                    submitButton.textContent = originalButtonText; // Revert text
+                    submitButton.disabled = false;          // Re-enable button
+                    // **End: Revert Button State on Validation Error**
+                    return;
+                }
+    
+                const formData = {
                     name: name,
                     email: email,
                     message: message
                 };
-
-                fetch('/server-endpoint', { // Replace '/your-server-endpoint' with your actual server URL
-                    method: 'POST', // Or 'GET' depending on your server-side logic
+    
+                fetch('https://aidarkezio.vercel.app/api/contact-me', {
+                    method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json' // Tell the server we're sending JSON
+                        'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify(formData) // Convert the JavaScript object to JSON string
+                    body: JSON.stringify(formData)
                 })
                     .then(response => {
                         if (response.ok) {
-                            return response.json(); // Or response.text() if your server returns plain text
+                            return response.json();
                         } else {
                             throw new Error('Network response was not ok');
                         }
                     })
                     .then(data => {
-                        console.log('Success:', data); // Handle successful response from server
-                        // alert('Message sent successfully!'); // User feedback
-                        showCustomAlert('Message sent successfully!'); // Custom alert
+                        console.log('Success:', data);
+                        toastr.success('Message sent successfully!');
                         contactForm.reset(); // Clear the form
+                        // **Start: Revert Button State on Success (After Success Message)**
+                        submitButton.textContent = originalButtonText; // Revert text
+                        submitButton.disabled = false;          // Re-enable button
+                        // **End: Revert Button State on Success**
+    
                     })
                     .catch((error) => {
-                        console.error('Error:', error); // Handle errors
-                        // alert('Error sending message. Please try again later.');
-                        showCustomAlert('Error sending message. Please try again later.'); // Custom alert
+                        console.error('Error:', error);
+                        toastr.error('Error sending message. Please try again later.');
+                        // **Start: Revert Button State on Error**
+                        submitButton.textContent = originalButtonText; // Revert text
+                        submitButton.disabled = false;          // Re-enable button
+                        // **End: Revert Button State on Error**
                     });
             });
         });
