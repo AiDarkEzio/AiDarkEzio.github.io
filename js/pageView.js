@@ -36,10 +36,10 @@
       .then(async response => {
         if (!response.ok) {
           console.error('Error recording page view:', response.status, response.statusText, `for page: ${pageName}`);
-        } else {
-          console.log(`Page view recorded successfully for page: ${pageName}`);
-          console.log('Response:', (await response.json()));
-        }
+        } // else {
+        //   console.log(`Page view recorded successfully for page: ${pageName}`);
+        //   console.log('Response:', (await response.json()));
+        // }
       })
       .catch(error => {
         console.error('Error recording page view:', error, `for page: ${pageName}`);
