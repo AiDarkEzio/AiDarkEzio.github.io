@@ -385,7 +385,7 @@
                         'Content-Type': 'application/json',
                         'Accept': 'application/json' // Often good practice
                     },
-                    body: {
+                    body: JSON.stringify({
                     name: formData.requester_name,
                     email: formData.requester_email,
                     message: `
@@ -403,7 +403,7 @@
                        - Task Estimated Effort: ${formData.task_estimated_effort}\n
                        - Communication Preference: ${formData.communication_preference}
                     `,
-                }
+                })
                 })
                 .then(response => {
                     // Check if response is ok (status in the range 200-299)
