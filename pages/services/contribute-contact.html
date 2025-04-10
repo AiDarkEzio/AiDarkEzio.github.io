@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit contribute - Subhadra Bro</title> <!-- Changed Title -->
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="icon" href="../../img/icon/favicon.ico" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Same Tailwind config as contact.html
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dark-base': '#1e293b',
+                        'dark-secondary': '#334155',
+                        'vibrant-teal': '#2dd4bf',
+                        'vibrant-blue': '#6366f1',
+                        'light-text': '#fafafa',
+                        'neutral-gray': '#9ca3af',
+                        'transparent-red-subtle': 'rgba(255, 150, 150, 0.05)',
+                        'transparent-red-hint': 'rgba(255, 100, 100, 0.1)',
+                        'transparent-red-more': 'rgba(255, 50, 50, 0.3)',
+                    },
+                },
+            },
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Toastr CSS -->
+    <link rel="stylesheet" href="../../css/toastr.min.css">
+    <!-- Include jQuery FIRST -->
+    <script src="../../js/jquery.min.js"></script>
+    <!-- Then Toastr JS -->
+    <script src="../../js/toastr.min.js"></script>
+    <!-- Your page view script -->
+    <script src="../../js/pageView.js" ></script>
+</head>
+
+<body class="bg-dark-secondary font-sans">
+    <!-- Navigation Bar (Updated Active Link) -->
+    <nav class="bg-dark-base p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../" class="text-light-text text-xl font-bold">Subhadra Bro</a>
+            <div class="hidden md:flex space-x-6">
+                <a href="../../" class="text-neutral-gray hover:text-vibrant-teal">Home</a>
+                <a href="../projects.html" class="text-neutral-gray hover:text-vibrant-teal">Projects</a>
+                <a href="../services.html" class="text-neutral-gray hover:text-vibrant-teal">Services</a>
+                <!-- Added Contribute Link -->
+                <a href="../contribute.html" class="text-light-text hover:text-vibrant-teal">Contribute</a>
+                <a href="../terms.html" class="text-neutral-gray hover:text-vibrant-teal">Terms & Conditions</a>
+                <a href="../contact.html" class="text-neutral-gray hover:text-vibrant-teal">Contact</a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-light-text focus:outline-none">
+                    <!-- SVG Icon (same as contact) -->
+                    <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
+                         <path fill-rule="evenodd" clip-rule="evenodd"
+                             d="M4 5h16a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V6a1 1 0 011-1zm0 7h16a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2a1 1 0 011-1zm0 7h16a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2a1 1 0 011-1z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu (Updated Active Link) -->
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-dark-secondary rounded-lg mt-5">
+                <a href="../../"
+                    class="block text-neutral-gray hover:bg-dark-base hover:text-vibrant-teal px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="../projects.html"
+                    class="block text-neutral-gray hover:bg-dark-base hover:text-vibrant-teal px-3 py-2 rounded-md text-base font-medium">Projects</a>
+                <a href="../services.html"
+                    class="block text-neutral-gray hover:bg-dark-base hover:text-vibrant-teal px-3 py-2 rounded-md text-base font-medium">Services</a>
+                <!-- Added Contribute Link -->
+                <a href="../contribute.html"
+                    class="block bg-dark-secondary text-light-text px-3 py-2 rounded-md text-base font-medium">Contribute</a>
+                <a href="../terms.html"
+                    class="block text-neutral-gray hover:bg-dark-base hover:text-vibrant-teal px-3 py-2 rounded-md text-base font-medium">Terms & Conditions</a>
+                <a href="../contact.html"
+                    class="block text-neutral-gray hover:bg-dark-base hover:text-vibrant-teal px-3 py-2 rounded-md text-base font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Task Submission Section -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-8 text-light-text">Submit a Contribution Task</h2>
+            <p class="text-center text-neutral-gray mb-8 max-w-2xl mx-auto">
+                Have an open-source task you think I could help with? Fill out the form below. I offer contributions for learning purposes on a best-effort basis.
+            </p>
+
+            <!-- Task Submission Form -->
+            <form id="task-form" class="max-w-3xl mx-auto bg-dark-base shadow-md hover:shadow-lg rounded px-8 pt-6 pb-8 mb-4">
+
+                <!-- Requester Information -->
+                <h3 class="text-xl font-semibold mb-4 text-vibrant-teal border-b border-dark-secondary pb-2">Requester Information</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                    <div>
+                        <label class="block text-light-text text-sm font-bold mb-2" for="requester_name">
+                            Your Name/Alias <span class="text-red-500">*</span>
+                        </label>
+                        <input
+                            class="shadow font-medium appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline bg-neutral-gray text-gray-900 placeholder-gray-600"
+                            id="requester_name" name="requester_name" type="text" placeholder="e.g., Jane Doe or ProjectAlias" required>
+                    </div>
+                    <div>
+                        <label class="block text-light-text text-sm font-bold mb-2" for="requester_email">
+                            Your Email <span class="text-red-500">*</span>
+                        </label>
+                        <input
+                            class="shadow font-medium appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline bg-neutral-gray text-gray-900 placeholder-gray-600"
+                            id="requester_email" name="requester_email" type="email" placeholder="your.email@example.com" required>
+                    </div>
+                </div>
+                 <div class="mb-6">
+                    <label class="block text-light-text text-sm font-bold mb-2" for="requester_role">
+                        Your Role (Optional)
+                    </label>
+                    <input
+                        class="shadow font-medium appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline bg-neutral-gray text-gray-900 placeholder-gray-600"
+                        id="requester_role" name="requester_role" type="text" placeholder="e.g., Project Maintainer, Contributor">
+                </div>
+
+                <!-- Project Information -->
+                <h3 class="text-xl font-semibold mb-4 text-vibrant-teal border-b border-dark-secondary pb-2 mt-6">Project Information</h3>
+                 <div class="mb-4">
+                    <label class="block text-light-text text-sm font-bold mb-2" for="project_name">
+                        Project Name <span class="text-red-500">*</span>
+                    </label>
+                    <input
+                        class="shadow font-medium appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline bg-neutral-gray text-gray-900 placeholder-gray-600"
+                        id="project_name" name="project_name" type="text" placeholder="Name of the open-source project" required>
+                </div>
+                 <div class="mb-4">
+                    <label class="block text-light-text text-sm font-bold mb-2" for="project_url">
+                        Project URL (Repository) <span class="text-red-500">*</span>
+                    </label>
+                    <input
+                        class="shadow font-medium appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline bg-neutral-gray text-gray-900 placeholder-gray-600"
+                        id="project_url" name="project_url" type="url" placeholder="https://github.com/user/repo" required>
+                </div>
+                 <div class="mb-6">
+                    <label class="block text-light-text text-sm font-bold mb-2" for="project_description">
+                        Project Description (Optional but Recommended)
+                    </label>
+                    <textarea
+                        class="shadow font-medium appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline bg-neutral-gray text-gray-900 placeholder-gray-600"
+                        id="project_description" name="project_description" rows="3" placeholder="Briefly describe what the project does."></textarea>
+                </div>
+
+                <!-- Task Information -->
+                <h3 class="text-xl font-semibold mb-4 text-vibrant-teal border-b border-dark-secondary pb-2 mt-6">Task Information</h3>
+                 <div class="mb-4">
+                    <label class="block text-light-text text-sm font-bold mb-2" for="task_title">
+                        Task Title <span class="text-red-500">*</span>
+                    </label>
+                    <input
+                        class="shadow font-medium appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline bg-neutral-gray text-gray-900 placeholder-gray-600"
+                        id="task_title" name="task_title" type="text" placeholder="Short, descriptive title (e.g., Fix typo in README)" required>
+                </div>
+                 <div class="mb-4">
+                    <label class="block text-light-text text-sm font-bold mb-2" for="task_description">
+                        Task Description <span class="text-red-500">*</span>
+                    </label>
+                    <textarea
+                        class="shadow font-medium appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline bg-neutral-gray text-gray-900 placeholder-gray-600"
+                        id="task_description" name="task_description" rows="5" placeholder="Detailed description: What needs doing? Expected outcome? Steps to reproduce (if bug)?" required></textarea>
+                </div>
+                 <div class="mb-4">
+                    <label class="block text-light-text text-sm font-bold mb-2" for="task_issue_url">
+                        Task Issue URL (Optional)
+                    </label>
+                    <input
+                        class="shadow font-medium appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline bg-neutral-gray text-gray-900 placeholder-gray-600"
+                        id="task_issue_url" name="task_issue_url" type="url" placeholder="Link to GitHub/GitLab issue, if any">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-light-text text-sm font-bold mb-2" for="task_relevant_skills">
+                        Relevant Skills Needed <span class="text-red-500">*</span>
+                    </label>
+                    <textarea
+                        class="shadow font-medium appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline bg-neutral-gray text-gray-900 placeholder-gray-600"
+                        id="task_relevant_skills" name="task_relevant_skills" rows="3" placeholder="e.g., Python, Django, JavaScript, CSS, Docker" required></textarea>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                     <div>
+                        <label class="block text-light-text text-sm font-bold mb-2" for="task_difficulty">
+                            Task Difficulty (Optional)
+                        </label>
+                        <select
+                            class="shadow font-medium border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline bg-neutral-gray text-gray-900 placeholder-gray-600"
+                            id="task_difficulty" name="task_difficulty">
+                            <option value="">Select Difficulty (Optional)</option>
+                            <option value="Beginner-Friendly">Beginner-Friendly</option>
+                            <option value="Intermediate">Intermediate</option>
+                            <option value="Requires Some Guidance">Requires Some Guidance</option>
+                            <option value="Challenging">Challenging</option> <!-- Added one more option -->
+                        </select>
+                    </div>
+                     <div>
+                        <label class="block text-light-text text-sm font-bold mb-2" for="task_estimated_effort">
+                            Estimated Effort (Optional)
+                        </label>
+                        <input
+                            class="shadow font-medium appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline bg-neutral-gray text-gray-900 placeholder-gray-600"
+                            id="task_estimated_effort" name="task_estimated_effort" type="text" placeholder="e.g., A few hours, 1-2 days">
+                    </div>
+                </div>
+
+                 <!-- Communication & Expectations -->
+                 <h3 class="text-xl font-semibold mb-4 text-vibrant-teal border-b border-dark-secondary pb-2 mt-6">Communication & Expectations</h3>
+                 <div class="mb-4">
+                    <label class="block text-light-text text-sm font-bold mb-2" for="communication_preference">
+                        Communication Preference (Optional)
+                    </label>
+                    <input
+                        class="shadow font-medium appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline bg-neutral-gray text-gray-900 placeholder-gray-600"
+                        id="communication_preference" name="communication_preference" type="text" placeholder="e.g., GitHub Issues, Email, Project's Discord">
+                </div>
+                <div class="mb-6">
+                    <label class="flex items-center text-light-text text-sm font-bold">
+                        <input class="mr-2 leading-tight form-checkbox h-5 w-5 text-vibrant-blue bg-neutral-gray border-gray-500 rounded focus:ring-vibrant-teal"
+                               type="checkbox" id="agreement_checkbox" name="agreement_checkbox" required>
+                        <span class="text-sm">
+                            I understand this contribution is offered for free on a best-effort basis for learning purposes. Optional tips/donations are welcome if satisfied with the outcome. <span class="text-red-500">*</span>
+                        </span>
+                    </label>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="flex items-center justify-center mt-6">
+                    <button
+                        class="bg-vibrant-blue hover:bg-vibrant-teal text-dark-base font-bold py-2 px-6 rounded focus:outline-none focus:shadow-outline transition duration-300 ease-in-out"
+                        type="submit" id="submit-task-button">
+                        Submit Task Request
+                    </button>
+                </div>
+            </form>
+
+        </div>
+    </section>
+
+    <!-- Footer (same as contact.html) -->
+    <footer class="bg-dark-base text-light-text py-8">
+        <div class="container mx-auto text-center">
+            <p>© 2023-2025 Subhadra Bro. All rights reserved.</p>
+            <div class="mt-4">
+                <a href="https://www.youtube.com/channel/UCeDeaDD8dpdMT2gO3VHY1JQ" target="_blank"
+                    class="text-neutral-gray hover:text-vibrant-teal mx-2"><i class="fab fa-youtube text-xl"></i></a>
+                <a href="https://t.me/Subadra_Poshitha" target="_blank"
+                    class="text-neutral-gray hover:text-vibrant-teal mx-2"><i class="fab fa-telegram text-xl"></i></a>
+                <a href="mailto:subadraposhithapr@gmail.com" class="text-neutral-gray hover:text-vibrant-teal mx-2"><i
+                    class="fas fa-envelope text-xl"></i></a>
+                <a href="https://github.com/AiDarkEzio" target="_blank" class="text-neutral-gray hover:text-vibrant-teal mx-2"><i class="fab fa-github text-xl"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle Script (same as contact)
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // --- Task Form Submission Script ---
+        document.addEventListener('DOMContentLoaded', function () {
+            const taskForm = document.getElementById('task-form');
+            const submitButton = document.getElementById('submit-task-button');
+            const originalButtonText = submitButton.textContent;
+            const apiEndpoint = 'https://aidarkezio.vercel.app/api/contact-me';
+
+            // Toastr options (optional customization)
+            toastr.options = {
+              "closeButton": true,
+              "progressBar": true,
+              "positionClass": "toast-top-right",
+              "preventDuplicates": true,
+              "timeOut": "5000" // 5 seconds
+            };
+
+            taskForm.addEventListener('submit', function (event) {
+                event.preventDefault(); // Prevent default form submission
+
+                // --- Start: Button State Update ---
+                submitButton.disabled = true;
+                submitButton.textContent = 'Submitting Task...';
+                // --- End: Button State Update ---
+
+                // --- Get Form Values ---
+                const formData = {
+                    requester_name: document.getElementById('requester_name').value.trim(),
+                    requester_email: document.getElementById('requester_email').value.trim(),
+                    requester_role: document.getElementById('requester_role').value.trim(),
+                    project_name: document.getElementById('project_name').value.trim(),
+                    project_url: document.getElementById('project_url').value.trim(),
+                    project_description: document.getElementById('project_description').value.trim(),
+                    task_title: document.getElementById('task_title').value.trim(),
+                    task_description: document.getElementById('task_description').value.trim(),
+                    task_issue_url: document.getElementById('task_issue_url').value.trim(),
+                    task_relevant_skills: document.getElementById('task_relevant_skills').value.trim(),
+                    task_difficulty: document.getElementById('task_difficulty').value, // Select value doesn't need trim
+                    task_estimated_effort: document.getElementById('task_estimated_effort').value.trim(),
+                    communication_preference: document.getElementById('communication_preference').value.trim(),
+                    agreement_checkbox: document.getElementById('agreement_checkbox').checked // Boolean
+                };
+
+                // --- Client-Side Validation ---
+                let isValid = true;
+                let firstErrorField = null; // To focus on the first error
+
+                // Required fields check
+                if (!formData.requester_name) {
+                    toastr.error('Please enter your name or alias.');
+                    isValid = false; if (!firstErrorField) firstErrorField = 'requester_name';
+                }
+                if (!formData.requester_email) {
+                     toastr.error('Please enter your email address.');
+                    isValid = false; if (!firstErrorField) firstErrorField = 'requester_email';
+                }
+                 // Basic email format check (optional, HTML5 type=email helps)
+                else if (!/^\S+@\S+\.\S+$/.test(formData.requester_email)) {
+                     toastr.error('Please enter a valid email address.');
+                    isValid = false; if (!firstErrorField) firstErrorField = 'requester_email';
+                }
+                if (!formData.project_name) {
+                    toastr.error('Please enter the project name.');
+                    isValid = false; if (!firstErrorField) firstErrorField = 'project_name';
+                }
+                if (!formData.project_url) {
+                    toastr.error('Please enter the project URL.');
+                    isValid = false; if (!firstErrorField) firstErrorField = 'project_url';
+                }
+                 // Basic URL check (optional, HTML5 type=url helps)
+                 else {
+                     try {
+                         new URL(formData.project_url);
+                     } catch (_) {
+                         toastr.error('Please enter a valid project URL (e.g., https://...).');
+                         isValid = false; if (!firstErrorField) firstErrorField = 'project_url';
+                     }
+                 }
+                 // Optional but recommended check (example)
+                 if (!formData.project_description) {
+                     toastr.warning('Providing a project description is recommended.');
+                     // Not setting isValid = false, just a warning
+                 }
+                if (!formData.task_title) {
+                    toastr.error('Please enter a task title.');
+                    isValid = false; if (!firstErrorField) firstErrorField = 'task_title';
+                }
+                if (!formData.task_description) {
+                     toastr.error('Please enter a task description.');
+                    isValid = false; if (!firstErrorField) firstErrorField = 'task_description';
+                }
+                if (!formData.task_relevant_skills) {
+                     toastr.error('Please list the relevant skills needed.');
+                    isValid = false; if (!firstErrorField) firstErrorField = 'task_relevant_skills';
+                }
+                if (!formData.agreement_checkbox) {
+                     toastr.error('You must agree to the terms to submit.');
+                    isValid = false; if (!firstErrorField) firstErrorField = 'agreement_checkbox';
+                }
+
+                // If validation fails, revert button and focus first error field
+                if (!isValid) {
+                    submitButton.textContent = originalButtonText;
+                    submitButton.disabled = false;
+                    if (firstErrorField) {
+                        document.getElementById(firstErrorField).focus();
+                    }
+                    return; // Stop submission
+                }
+
+                // --- API Call (fetch) ---
+                fetch(apiEndpoint, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json' // Often good practice
+                    },
+                    body: {
+                    name: formData.requester_name,
+                    email: formData.requester_email,
+                    message: JSON.stringify(formData)
+                }
+                })
+                .then(response => {
+                    // Check if response is ok (status in the range 200-299)
+                    if (!response.ok) {
+                        // Try to parse error response from server if available
+                        return response.json().catch(() => {
+                           // If parsing fails, create a generic error
+                           throw new Error(`HTTP error! Status: ${response.status}`);
+                        }).then(errData => {
+                           // Throw an error with the server message or a default one
+                           throw new Error(errData.message || `HTTP error! Status: ${response.status}`);
+                        });
+                    }
+                    // If response is ok, parse JSON
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Success:', data);
+                    toastr.success(data.message || 'Task submitted successfully!'); // Use server message if available
+                    taskForm.reset(); // Clear the form fields
+                    // --- Start: Revert Button State on Success ---
+                    submitButton.textContent = originalButtonText;
+                    submitButton.disabled = false;
+                    // --- End: Revert Button State on Success ---
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    // Display the specific error message caught
+                    toastr.error('Error submitting task: ' + error.message);
+                    // --- Start: Revert Button State on Error ---
+                    submitButton.textContent = originalButtonText;
+                    submitButton.disabled = false;
+                    // --- End: Revert Button State on Error ---
+                });
+            });
+        });
+    </script>
+</body>
+</html>
