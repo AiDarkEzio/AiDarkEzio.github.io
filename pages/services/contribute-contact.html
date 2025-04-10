@@ -226,7 +226,7 @@
                         <input class="mr-2 leading-tight form-checkbox h-5 w-5 text-vibrant-blue bg-neutral-gray border-gray-500 rounded focus:ring-vibrant-teal"
                                type="checkbox" id="agreement_checkbox" name="agreement_checkbox" required>
                         <span class="text-sm">
-                            I understand this contribution is offered for free on a best-effort basis for learning purposes. Optional tips/donations are welcome if satisfied with the outcome. <span class="text-red-500">*</span>
+                            I understand this contribution is offered for free on a best-effort basis for learning purposes. Optional tips/donations are welcome if satisfied with the outcome. <span class="text-red-500">* </span> <a class="ml-2 underline text-vibrant-teal" target="_blank" href="../terms.html"> Terms & Conditions</a>
                         </span>
                     </label>
                 </div>
@@ -388,7 +388,21 @@
                     body: {
                     name: formData.requester_name,
                     email: formData.requester_email,
-                    message: JSON.stringify(formData)
+                    message: `
+                       - Requester Email: ${formData.requester_email}\n
+                       - Requester Name: ${formData.requester_name}\n
+                       - Requester Role: ${formData.requester_role}\n
+                       - Project Name: ${formData.project_name}\n
+                       - Project URL: ${formData.project_url}\n
+                       - Project Description: ${formData.project_description}\n
+                       - Task Title: ${formData.task_title}\n
+                       - Task Description: ${formData.task_description}\n
+                       - Task Issue URL: ${formData.task_issue_url}\n
+                       - Task Relevant Skills: ${formData.task_relevant_skills}\n
+                       - Task Difficulty: ${formData.task_difficulty}\n
+                       - Task Estimated Effort: ${formData.task_estimated_effort}\n
+                       - Communication Preference: ${formData.communication_preference}
+                    `,
                 }
                 })
                 .then(response => {
