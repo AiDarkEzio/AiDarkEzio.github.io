@@ -389,19 +389,19 @@
                     name: formData.requester_name,
                     email: formData.requester_email,
                     message: `
-                       - Requester Email: ${formData.requester_email}\n
-                       - Requester Name: ${formData.requester_name}\n
-                       - Requester Role: ${formData.requester_role}\n
-                       - Project Name: ${formData.project_name}\n
-                       - Project URL: ${formData.project_url}\n
-                       - Project Description: ${formData.project_description}\n
-                       - Task Title: ${formData.task_title}\n
-                       - Task Description: ${formData.task_description}\n
-                       - Task Issue URL: ${formData.task_issue_url}\n
-                       - Task Relevant Skills: ${formData.task_relevant_skills}\n
-                       - Task Difficulty: ${formData.task_difficulty}\n
-                       - Task Estimated Effort: ${formData.task_estimated_effort}\n
-                       - Communication Preference: ${formData.communication_preference}
+${ formData.requester_email ? ("- Requester Email:" + JSON.stringify(formData.requester_email)) : ""} 
+${ formData.requester_name ? ("- Requester Name:" + JSON.stringify(formData.requester_name)) : ""} 
+${ formData.requester_role ? ("- Requester Role:" + JSON.stringify(formData.requester_role)) : ""} 
+${ formData.project_name ? ("- Project Name:" + JSON.stringify(formData.project_name)) : ""} 
+${ formData.project_url ? ("- Project URL:" + JSON.stringify(formData.project_url)) : ""} 
+${ formData.project_description ? ("- Project Description:" + JSON.stringify(formData.project_description)) : ""} 
+${ formData.task_title ? ("- Task Title:" + JSON.stringify(formData.task_title)) : ""} 
+${ formData.task_description ? ("- Task Description:" + JSON.stringify(formData.task_description)) : ""} 
+${ formData.task_issue_url ? ("- Task Issue URL:" + JSON.stringify(formData.task_issue_url)) : ""} 
+${ formData.task_relevant_skills ? ("- Task Relevant Skills:" + JSON.stringify(formData.task_relevant_skills)) : ""} 
+${ formData.task_difficulty ? ("- Task Difficulty:" + JSON.stringify(formData.task_difficulty)) : ""} 
+${ formData.task_estimated_effort ? ("- Task Estimated Effort:" + JSON.stringify(formData.task_estimated_effort)) : ""} 
+${ formData.communication_preference ? ("- Communication Preference:" + JSON.stringify(formData.communication_preference)) : ""} 
                     `,
                 })
                 })
