@@ -13,13 +13,37 @@
             theme: {
                 extend: {
                     colors: {
-                        'dark-base': '#1e293b',
-                        'dark-secondary': '#334155',
+                        'black-base': '#0d1117', // Very dark, GitHub-like dark base
+                        'dark-card': 'rgba(30, 41, 59, 0.6)', // Semi-transparent dark for cards
+                        'dark-nav': 'rgba(13, 17, 23, 0.8)', // Darker, more opaque for nav/footer bg
+                        'border-glass': 'rgba(255, 255, 255, 0.1)', // Subtle border for glassy elements
                         'vibrant-teal': '#2dd4bf',
                         'vibrant-blue': '#6366f1',
-                        'light-text': '#fafafa',
-                        'neutral-gray': '#9ca3af',
+                        'light-text': '#e6edf3', // Slightly off-white for better readability
+                        'medium-text': '#bdc1c6', // For secondary text
+                        'neutral-gray': '#7d8590', // For less important text/icons
+                        'transparent-red-subtle': 'rgba(222, 77, 85, 0.1)', // Adjusted red tint
+                        'transparent-red-hint': 'rgba(222, 77, 85, 0.2)',   // Adjusted red tint
+                        'transparent-green-hint': 'rgba(63, 185, 80, 0.15)', // Adjusted green tint
                     },
+                    fontFamily: {
+                        // Use Poppins as default sans-serif, Nunito as secondary option if needed
+                        sans: ['Poppins', 'sans-serif'],
+                        serif: ['Roboto Serif', 'serif'],
+                        mono: ['Inconsolata', 'monospace'],
+                    },
+                    backdropBlur: {
+                        xs: '2px',
+                        sm: '4px',
+                        md: '8px',
+                        lg: '12px',
+                        xl: '16px',
+                    },
+                    boxShadow: {
+                        'glass': '0 4px 30px rgba(0, 0, 0, 0.1)', // Subtle shadow for glass effect
+                         'glow-teal': '0 0 15px 2px rgba(45, 212, 191, 0.4)', // Subtle glow effect
+                         'glow-blue': '0 0 15px 2px rgba(99, 102, 241, 0.4)', // Subtle glow effect
+                    }
                 },
             },
         }
@@ -27,200 +51,207 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
         integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <script src="../js/pageView.js" ></script>
+    <script src="../js/pageView.js" defer></script>
 </head>
 
-<body class="bg-dark-secondary font-sans">
+<body class="bg-black-base text-light-text font-sans">
 
-    <!-- Navigation Bar (same as index.html) -->
-    <nav class="bg-dark-base p-4">
-        <div class="container mx-auto flex justify-between items-center">
-            <a href="../" class="text-light-text text-xl font-bold">Subhadra Bro</a>
-            <div class="hidden md:flex space-x-6">
-                <a href="../" class="text-neutral-gray hover:text-vibrant-teal">Home</a>
-                <a href="./projects.html" class="text-light-text hover:text-vibrant-teal">Projects</a>
-                <a href="./services.html" class="text-neutral-gray hover:text-vibrant-teal">Services</a>
-                <a href="./terms.html" class="text-neutral-gray hover:text-vibrant-teal">Terms & Conditions</a>
-                <a href="./contact.html" class="text-neutral-gray hover:text-vibrant-teal">Contact</a>
+    <!-- Navigation Bar -->
+     <nav class="fixed top-0 left-0 right-0 z-50 bg-dark-nav backdrop-blur-lg border-b border-border-glass shadow-md transition-all duration-300 ease-in-out">
+        <div class="container mx-auto flex justify-between items-center px-4 py-3">
+            <a href="../" class="text-light-text text-xl font-bold hover:text-vibrant-teal">Subhadra Bro</a>
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="../" class="text-medium-text hover:text-vibrant-teal pb-1 hover-effect">Home</a>
+                <a href="./projects.html" class="text-vibrant-teal border-b-2 border-vibrant-teal pb-1 font-medium hover-effect">Projects</a>
+                <a href="./services.html" class="text-medium-text hover:text-vibrant-teal pb-1 hover-effect">Services</a>
+                <a href="./terms.html" class="text-medium-text hover:text-vibrant-teal pb-1 hover-effect">Terms</a>
+                <a href="./contact.html" class="text-medium-text hover:text-vibrant-teal pb-1 hover-effect">Contact</a>
             </div>
             <div class="md:hidden">
-                <button id="mobile-menu-button" class="text-light-text focus:outline-none">
-                    <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
-                        <path v-if="!isOpen" fill-rule="evenodd" clip-rule="evenodd"
-                            d="M4 5h16a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V6a1 1 0 011-1zm0 7h16a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2a1 1 0 011-1zm0 7h16a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2a1 1 0 011-1z" />
-                        <path v-if="isOpen" fill-rule="evenodd" clip-rule="evenodd"
-                            d="M4 5h16a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V6a1 1 0 011-1zm0 7h16a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2a1 1 0 011-1zm0 7h16a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2a1 1 0 011-1z" />
-                    </svg>
+                <button id="mobile-menu-button" class="text-light-text focus:outline-none p-1 hover:text-vibrant-teal">
+                    <i class="fas fa-bars text-xl"></i>
                 </button>
             </div>
         </div>
         <!-- Mobile Menu -->
-        <div class="md:hidden hidden" id="mobile-menu">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-dark-secondary rounded-lg mt-5">
-                <a href="../"
-                    class="block text-neutral-gray hover:bg-dark-base hover:text-vibrant-teal px-3 py-2 rounded-md text-base font-medium">Home</a>
-                <a href="./projects.html"
-                    class="block bg-dark-secondary text-light-text px-3 py-2 rounded-md text-base font-medium">Projects</a>
-                <a href="./services.html"
-                    class="block text-neutral-gray hover:bg-dark-base hover:text-vibrant-teal px-3 py-2 rounded-md text-base font-medium">Services</a>
-                <a href="./terms.html"
-                    class="block text-neutral-gray hover:bg-dark-base hover:text-vibrant-teal px-3 py-2 rounded-md text-base font-medium">Terms
-                    & Conditions</a>
-                <a href="./contact.html"
-                    class="block text-neutral-gray hover:bg-dark-base hover:text-vibrant-teal px-3 py-2 rounded-md text-base font-medium">Contact</a>
+         <div class="md:hidden hidden absolute top-full left-0 right-0 bg-dark-nav backdrop-blur-lg border-b border-border-glass shadow-lg" id="mobile-menu">
+             <div class="px-4 pt-2 pb-3 space-y-1">
+                <a href="../" class="block text-medium-text hover:bg-black-base/30 hover:text-vibrant-teal px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="./projects.html" class="block text-vibrant-teal bg-black-base/30 px-3 py-2 rounded-md text-base font-medium">Projects</a>
+                <a href="./services.html" class="block text-medium-text hover:bg-black-base/30 hover:text-vibrant-teal px-3 py-2 rounded-md text-base font-medium">Services</a>
+                <a href="./terms.html" class="block text-medium-text hover:bg-black-base/30 hover:text-vibrant-teal px-3 py-2 rounded-md text-base font-medium">Terms</a>
+                <a href="./contact.html" class="block text-medium-text hover:bg-black-base/30 hover:text-vibrant-teal px-3 py-2 rounded-md text-base font-medium">Contact</a>
             </div>
         </div>
     </nav>
 
+    <!-- Spacer for fixed navbar -->
+    <div class="pt-16"></div>
+
     <!-- Projects Section -->
-    <section class="py-16 bg-dark-secondary min-h-[80vh]">
-        <div class="container mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-12 text-light-text">My Projects</h2>
-            <div class=" flex flex-wrap justify-start" id="projects-container">
-                <!-- Project cards will be inserted here by JavaScript -->
-                <div class="text-center text-neutral-gray" id="loading-message">Loading projects from GitHub...</div>
-            </div>
+    <section class="py-16 md:py-24 bg-gradient-to-br from-black-base via-slate-900 to-black-base min-h-[80vh]">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-light-text">My Projects</h2>
+             <div class="flex flex-wrap -mx-4" id="projects-container">
+                 <div class="w-full text-center text-medium-text" id="loading-message">
+                     <i class="fas fa-spinner fa-spin mr-2"></i>Loading projects from GitHub...
+                 </div>
+             </div>
         </div>
     </section>
 
-    <!-- Footer (same as index.html) -->
-    <footer class="bg-dark-base text-light-text py-8">
-        <div class="container mx-auto text-center">
-            <p>© 2023-2025 Subhadra Bro. All rights reserved.</p>
-            <div class="mt-4">
-                <a href="https://www.youtube.com/channel/UCeDeaDD8dpdMT2gO3VHY1JQ" target="_blank"
-                    class="text-neutral-gray hover:text-vibrant-teal mx-2"><i class="fab fa-youtube text-xl"></i></a>
-                <a href="https://t.me/Subadra_Poshitha" target="_blank"
-                    class="text-neutral-gray hover:text-vibrant-teal mx-2"><i class="fab fa-telegram text-xl"></i></a>
-                <a href="mailto:subadraposhithapr@gmail.com" class="text-neutral-gray hover:text-vibrant-teal mx-2"><i
-                        class="fas fa-envelope text-xl"></i></a>
-                <a href="https://github.com/AiDarkEzio" target="_blank" class="text-neutral-gray hover:text-vibrant-teal mx-2"><i class="fab fa-github text-xl"></i></a>
-            </div>
-        </div>
-    </footer>
+    <!-- Footer -->
+     <footer class="bg-dark-nav text-medium-text py-8 border-t border-border-glass">
+         <div class="container mx-auto text-center px-4">
+             <p>© 2023-2025 Subhadra Bro. All rights reserved.</p>
+             <div class="mt-4 flex justify-center space-x-5">
+                 <a href="https://www.youtube.com/channel/UCeDeaDD8dpdMT2gO3VHY1JQ" target="_blank" rel="noopener noreferrer"
+                     class="text-neutral-gray hover:text-vibrant-teal transition duration-300 transform hover:scale-110"><i class="fab fa-youtube text-xl"></i></a>
+                 <a href="https://t.me/Subadra_Poshitha" target="_blank" rel="noopener noreferrer"
+                     class="text-neutral-gray hover:text-vibrant-teal transition duration-300 transform hover:scale-110"><i class="fab fa-telegram text-xl"></i></a>
+                 <a href="mailto:subadraposhithapr@gmail.com"
+                     class="text-neutral-gray hover:text-vibrant-teal transition duration-300 transform hover:scale-110"><i class="fas fa-envelope text-xl"></i></a>
+                 <a href="https://github.com/AiDarkEzio" target="_blank" rel="noopener noreferrer"
+                     class="text-neutral-gray hover:text-vibrant-teal transition duration-300 transform hover:scale-110"><i class="fab fa-github text-xl"></i></a>
+             </div>
+         </div>
+     </footer>
 
     <script>
+        // Mobile Menu Toggle Script (Use the improved version from index.html)
         const mobileMenuButtonProjects = document.getElementById('mobile-menu-button');
         const mobileMenuProjects = document.getElementById('mobile-menu');
+        const menuIconProjects = mobileMenuButtonProjects.querySelector('i');
 
-        mobileMenuButtonProjects.addEventListener('click', () => {
+        mobileMenuButtonProjects.addEventListener('click', (event) => {
+            event.stopPropagation();
             mobileMenuProjects.classList.toggle('hidden');
+            if (mobileMenuProjects.classList.contains('hidden')) {
+                menuIconProjects.classList.remove('fa-times'); menuIconProjects.classList.add('fa-bars');
+            } else {
+                menuIconProjects.classList.remove('fa-bars'); menuIconProjects.classList.add('fa-times');
+            }
+        });
+         document.addEventListener('click', function(event) {
+          const isClickInsideNav = mobileMenuButtonProjects.contains(event.target) || mobileMenuProjects.contains(event.target);
+          if (!isClickInsideNav && !mobileMenuProjects.classList.contains('hidden')) {
+            mobileMenuProjects.classList.add('hidden');
+            menuIconProjects.classList.remove('fa-times'); menuIconProjects.classList.add('fa-bars');
+          }
         });
     </script>
 
     <script>
-        // GitHub username (replace with your actual username)
-        const githubUsername = 'aidarkezio'; // *** IMPORTANT: REPLACE THIS! ***
-        const maxColumns = 3; // Maximum columns for larger screens (let's aim for 3 max)
+        // GitHub username
+        const githubUsername = 'aidarkezio'; // Make sure this is correct
+        const maxColumns = 2; // Max columns (e.g., 3 for large screens)
 
         const projectsContainer = document.getElementById('projects-container');
         const loadingMessage = document.getElementById('loading-message');
 
         async function fetchGitHubProjects() {
-            let allProjects = []; // Array to store all projects
-            let nextPageUrl = `https://api.github.com/users/${githubUsername}/repos?sort=updated&direction=desc&type=all&per_page=100`; // Start with the first page, request up to 100 per page
+            let allProjects = [];
+            let nextPageUrl = `https://api.github.com/users/${githubUsername}/repos?sort=updated&direction=desc&type=all&per_page=100`;
 
-            loadingMessage.textContent = 'Loading projects from GitHub...'; // Ensure loading message is set
+            loadingMessage.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Loading projects from GitHub...'; // Update loading message
+            loadingMessage.style.display = 'block'; // Ensure it's visible
 
             try {
                 while (nextPageUrl) {
                     const response = await fetch(nextPageUrl);
-
-                    if (!response.ok) {
-                        throw new Error(`GitHub API error! Status: ${response.status}`);
-                    }
+                    if (!response.ok) throw new Error(`GitHub API error! Status: ${response.status}`);
 
                     const projects = await response.json();
-                    allProjects = allProjects.concat(projects); // Add projects from current page to all projects
+                    allProjects = allProjects.concat(projects);
 
-                    // Pagination handling - check for 'Link' header
                     const linkHeader = response.headers.get('Link');
-                    nextPageUrl = null; // Reset for next iteration
+                    nextPageUrl = null;
                     if (linkHeader) {
                         const links = linkHeader.split(',');
-                        for (const link of links) {
-                            if (link.includes('rel="next"')) {
-                                const urlMatch = link.match(/<([^>]+)>/);
-                                if (urlMatch) {
-                                    nextPageUrl = urlMatch[1]; // Extract the URL for the next page
-                                    break; // Found the 'next' link, move to the next iteration
-                                }
-                            }
+                        const nextLink = links.find(link => link.includes('rel="next"'));
+                        if (nextLink) {
+                            const urlMatch = nextLink.match(/<([^>]+)>/);
+                            if (urlMatch) nextPageUrl = urlMatch[1];
                         }
                     }
-
-                    // Optional: Add a small delay to be nice to the API and avoid rate limiting if fetching many pages rapidly
-                    // await new Promise(resolve => setTimeout(resolve, 500)); // 0.5 second delay
+                    await new Promise(resolve => setTimeout(resolve, 100)); // Optional small delay
                 }
 
-                loadingMessage.style.display = 'none'; // Hide loading message after all pages are fetched
+                loadingMessage.style.display = 'none';
 
                 if (allProjects.length === 0) {
-                    projectsContainer.innerHTML = '<p class="text-neutral-gray text-center">No public projects found on GitHub.</p>';
+                    projectsContainer.innerHTML = '<p class="w-full text-medium-text text-center py-8">No public projects found on GitHub.</p>';
                     return;
                 }
 
-                projectsContainer.innerHTML = ''; // Clear "Loading..." message and any previous content
+                projectsContainer.innerHTML = ''; // Clear loading/previous content
 
-                // Create column wrappers - create a max number of columns upfront
+                // Create column wrappers - distribute cards evenly
                 const columns = [];
                 for (let i = 0; i < maxColumns; i++) {
                     const column = document.createElement('div');
-                    // Simplified responsive column widths:
-                    column.className = `flex-1 px-2 sm:w-full md:w-1/2 lg:w-1/3`; // 1 col < sm, 2 cols >= md, 3 cols >= lg
+                    // Adjust column widths for responsiveness
+                    // Base: 1 column, sm: 1, md: 2, lg: 3
+                    column.className = `w-full 
+                    sm:w-full md:w-1/2 lg:w-1/${maxColumns} 
+                    px-4 mb-8 flex flex-col`; // Added flex-col and mb-8
                     columns.push(column);
                     projectsContainer.appendChild(column);
                 }
 
-
                 allProjects.forEach((project, index) => {
-                    // No longer skipping forks: // if (project.fork) return;
-
+                    // Create the card with new glassy styles
                     const projectCard = document.createElement('div');
-                    projectCard.className = 'bg-dark-base rounded-lg shadow-md hover:shadow-lg overflow-hidden m-4';
+                     // Added flex flex-col flex-grow to make cards equal height in a row
+                    projectCard.className = 'glass-card glass-card-hover p-0 overflow-hidden hover-effect flex flex-col flex-grow h-auto my-3';
 
                     const projectContent = document.createElement('div');
-                    projectContent.className = 'p-6';
+                    projectContent.className = 'p-6 flex flex-col flex-grow'; // Added flex-grow
 
                     const projectTitle = document.createElement('h3');
                     projectTitle.className = 'font-bold text-xl mb-2 text-light-text';
                     projectTitle.textContent = project.name;
 
                     const projectDescription = document.createElement('p');
-                    projectDescription.className = 'text-neutral-gray mb-4';
-                    projectDescription.textContent = project.description || 'No description provided.'; // Use description from GitHub, or default message
+                    projectDescription.className = 'text-medium-text mb-4 flex-grow'; // Added flex-grow
+                    projectDescription.textContent = project.description || 'No description provided.';
+
+                    // Container for the link to push it to the bottom
+                    const linkContainer = document.createElement('div');
+                    linkContainer.className = 'mt-auto text-right'; // Push to bottom
 
                     const viewProjectLink = document.createElement('a');
                     viewProjectLink.href = project.html_url;
-                    viewProjectLink.target = '_blank'; // Open in new tab
-                    viewProjectLink.className = 'inline-block bg-vibrant-blue text-dark-base py-2 px-4 rounded-full hover:bg-vibrant-teal transition-colors duration-300';
-                    viewProjectLink.textContent = 'View Project on GitHub';
+                    viewProjectLink.target = '_blank';
+                    viewProjectLink.rel = 'noopener noreferrer'; // Security best practice
+                    // viewProjectLink.className = 'inline-block bg-vibrant-blue text-light-text py-2 px-4 rounded-full hover:bg-vibrant-teal hover:text-black-base font-medium transform hover:scale-105 transition-colors duration-300';
+                    viewProjectLink.className = 'text-vibrant-teal hover:text-vibrant-blue hover:underline font-medium';
+                    viewProjectLink.textContent = 'View on GitHub';
+
+                    linkContainer.appendChild(viewProjectLink);
 
                     projectContent.appendChild(projectTitle);
                     projectContent.appendChild(projectDescription);
-                    projectContent.appendChild(viewProjectLink);
+                    projectContent.appendChild(linkContainer); // Append the link container
 
                     projectCard.appendChild(projectContent);
 
-                    // Append the card to the appropriate column using modulo operator for even distribution
+                    // Append card to the appropriate column
                     columns[index % maxColumns].appendChild(projectCard);
                 });
 
             } catch (error) {
-                loadingMessage.style.display = 'none'; // Hide loading message in case of error
-                // Improved error message with GitHub profile link
-                projectsContainer.className = "text-center text-neutral-gray text-lg p-8";
+                loadingMessage.style.display = 'none';
+                projectsContainer.className = "w-full text-center text-medium-text text-lg p-8"; // Center error message
                 projectsContainer.innerHTML = `
-                    <p class="text-red-500 mb-3">Error loading projects from GitHub.</p>
-                    <p>You can also view my projects directly on <a class="font-bold text-vibrant-teal hover:underline" href="https://github.com/${githubUsername}" target="_blank" class="text-vibrant-blue hover:text-vibrant-teal underline">GitHub</a>.</p>
-            `;
+                    <p class="text-red-500 mb-3 font-semibold"><i class="fas fa-exclamation-triangle mr-2"></i>Error loading projects.</p>
+                    <p>Please try again later or view them directly on <a class="font-bold text-vibrant-teal hover:underline" href="https://github.com/${githubUsername}" target="_blank" rel="noopener noreferrer">GitHub</a>.</p>
+                `;
                 console.error('Error fetching GitHub projects:', error);
             }
         }
 
-
-        fetchGitHubProjects(); // Call the function to fetch and display projects when the page loads
+        fetchGitHubProjects();
     </script>
 </body>
-
 </html>

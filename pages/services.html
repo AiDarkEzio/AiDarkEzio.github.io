@@ -13,18 +13,37 @@
             theme: {
                 extend: {
                     colors: {
-                        'dark-base': '#1e293b',   // From Palette 3 - Very dark gray/almost black
-                        'dark-secondary': '#334155', // From Palette 3 - Very dark gray/blue-gray
-                        'vibrant-teal': '#2dd4bf',  // From Palette 1 - Light, refreshing teal
-                        'vibrant-blue': '#6366f1',  // From Palette 1 - Classic blue
-                        'light-text': '#fafafa',    // From Palette 2 & 3 - Very light gray/off-white (or use pure #ffffff if you prefer)
-                        'neutral-gray': '#9ca3af',  // From Palette 2 - Light gray
-                        // Add your transparent red colors here:
-                        'transparent-red-subtle': 'rgba(255, 150, 150, 0.05)', // Subtle red tint, highly transparent
-                        'transparent-red-hint': 'rgba(255, 100, 100, 0.1)',  // Slight red tint, mostly opaque
-                        'transparent-green-hint': 'rgba(100, 255, 100, 0.1)',  // Slight red tint, mostly opaque
-                        'transparent-red-more': 'rgba(255, 50, 50, 0.3)',   // More noticeable red tint, more transparent
+                        'black-base': '#0d1117', // Very dark, GitHub-like dark base
+                        'dark-card': 'rgba(30, 41, 59, 0.6)', // Semi-transparent dark for cards
+                        'dark-nav': 'rgba(13, 17, 23, 0.8)', // Darker, more opaque for nav/footer bg
+                        'border-glass': 'rgba(255, 255, 255, 0.1)', // Subtle border for glassy elements
+                        'vibrant-teal': '#2dd4bf',
+                        'vibrant-blue': '#6366f1',
+                        'light-text': '#e6edf3', // Slightly off-white for better readability
+                        'medium-text': '#bdc1c6', // For secondary text
+                        'neutral-gray': '#7d8590', // For less important text/icons
+                        'transparent-red-subtle': 'rgba(222, 77, 85, 0.1)', // Adjusted red tint
+                        'transparent-red-hint': 'rgba(222, 77, 85, 0.2)',   // Adjusted red tint
+                        'transparent-green-hint': 'rgba(63, 185, 80, 0.15)', // Adjusted green tint
                     },
+                    fontFamily: {
+                        // Use Poppins as default sans-serif, Nunito as secondary option if needed
+                        sans: ['Poppins', 'sans-serif'],
+                        serif: ['Roboto Serif', 'serif'],
+                        mono: ['Inconsolata', 'monospace'],
+                    },
+                    backdropBlur: {
+                        xs: '2px',
+                        sm: '4px',
+                        md: '8px',
+                        lg: '12px',
+                        xl: '16px',
+                    },
+                    boxShadow: {
+                        'glass': '0 4px 30px rgba(0, 0, 0, 0.1)', // Subtle shadow for glass effect
+                         'glow-teal': '0 0 15px 2px rgba(45, 212, 191, 0.4)', // Subtle glow effect
+                         'glow-blue': '0 0 15px 2px rgba(99, 102, 241, 0.4)', // Subtle glow effect
+                    }
                 },
             },
         }
@@ -32,153 +51,161 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
         integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <script src="../js/pageView.js" ></script>
+    <script src="../js/pageView.js" defer></script>
 </head>
 
-<body class="bg-gray-100 font-sans">
+<body class="bg-black-base text-light-text font-sans">
 
-    <!-- Navigation Bar (same as index.html) -->
-    <nav class="bg-dark-base p-4">
-        <div class="container mx-auto flex justify-between items-center">
-            <a href="../" class="text-light-text text-xl font-bold">Subhadra Bro</a>
-            <div class="hidden md:flex space-x-6">
-                <a href="../" class="text-neutral-gray hover:text-vibrant-teal">Home</a>
-                <a href="./projects.html" class="text-neutral-gray hover:text-vibrant-teal">Projects</a>
-                <a href="./services.html" class="text-light-text hover:text-vibrant-teal">Services</a>
-                <a href="./terms.html" class="text-neutral-gray hover:text-vibrant-teal">Terms & Conditions</a>
-                <a href="./contact.html" class="text-neutral-gray hover:text-vibrant-teal">Contact</a>
+    <!-- Navigation Bar -->
+     <nav class="fixed top-0 left-0 right-0 z-50 bg-dark-nav backdrop-blur-lg border-b border-border-glass shadow-md transition-all duration-300 ease-in-out">
+        <div class="container mx-auto flex justify-between items-center px-4 py-3">
+            <a href="../" class="text-light-text text-xl font-bold hover:text-vibrant-teal">Subhadra Bro</a>
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="../" class="text-medium-text hover:text-vibrant-teal pb-1 hover-effect">Home</a>
+                <a href="./projects.html" class="text-medium-text hover:text-vibrant-teal pb-1 hover-effect">Projects</a>
+                <a href="./services.html" class="text-vibrant-teal border-b-2 border-vibrant-teal pb-1 font-medium hover-effect">Services</a>
+                <a href="./terms.html" class="text-medium-text hover:text-vibrant-teal pb-1 hover-effect">Terms</a>
+                <a href="./contact.html" class="text-medium-text hover:text-vibrant-teal pb-1 hover-effect">Contact</a>
             </div>
             <div class="md:hidden">
-                <button id="mobile-menu-button" class="text-light-text focus:outline-none">
-                    <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
-                        <path v-if="!isOpen" fill-rule="evenodd" clip-rule="evenodd"
-                            d="M4 5h16a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V6a1 1 0 011-1zm0 7h16a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2a1 1 0 011-1zm0 7h16a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2a1 1 0 011-1z" />
-                        <path v-if="isOpen" fill-rule="evenodd" clip-rule="evenodd"
-                            d="M4 5h16a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V6a1 1 0 011-1zm0 7h16a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2a1 1 0 011-1zm0 7h16a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2a1 1 0 011-1z" />
-                    </svg>
+                <button id="mobile-menu-button" class="text-light-text focus:outline-none p-1 hover:text-vibrant-teal">
+                    <i class="fas fa-bars text-xl"></i>
                 </button>
             </div>
         </div>
         <!-- Mobile Menu -->
-        <div class="md:hidden hidden" id="mobile-menu">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-dark-secondary rounded-lg mt-5">
-                <a href="../"
-                    class="block text-neutral-gray hover:bg-dark-base hover:text-vibrant-teal px-3 py-2 rounded-md text-base font-medium">Home</a>
-                <a href="./projects.html"
-                    class="block text-neutral-gray hover:bg-dark-base hover:text-vibrant-teal px-3 py-2 rounded-md text-base font-medium">Projects</a>
-                <a href="./services.html"
-                    class="block bg-dark-secondary text-light-text px-3 py-2 rounded-md text-base font-medium">Services</a>
-                <a href="./terms.html"
-                    class="block text-neutral-gray hover:bg-dark-base hover:text-vibrant-teal px-3 py-2 rounded-md text-base font-medium">Terms
-                    & Conditions</a>
-                <a href="./contact.html"
-                    class="block text-neutral-gray hover:bg-dark-base hover:text-vibrant-teal px-3 py-2 rounded-md text-base font-medium">Contact</a>
+         <div class="md:hidden hidden absolute top-full left-0 right-0 bg-dark-nav backdrop-blur-lg border-b border-border-glass shadow-lg" id="mobile-menu">
+             <div class="px-4 pt-2 pb-3 space-y-1">
+                <a href="../" class="block text-medium-text hover:bg-black-base/30 hover:text-vibrant-teal px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="./projects.html" class="block text-medium-text hover:bg-black-base/30 hover:text-vibrant-teal px-3 py-2 rounded-md text-base font-medium">Projects</a>
+                <a href="./services.html" class="block text-vibrant-teal bg-black-base/30 px-3 py-2 rounded-md text-base font-medium">Services</a>
+                <a href="./terms.html" class="block text-medium-text hover:bg-black-base/30 hover:text-vibrant-teal px-3 py-2 rounded-md text-base font-medium">Terms</a>
+                <a href="./contact.html" class="block text-medium-text hover:bg-black-base/30 hover:text-vibrant-teal px-3 py-2 rounded-md text-base font-medium">Contact</a>
             </div>
         </div>
     </nav>
 
+     <!-- Spacer for fixed navbar -->
+    <div class="pt-16"></div>
+
     <!-- Services Section -->
-    <section class="py-16 bg-dark-secondary">
-        <div class="container mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-12 text-light-text">My Services</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2">
+    <section class="py-16 md:py-24 bg-gradient-to-br from-black-base via-slate-900 to-black-base">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-light-text">My Services</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
 
-                <!-- Service Card 1 -->
-                <div class="bg-dark-base rounded-lg shadow-md hover:shadow-lg p-6 m-4">
-                    <h3 class="font-bold text-xl mb-4 text-light-text">Offer: Free Contribution Help for Your Open Source Project
-                        <span class="text-green-500 text-xs bg-green-100 bg-transparent-green-hint p-1 rounded-sm">Available</span>
-                        </h3>
-                    <p class="text-neutral-gray leading-relaxed mb-4">
-                        I'm actively improving my programming skills and building my portfolio by contributing to open source. Let me help you tackle tasks in your project!
+                <!-- Service Card 1: Open Source -->
+                 <div class="glass-card glass-card-hover p-6 md:p-8 flex flex-col hover-effect">
+                    <h3 class="font-bold text-xl mb-3 text-light-text flex justify-between items-center">
+                        <span>Open Source Contribution Help</span>
+                        <span class="text-xs font-medium bg-transparent-green-hint text-green-300 px-2 py-0.5 rounded-full">Available</span>
+                    </h3>
+                    <p class="text-medium-text leading-relaxed mb-4 flex-grow">
+                        Actively improving my skills by contributing to open source. I can help with tasks like bug fixes, documentation, or small features to build my portfolio.
                     </p>
-                    <a href="./services/contribute.html" class="text-end block mr-3 mt-[-10px] text-lg font-bold underline text-vibrant-blue hover:text-[#7376f6]" >Read More</a>
-                    <!-- Add more details or examples if needed -->
+                    <div class="text-right mt-auto">
+                         <a href="./services/contribute.html" class="text-vibrant-teal hover:text-vibrant-blue hover:underline font-medium">Read More <i class="fas fa-arrow-right text-xs ml-1"></i></a>
+                    </div>
                 </div>
 
-                <!-- Service Card 2 -->
-                <div class="bg-dark-base rounded-lg shadow-md hover:shadow-lg p-6 m-4">
-                    <h3 class="font-bold text-xl mb-4 text-light-text">Web Design <span
-                            class="text-red-500 text-xs bg-red-100 bg-transparent-red-hint p-1 rounded-sm">Currently Unavailable</span></h3>
-                    <p class="text-neutral-gray leading-relaxed mb-4">
-                        I offer modern and responsive web design services. Whether you need a simple landing page or a
-                        complex website, I can create a design that is both visually appealing and user-friendly.
+                <!-- Service Card 2: Web Design -->
+                <div class="glass-card p-6 md:p-8 flex flex-col opacity-70">
+                    <h3 class="font-bold text-xl mb-3 text-light-text flex justify-between items-center">
+                        <span>Web Design</span>
+                         <span class="text-xs font-medium bg-transparent-red-hint text-red-300 px-2 py-0.5 rounded-full">Unavailable</span>
+                    </h3>
+                    <p class="text-medium-text leading-relaxed mb-4 flex-grow">
+                        Modern and responsive web design services. Creating visually appealing and user-friendly interfaces. (Currently focusing on contribution).
                     </p>
-                    <!-- Add more details or examples if needed -->
+                     <div class="text-right mt-auto">
+                         <span class="text-neutral-gray italic text-sm">Not currently offered</span>
+                    </div>
                 </div>
 
-                <!-- Service Card 3 -->
-                <div class="bg-dark-base rounded-lg shadow-md hover:shadow-lg p-6 m-4">
-                    <h3 class="font-bold text-xl mb-4 text-light-text">Web Development <span
-                            class="text-red-500 text-xs bg-red-100 bg-transparent-red-hint p-1 rounded-sm">Currently Unavailable</span></h3>
-                    <p class="text-neutral-gray leading-relaxed mb-4">
-                        Need your website brought to life? I provide front-end and back-end web development services. I
-                        can build websites from scratch or customize existing platforms to meet your specific
-                        requirements.
+                <!-- Service Card 3: Web Development -->
+                <div class="glass-card p-6 md:p-8 flex flex-col opacity-70">
+                    <h3 class="font-bold text-xl mb-3 text-light-text flex justify-between items-center">
+                        <span>Web Development</span>
+                        <span class="text-xs font-medium bg-transparent-red-hint text-red-300 px-2 py-0.5 rounded-full">Unavailable</span>
+                    </h3>
+                    <p class="text-medium-text leading-relaxed mb-4 flex-grow">
+                        Front-end and back-end development to bring websites to life, from scratch or customizing platforms. (Currently focusing on contribution).
                     </p>
-                    <!-- Add more details or examples if needed -->
+                     <div class="text-right mt-auto">
+                         <span class="text-neutral-gray italic text-sm">Not currently offered</span>
+                    </div>
                 </div>
 
-                <!-- Service Card 4 -->
-                <div class="bg-dark-base rounded-lg shadow-md hover:shadow-lg p-6 m-4">
-                    <h3 class="font-bold text-xl mb-4 text-light-text">SEO Optimization <span
-                            class="text-red-500 text-xs bg-red-100 bg-transparent-red-hint p-1 rounded-sm">Currently Unavailable</span></h3>
-                    <p class="text-neutral-gray leading-relaxed mb-4">
-                        Improve your website's visibility on search engines with my SEO services. I can help you
-                        optimize your site for better rankings, drive more organic traffic, and reach a wider audience.
+                 <!-- Service Card 4: SEO -->
+                <div class="glass-card p-6 md:p-8 flex flex-col opacity-70">
+                    <h3 class="font-bold text-xl mb-3 text-light-text flex justify-between items-center">
+                        <span>SEO Optimization</span>
+                        <span class="text-xs font-medium bg-transparent-red-hint text-red-300 px-2 py-0.5 rounded-full">Unavailable</span>
+                    </h3>
+                    <p class="text-medium-text leading-relaxed mb-4 flex-grow">
+                        Improving website visibility on search engines through optimization techniques. (Currently focusing on contribution).
                     </p>
-                    <!-- Add more details or examples if needed -->
+                     <div class="text-right mt-auto">
+                         <span class="text-neutral-gray italic text-sm">Not currently offered</span>
+                    </div>
                 </div>
 
-                <!-- Service Card 5 -->
-                <!-- <div class="bg-dark-base rounded-lg shadow-md hover:shadow-lg p-6 m-4">
-                    <h3 class="font-bold text-xl mb-4 text-light-text">Arduino Projects & Consultation <span
-                            class="text-red-500 text-xs bg-red-100 bg-transparent-red-hint p-1 rounded-sm">Currently Unavailable</span></h3>
-                    <p class="text-neutral-gray leading-relaxed mb-4">
-                        Passionate about Arduino? I offer services in creating and consulting on Arduino-based projects.
-                        From simple automation to complex interactive installations, let's bring your Arduino ideas to
-                        reality.
-                    </p>
-                </div> -->
-
-                <!-- Add more service cards here -->
+                <!-- Add more service cards here if needed -->
 
             </div>
         </div>
     </section>
 
-    <!-- Contact Call to Action (same as index.html, but adjusted text) -->
-    <section class="bg-dark-base text-light-text py-16">
-        <div class="container mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-8">Interested in my services?</h2>
-            <p class="text-xl mb-8">Let's discuss how I can assist you with your project needs.</p>
-            <a href="./contact.html"
-                class="bg-vibrant-teal text-dark-base font-bold py-3 px-8 rounded-full hover:bg-vibrant-teal hover:text-light-text transition-colors duration-300">Get
-                a Free Consultation</a>
+    <!-- Contact Call to Action -->
+     <section class="bg-black-base text-light-text py-16 md:py-24">
+        <div class="container mx-auto text-center px-4">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8">Need Help with Your Open Source Project?</h2>
+            <p class="text-xl mb-8 text-medium-text">Let's discuss how I can contribute and learn!</p>
+            <a href="./services/contribute-contact.html"
+                class="inline-block bg-vibrant-blue text-light-text font-bold py-3 px-8 rounded-full hover:bg-vibrant-teal hover:text-black-base hover:shadow-glow-blue transform hover:scale-105 transition-all duration-300">
+                Submit a Task Request
+            </a>
         </div>
     </section>
 
-    <!-- Footer (same as index.html) -->
-    <footer class="bg-dark-secondary text-light-text py-8">
-        <div class="container mx-auto text-center">
-            <p>© 2023-2025 Subhadra Bro. All rights reserved.</p>
-            <div class="mt-4">
-                <a href="https://www.youtube.com/channel/UCeDeaDD8dpdMT2gO3VHY1JQ" target="_blank"
-                    class="text-neutral-gray hover:text-vibrant-teal mx-2"><i class="fab fa-youtube text-xl"></i></a>
-                <a href="https://t.me/Subadra_Poshitha" target="_blank"
-                    class="text-neutral-gray hover:text-vibrant-teal mx-2"><i class="fab fa-telegram text-xl"></i></a>
-                <a href="mailto:subadraposhithapr@gmail.com" class="text-neutral-gray hover:text-vibrant-teal mx-2"><i
-                        class="fas fa-envelope text-xl"></i></a>
-                <a href="https://github.com/AiDarkEzio" target="_blank" class="text-neutral-gray hover:text-vibrant-teal mx-2"><i class="fab fa-github text-xl"></i></a>
-            </div>
-        </div>
-    </footer>
+    <!-- Footer -->
+     <footer class="bg-dark-nav text-medium-text py-8 border-t border-border-glass">
+         <div class="container mx-auto text-center px-4">
+             <p>© 2023-2025 Subhadra Bro. All rights reserved.</p>
+             <div class="mt-4 flex justify-center space-x-5">
+                 <a href="https://www.youtube.com/channel/UCeDeaDD8dpdMT2gO3VHY1JQ" target="_blank" rel="noopener noreferrer"
+                     class="text-neutral-gray hover:text-vibrant-teal transition duration-300 transform hover:scale-110"><i class="fab fa-youtube text-xl"></i></a>
+                 <a href="https://t.me/Subadra_Poshitha" target="_blank" rel="noopener noreferrer"
+                     class="text-neutral-gray hover:text-vibrant-teal transition duration-300 transform hover:scale-110"><i class="fab fa-telegram text-xl"></i></a>
+                 <a href="mailto:subadraposhithapr@gmail.com"
+                     class="text-neutral-gray hover:text-vibrant-teal transition duration-300 transform hover:scale-110"><i class="fas fa-envelope text-xl"></i></a>
+                 <a href="https://github.com/AiDarkEzio" target="_blank" rel="noopener noreferrer"
+                     class="text-neutral-gray hover:text-vibrant-teal transition duration-300 transform hover:scale-110"><i class="fab fa-github text-xl"></i></a>
+             </div>
+         </div>
+     </footer>
 
     <script>
+        // Mobile Menu Toggle Script (Use the improved version from index.html)
         const mobileMenuButtonServices = document.getElementById('mobile-menu-button');
         const mobileMenuServices = document.getElementById('mobile-menu');
+        const menuIconServices = mobileMenuButtonServices.querySelector('i');
 
-        mobileMenuButtonServices.addEventListener('click', () => {
+        mobileMenuButtonServices.addEventListener('click', (event) => {
+            event.stopPropagation();
             mobileMenuServices.classList.toggle('hidden');
+            if (mobileMenuServices.classList.contains('hidden')) {
+                menuIconServices.classList.remove('fa-times'); menuIconServices.classList.add('fa-bars');
+            } else {
+                menuIconServices.classList.remove('fa-bars'); menuIconServices.classList.add('fa-times');
+            }
+        });
+        document.addEventListener('click', function(event) {
+          const isClickInsideNav = mobileMenuButtonServices.contains(event.target) || mobileMenuServices.contains(event.target);
+          if (!isClickInsideNav && !mobileMenuServices.classList.contains('hidden')) {
+            mobileMenuServices.classList.add('hidden');
+            menuIconServices.classList.remove('fa-times'); menuIconServices.classList.add('fa-bars');
+          }
         });
     </script>
 </body>

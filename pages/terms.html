@@ -4,23 +4,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Consider updating title slightly if you have multiple services -->
     <title>Terms & Conditions - Subhadra Bro</title>
-    <link rel="stylesheet" href="../css/style.css"> <!-- Ensure this path is correct -->
-    <link rel="icon" href="../img/icon/favicon.ico" type="image/x-icon"> <!-- Ensure this path is correct -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="../img/icon/favicon.ico" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'dark-base': '#1e293b',
-                        'dark-secondary': '#334155',
+                        'black-base': '#0d1117', // Very dark, GitHub-like dark base
+                        'dark-card': 'rgba(30, 41, 59, 0.6)', // Semi-transparent dark for cards
+                        'dark-nav': 'rgba(13, 17, 23, 0.8)', // Darker, more opaque for nav/footer bg
+                        'border-glass': 'rgba(255, 255, 255, 0.1)', // Subtle border for glassy elements
                         'vibrant-teal': '#2dd4bf',
                         'vibrant-blue': '#6366f1',
-                        'light-text': '#fafafa',
-                        'neutral-gray': '#9ca3af',
+                        'light-text': '#e6edf3', // Slightly off-white for better readability
+                        'medium-text': '#bdc1c6', // For secondary text
+                        'neutral-gray': '#7d8590', // For less important text/icons
+                        'transparent-red-subtle': 'rgba(222, 77, 85, 0.1)', // Adjusted red tint
+                        'transparent-red-hint': 'rgba(222, 77, 85, 0.2)',   // Adjusted red tint
+                        'transparent-green-hint': 'rgba(63, 185, 80, 0.15)', // Adjusted green tint
                     },
+                    fontFamily: {
+                        // Use Poppins as default sans-serif, Nunito as secondary option if needed
+                        sans: ['Poppins', 'sans-serif'],
+                        serif: ['Roboto Serif', 'serif'],
+                        mono: ['Inconsolata', 'monospace'],
+                    },
+                    backdropBlur: {
+                        xs: '2px',
+                        sm: '4px',
+                        md: '8px',
+                        lg: '12px',
+                        xl: '16px',
+                    },
+                    boxShadow: {
+                        'glass': '0 4px 30px rgba(0, 0, 0, 0.1)', // Subtle shadow for glass effect
+                         'glow-teal': '0 0 15px 2px rgba(45, 212, 191, 0.4)', // Subtle glow effect
+                         'glow-blue': '0 0 15px 2px rgba(99, 102, 241, 0.4)', // Subtle glow effect
+                    }
                 },
             },
         }
@@ -28,147 +51,128 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
         integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- Ensure this path is correct -->
-    <script src="../js/pageView.js" defer></script> <!-- Added defer for potentially better loading -->
+    <script src="../js/pageView.js" defer></script>
 </head>
 
-<body class="bg-dark-secondary font-sans text-light-text"> <!-- Changed default bg and text for consistency -->
+<body class="bg-black-base text-light-text font-sans">
 
     <!-- Navigation Bar -->
-    <nav class="bg-dark-base p-4 sticky top-0 z-50 shadow-md"> <!-- Made navbar sticky -->
-        <div class="container mx-auto flex justify-between items-center">
-            <a href="../" class="text-light-text text-xl font-bold">Subhadra Bro</a>
-            <!-- Desktop Menu -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-dark-nav backdrop-blur-lg border-b border-border-glass shadow-md transition-all duration-300 ease-in-out">
+        <div class="container mx-auto flex justify-between items-center px-4 py-3">
+            <a href="../" class="text-light-text text-xl font-bold hover:text-vibrant-teal">Subhadra Bro</a>
             <div class="hidden md:flex space-x-6 items-center">
-                <a href="../" class="text-neutral-gray hover:text-vibrant-teal">Home</a>
-                <a href="./projects.html" class="text-neutral-gray hover:text-vibrant-teal">Projects</a>
-                <!-- Link to the new Services page -->
-                <a href="./services.html" class="text-neutral-gray hover:text-vibrant-teal">Services</a>
-                <!-- Current page highlighted -->
-                <a href="./terms.html" class="text-light-text font-semibold border-b-2 border-vibrant-teal">Terms</a>
-                <a href="./contact.html" class="text-neutral-gray hover:text-vibrant-teal">Contact</a>
+                <a href="../" class="text-medium-text hover:text-vibrant-teal pb-1 hover-effect">Home</a>
+                <a href="./projects.html" class="text-medium-text hover:text-vibrant-teal pb-1 hover-effect">Projects</a>
+                <a href="./services.html" class="text-medium-text hover:text-vibrant-teal pb-1 hover-effect">Services</a>
+                <a href="./terms.html" class="text-vibrant-teal border-b-2 border-vibrant-teal pb-1 font-medium hover-effect">Terms</a>
+                <a href="./contact.html" class="text-medium-text hover:text-vibrant-teal pb-1 hover-effect">Contact</a>
             </div>
-            <!-- Mobile Menu Button -->
             <div class="md:hidden">
-                <button id="mobile-menu-button" class="text-light-text focus:outline-none">
-                    <i class="fas fa-bars text-xl"></i> <!-- Using Font Awesome icon -->
+                 <button id="mobile-menu-button" class="text-light-text focus:outline-none p-1 hover:text-vibrant-teal">
+                    <i class="fas fa-bars text-xl"></i>
                 </button>
             </div>
         </div>
         <!-- Mobile Menu -->
-        <div class="md:hidden hidden bg-dark-secondary rounded-md shadow-lg mt-2" id="mobile-menu">
-             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="../"
-                    class="block text-neutral-gray hover:bg-dark-base hover:text-vibrant-teal px-3 py-2 rounded-md text-base font-medium">Home</a>
-                <a href="./projects.html"
-                    class="block text-neutral-gray hover:bg-dark-base hover:text-vibrant-teal px-3 py-2 rounded-md text-base font-medium">Projects</a>
-                <a href="./services.html"
-                    class="block text-neutral-gray hover:bg-dark-base hover:text-vibrant-teal px-3 py-2 rounded-md text-base font-medium">Services</a>
-                <!-- Current page highlighted for mobile -->
-                <a href="./terms.html"
-                    class="block bg-dark-base text-light-text px-3 py-2 rounded-md text-base font-medium">Terms & Conditions</a>
-                <a href="./contact.html"
-                    class="block text-neutral-gray hover:bg-dark-base hover:text-vibrant-teal px-3 py-2 rounded-md text-base font-medium">Contact</a>
+         <div class="md:hidden hidden absolute top-full left-0 right-0 bg-dark-nav backdrop-blur-lg border-b border-border-glass shadow-lg" id="mobile-menu">
+             <div class="px-4 pt-2 pb-3 space-y-1">
+                <a href="../" class="block text-medium-text hover:bg-black-base/30 hover:text-vibrant-teal px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="./projects.html" class="block text-medium-text hover:bg-black-base/30 hover:text-vibrant-teal px-3 py-2 rounded-md text-base font-medium">Projects</a>
+                <a href="./services.html" class="block text-medium-text hover:bg-black-base/30 hover:text-vibrant-teal px-3 py-2 rounded-md text-base font-medium">Services</a>
+                <a href="./terms.html" class="block text-vibrant-teal bg-black-base/30 px-3 py-2 rounded-md text-base font-medium">Terms</a>
+                <a href="./contact.html" class="block text-medium-text hover:bg-black-base/30 hover:text-vibrant-teal px-3 py-2 rounded-md text-base font-medium">Contact</a>
             </div>
         </div>
     </nav>
 
+    <!-- Spacer for fixed navbar -->
+    <div class="pt-16"></div>
+
     <!-- Terms & Conditions Section -->
-    <section class="py-12 md:py-16">
+    <section class="py-12 md:py-16 bg-gradient-to-br from-black-base via-slate-900 to-black-base">
         <div class="container mx-auto px-4">
             <h1 class="text-3xl md:text-4xl font-bold text-center mb-8 md:mb-12 text-light-text">Terms & Conditions</h1>
-            <!-- Changed background of the content box for better contrast -->
-            <div class="bg-dark-base p-6 md:p-8 rounded-lg shadow-lg max-w-4xl mx-auto text-neutral-gray leading-relaxed">
-                <!-- Added introduction -->
-                <p class="mb-6">Please read these Terms and Conditions carefully before using the subhadrabro.github.io website (the "Website") and any services offered, including the Open Source Contribution Help service.</p>
 
-                <h2 class="text-xl font-semibold text-light-text mb-3 mt-5">1. Acceptance of Terms</h2>
-                <p class="ml-4 mb-4">By accessing and using this Website and its services, you signify your acceptance of and agreement to be bound by these Terms and Conditions. If you do not agree to these terms, you must refrain from using the Website and its services.</p>
+            <div class="glass-card p-6 md:p-10 rounded-lg shadow-lg max-w-4xl mx-auto text-medium-text leading-relaxed">
+                <p class="mb-6">Please read these Terms and Conditions ("Terms") carefully before using the subhadrabro.github.io website (the "Website") and any services offered, including the Open Source Contribution Help service ("Services").</p>
 
-                <h2 class="text-xl font-semibold text-light-text mb-3 mt-5">2. Use of Website</h2>
-                <p class="ml-4 mb-4">This Website is intended to provide information about my skills, projects, and offered services. The content is primarily for informational purposes. You agree to use the Website only for lawful purposes and in a way that does not infringe the rights of, restrict, or inhibit anyone else's use and enjoyment of the Website.</p>
+                <h2 class="text-xl lg:text-2xl font-semibold text-light-text mb-3 mt-6 border-l-4 border-vibrant-blue pl-3">1. Acceptance of Terms</h2>
+                <p class="ml-4 mb-4">By accessing and using this Website and its Services, you acknowledge that you have read, understood, and agree to be bound by these Terms. If you disagree with any part of the terms, then you may not access the Website or use the Services.</p>
 
-                <h2 class="text-xl font-semibold text-light-text mb-3 mt-5">3. Intellectual Property</h2>
-                <p class="ml-4 mb-4">All content included on this Website, such as text, graphics, logos, images, code snippets, and project descriptions (unless otherwise specified, e.g., within open-source licenses), is the property of Subhadra Bro or its content suppliers and protected by copyright and other intellectual property laws. You may not reproduce, distribute, modify, or create derivative works from any content without prior written consent, except as permitted by applicable law or relevant licenses (e.g., for code hosted on GitHub under an open-source license).</p>
+                <h2 class="text-xl lg:text-2xl font-semibold text-light-text mb-3 mt-6 border-l-4 border-vibrant-blue pl-3">2. Use of Website</h2>
+                <p class="ml-4 mb-4">This Website provides information about my skills, projects, and offered Services. You agree to use the Website for lawful purposes only and in a manner that does not infringe the rights of, restrict, or inhibit anyone else's use and enjoyment of the Website. Prohibited behavior includes harassing or causing distress or inconvenience to any person, transmitting obscene or offensive content, or disrupting the normal flow of dialogue within the Website.</p>
 
-                <!-- **** NEW SECTION **** -->
-                <h2 class="text-xl font-semibold text-light-text mb-3 mt-5">4. Terms Specific to Open Source Contribution Help Service</h2>
-                <p class="ml-4 mb-1">The "Open Source Contribution Help" service described on the <a href="./services.html" class="text-vibrant-blue hover:underline">Services</a> page is offered under the following specific conditions:</p>
-                <ul class="list-disc ml-8 mb-4 space-y-2">
-                    <li><strong>Purpose:</strong> This service is provided primarily for my learning, skill development, and portfolio building.</li>
-                    <li><strong>Cost:</strong> Contributions are offered free of charge. Optional tips or donations are appreciated if you are satisfied with the work but are not required.</li>
-                    <li><strong>Nature of Contribution:</strong> Work is provided on a "best-effort" basis. As I am still learning and improving, there is no guarantee of the correctness, completeness, or efficiency of the code or documentation provided.</li>
-                    <li><strong>No Warranty:</strong> This service comes with absolutely NO WARRANTY, express or implied. You use any contributions (code, documentation, suggestions) entirely AT YOUR OWN RISK.</li>
-                    <li><strong>Maintainer Responsibility:</strong> As the project maintainer or requester, you are solely responsible for reviewing, testing, and validating any contributions before merging or implementing them into your project. You are responsible for ensuring the contribution meets your project's standards, security requirements, and licensing policies.</li>
-                    <li><strong>No Guarantee of Acceptance/Completion:</strong> Submission of a task request does not guarantee that I will accept the task or be able to complete it within a specific timeframe or at all. My availability is limited (~5-10 hours/week), and task acceptance depends on suitability, complexity, and my current capacity.</li>
-                    <li><strong>Communication:</strong> Communication regarding tasks will typically occur via the platform where the project is hosted (e.g., GitHub Issues/Pull Requests) or other agreed-upon channels.</li>
-                    <li><strong>Liability:</strong> I will not be liable for any damages, issues, or regressions that may arise directly or indirectly from the contributions provided under this service.</li>
+                <h2 class="text-xl lg:text-2xl font-semibold text-light-text mb-3 mt-6 border-l-4 border-vibrant-blue pl-3">3. Intellectual Property</h2>
+                <p class="ml-4 mb-4">The content, organization, graphics, design, compilation, magnetic translation, digital conversion, and other matters related to the Website are protected under applicable copyrights, trademarks, and other proprietary (including but not limited to intellectual property) rights. Unless otherwise explicitly stated (e.g., code under an open-source license), the copying, redistribution, use, or publication by you of any such matters or any part of the Website is strictly prohibited without prior written permission from Subhadra Bro.</p>
+
+                <h2 class="text-xl lg:text-2xl font-semibold text-light-text mb-3 mt-6 border-l-4 border-vibrant-blue pl-3">4. Open Source Contribution Help Service</h2>
+                <p class="ml-4 mb-2 font-semibold text-light-text">The "Open Source Contribution Help" Service is subject to the following specific conditions:</p>
+                <ul class="list-disc ml-8 mb-4 space-y-2 text-medium-text">
+                    <li><strong>Purpose:</strong> Provided primarily for my learning, skill development, and portfolio building.</li>
+                    <li><strong>Cost:</strong> Offered free of charge. Optional, non-obligatory tips/donations are welcome if you are satisfied.</li>
+                    <li><strong>Nature:</strong> Provided on a "best-effort", "as-is" basis. No guarantees of correctness, completeness, efficiency, or suitability for any purpose are made.</li>
+                    <li><strong>NO WARRANTY:</strong> THIS SERVICE COMES WITH ABSOLUTELY NO WARRANTY, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.</li>
+                    <li><strong>Requester Responsibility:</strong> You (the requester/maintainer) are solely responsible for thoroughly reviewing, testing, validating, and understanding any contributions (code, documentation, suggestions) before merging or implementing them. Ensure contributions meet your project's standards, security requirements, licensing, and operational needs.</li>
+                    <li><strong>No Guarantee of Acceptance/Completion:</strong> Submission of a task request does not guarantee acceptance or completion. Availability is limited, and task selection depends on suitability, complexity, clarity, and my current capacity.</li>
+                    <li><strong>Liability Disclaimer:</strong> TO THE FULLEST EXTENT PERMITTED BY LAW, I SHALL NOT BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, PUNITIVE, OR EXEMPLARY DAMAGES, INCLUDING BUT NOT LIMITED TO DAMAGES FOR LOSS OF PROFITS, DATA, GOODWILL, OR OTHER INTANGIBLE LOSSES, ARISING OUT OF OR IN CONNECTION WITH THE USE OR INABILITY TO USE THE CONTRIBUTIONS PROVIDED UNDER THIS SERVICE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. YOUR USE OF ANY CONTRIBUTION IS ENTIRELY AT YOUR OWN RISK.</li>
                 </ul>
-                 <!-- **** END OF NEW SECTION **** -->
 
-                <h2 class="text-xl font-semibold text-light-text mb-3 mt-5">5. Limitation of Liability (General)</h2> <!-- Renumbered -->
-                <p class="ml-4 mb-4">Except as explicitly stated in Section 4 regarding the Open Source Contribution Help service, this Website and its general content are provided on an "as is" and "as available" basis without any warranties, express or implied. Subhadra Bro will not be liable for any direct, indirect, incidental, consequential, or punitive damages arising from your access to or use of this Website or the information contained herein.</p>
+                <h2 class="text-xl lg:text-2xl font-semibold text-light-text mb-3 mt-6 border-l-4 border-vibrant-blue pl-3">5. General Disclaimer & Limitation of Liability</h2>
+                <p class="ml-4 mb-4">Except as pertaining to the specific disclaimers for the Open Source Contribution Help Service in Section 4, the Website and its general content are provided "as is". While efforts are made to ensure accuracy, I make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability, or availability with respect to the Website or the information, products, services, or related graphics contained on the Website for any purpose. Any reliance you place on such information is therefore strictly at your own risk.</p>
 
-                <h2 class="text-xl font-semibold text-light-text mb-3 mt-5">6. Governing Law</h2> <!-- Renumbered -->
-                <p class="ml-4 mb-4">These Terms and Conditions shall be governed by and construed in accordance with the laws of Sri Lanka, without regard to its conflict of law provisions. Any disputes arising under or in connection with these terms shall be subject to the exclusive jurisdiction of the courts located in Sri Lanka.</p>
+                <h2 class="text-xl lg:text-2xl font-semibold text-light-text mb-3 mt-6 border-l-4 border-vibrant-blue pl-3">6. Governing Law</h2>
+                <p class="ml-4 mb-4">These Terms shall be governed and construed in accordance with the laws of Sri Lanka, without regard to its conflict of law provisions. Any disputes relating to these terms and conditions shall be subject to the exclusive jurisdiction of the courts of Sri Lanka.</p>
 
-                <h2 class="text-xl font-semibold text-light-text mb-3 mt-5">7. Changes to Terms</h2> <!-- Renumbered -->
-                <p class="ml-4 mb-4">I reserve the right to modify or replace these Terms and Conditions at any time. If a revision is material, I will try to provide notice prior to any new terms taking effect (e.g., by updating the "Last updated" date). What constitutes a material change will be determined at my sole discretion. Your continued use of the Website or services after any changes constitutes acceptance of the new terms.</p>
+                <h2 class="text-xl lg:text-2xl font-semibold text-light-text mb-3 mt-6 border-l-4 border-vibrant-blue pl-3">7. Changes to Terms</h2>
+                <p class="ml-4 mb-4">I reserve the right, at my sole discretion, to modify or replace these Terms at any time. If a revision is material, I will make reasonable efforts to provide notice prior to any new terms taking effect. What constitutes a material change will be determined at my sole discretion. Continued use of the Website or Services after any such changes shall constitute your consent to such changes.</p>
 
-                <h2 class="text-xl font-semibold text-light-text mb-3 mt-5">8. Contact Information</h2> <!-- Renumbered -->
-                <p class="ml-4 mb-4">If you have any questions about these Terms and Conditions, please contact me via the <a href="./contact.html" class="text-vibrant-blue font-bold hover:underline">Contact</a> page.</p>
+                <h2 class="text-xl lg:text-2xl font-semibold text-light-text mb-3 mt-6 border-l-4 border-vibrant-blue pl-3">8. Contact Information</h2>
+                <p class="ml-4 mb-4">For any questions regarding these Terms, please contact me via the <a href="./contact.html" class="text-vibrant-teal font-medium hover:underline hover:text-vibrant-blue">Contact</a> page.</p>
 
-                <p class="mt-8 italic text-sm">Last updated: October 27, 2023</p> <!-- Update the date -->
+                <p class="mt-8 italic text-sm text-neutral-gray">Last updated: April 10, 2025</p>
             </div>
         </div>
     </section>
 
-    <!-- Footer (same as before) -->
-    <footer class="bg-dark-base text-light-text py-8 mt-12"> <!-- Added margin-top -->
-        <div class="container mx-auto text-center">
-            <!-- Update year if needed -->
-            <p class="text-neutral-gray">© 2023-2025 Subhadra Bro. All rights reserved.</p>
-            <div class="mt-4 flex justify-center space-x-4">
-                <a href="https://www.youtube.com/channel/UCeDeaDD8dpdMT2gO3VHY1JQ" target="_blank" rel="noopener noreferrer"
-                    class="text-neutral-gray hover:text-vibrant-teal transition duration-300"><i class="fab fa-youtube text-xl"></i></a>
-                <a href="https://t.me/Subadra_Poshitha" target="_blank" rel="noopener noreferrer"
-                    class="text-neutral-gray hover:text-vibrant-teal transition duration-300"><i class="fab fa-telegram text-xl"></i></a>
-                <a href="mailto:subadraposhithapr@gmail.com"
-                    class="text-neutral-gray hover:text-vibrant-teal transition duration-300"><i class="fas fa-envelope text-xl"></i></a>
-                <a href="https://github.com/AiDarkEzio" target="_blank" rel="noopener noreferrer"
-                    class="text-neutral-gray hover:text-vibrant-teal transition duration-300"><i class="fab fa-github text-xl"></i></a>
-            </div>
-        </div>
-    </footer>
+    <!-- Footer -->
+     <footer class="bg-dark-nav text-medium-text py-8 border-t border-border-glass">
+         <div class="container mx-auto text-center px-4">
+             <p>© 2023-2025 Subhadra Bro. All rights reserved.</p>
+             <div class="mt-4 flex justify-center space-x-5">
+                 <a href="https://www.youtube.com/channel/UCeDeaDD8dpdMT2gO3VHY1JQ" target="_blank" rel="noopener noreferrer"
+                     class="text-neutral-gray hover:text-vibrant-teal transition duration-300 transform hover:scale-110"><i class="fab fa-youtube text-xl"></i></a>
+                 <a href="https://t.me/Subadra_Poshitha" target="_blank" rel="noopener noreferrer"
+                     class="text-neutral-gray hover:text-vibrant-teal transition duration-300 transform hover:scale-110"><i class="fab fa-telegram text-xl"></i></a>
+                 <a href="mailto:subadraposhithapr@gmail.com"
+                     class="text-neutral-gray hover:text-vibrant-teal transition duration-300 transform hover:scale-110"><i class="fas fa-envelope text-xl"></i></a>
+                 <a href="https://github.com/AiDarkEzio" target="_blank" rel="noopener noreferrer"
+                     class="text-neutral-gray hover:text-vibrant-teal transition duration-300 transform hover:scale-110"><i class="fab fa-github text-xl"></i></a>
+             </div>
+         </div>
+     </footer>
 
     <script>
-        // Mobile Menu Toggle Script
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const menuIcon = mobileMenuButton.querySelector('i'); // Get the icon element
+        // Mobile Menu Toggle Script (Use the improved version from index.html)
+        const mobileMenuButtonTerms = document.getElementById('mobile-menu-button');
+        const mobileMenuTerms = document.getElementById('mobile-menu');
+        const menuIconTerms = mobileMenuButtonTerms.querySelector('i');
 
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            // Toggle burger/close icon (optional but nice UX)
-            if (mobileMenu.classList.contains('hidden')) {
-                menuIcon.classList.remove('fa-times'); // Change back to bars
-                menuIcon.classList.add('fa-bars');
+        mobileMenuButtonTerms.addEventListener('click', (event) => {
+            event.stopPropagation();
+            mobileMenuTerms.classList.toggle('hidden');
+            if (mobileMenuTerms.classList.contains('hidden')) {
+                menuIconTerms.classList.remove('fa-times'); menuIconTerms.classList.add('fa-bars');
             } else {
-                menuIcon.classList.remove('fa-bars');
-                menuIcon.classList.add('fa-times'); // Change to 'X'
+                menuIconTerms.classList.remove('fa-bars'); menuIconTerms.classList.add('fa-times');
             }
         });
-
-        // Close mobile menu if clicked outside (optional enhancement)
-        document.addEventListener('click', function(event) {
-          const isClickInsideNav = mobileMenuButton.contains(event.target) || mobileMenu.contains(event.target);
-          if (!isClickInsideNav && !mobileMenu.classList.contains('hidden')) {
-            mobileMenu.classList.add('hidden');
-            menuIcon.classList.remove('fa-times');
-            menuIcon.classList.add('fa-bars');
+         document.addEventListener('click', function(event) {
+          const isClickInsideNav = mobileMenuButtonTerms.contains(event.target) || mobileMenuTerms.contains(event.target);
+          if (!isClickInsideNav && !mobileMenuTerms.classList.contains('hidden')) {
+            mobileMenuTerms.classList.add('hidden');
+            menuIconTerms.classList.remove('fa-times'); menuIconTerms.classList.add('fa-bars');
           }
         });
     </script>
 </body>
-
 </html>
