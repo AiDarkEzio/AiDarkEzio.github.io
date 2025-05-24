@@ -1,6 +1,6 @@
 # 🚀 Coding Projects Portfolio
 
-This repository showcases a collection of coding projects, organized by skill level. Each project is a step forward in mastering programming and building a diverse portfolio. Use this roadmap to sharpen your skills across web development, logic building, APIs, UI/UX, and machine learning.
+This is a collection of coding projects, organized by skill level. Each project is a step forward in mastering programming and building a diverse portfolio. Use this roadmap to sharpen your skills across web development, logic building, APIs, UI/UX, and machine learning.
 
 ---
 
