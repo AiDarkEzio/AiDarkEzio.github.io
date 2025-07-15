@@ -1,35 +1,27 @@
-(function() { // Use an IIFE to avoid polluting global scope
+(function() {
     function getPageNameFromPath() {
       let path = window.location.pathname;
-  
-      // Remove leading slash if present
       if (path.startsWith('/')) {
         path = path.substring(1);
       }
-  
-      // Remove trailing slash if present
       if (path.endsWith('/')) {
         path = path.slice(0, -1);
       }
-  
-      // Remove .html extension if present (common for static sites)
       if (path.endsWith('.html')) {
-        path = path.slice(0, -5); // Remove last 5 characters (.html)
+        path = path.slice(0, -5);
       }
-  
-      // If path is now empty (e.g., just on the homepage / or index.html), use "home"
       if (!path) {
-        return 'aidarkezio-github-web-portfolio-home-page';
+        return 'git-portfolio-home-page';
       }
 
-      path = path.split('/').pop(); // Get the last part of the path
+      path = path.split('/').pop();
   
-      return `aidarkezio-github-web-portfolio-${path}-page`;
+      return `git-portfolio-${path}-page`;
     }
   
     document.addEventListener('DOMContentLoaded', function() {
       const pageName = getPageNameFromPath();
-      fetch(`https://aidarkezio.vercel.app/api/page-view?name=${pageName}`, { // Use dynamic pageName
+      fetch(`https://aidarkezio.vercel.app/api/page-view?name=${pageName}`, {
         method: 'GET',
         mode: 'cors'
       })
