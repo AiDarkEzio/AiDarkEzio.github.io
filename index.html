@@ -1,33 +1,33 @@
+<!-- index.html -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Subhadra Bro - Web Portfolio</title>
     <link rel="icon" href="./img/icon/favicon.ico" type="image/x-icon">
-    <script src="https://cdn.tailwindcss.com"></script> <!-- Include Tailwind CSS -->
-    <link rel="stylesheet" href="./css/style.css"> <!-- Main Styles -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./css/style.css">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'black-base': '#0d1117', // Very dark, GitHub-like dark base
-                        'dark-card': 'rgba(30, 41, 59, 0.6)', // Semi-transparent dark for cards
-                        'dark-nav': 'rgba(13, 17, 23, 0.8)', // Darker, more opaque for nav/footer bg
-                        'border-glass': 'rgba(255, 255, 255, 0.1)', // Subtle border for glassy elements
+                        'black-base': '#0d1117',
+                        'dark-card': 'rgba(30, 41, 59, 0.6)',
+                        'dark-nav': 'rgba(13, 17, 23, 0.8)',
+                        'border-glass': 'rgba(255, 255, 255, 0.1)',
                         'vibrant-teal': '#2dd4bf',
                         'vibrant-blue': '#6366f1',
-                        'light-text': '#e6edf3', // Slightly off-white for better readability
-                        'medium-text': '#bdc1c6', // For secondary text
-                        'neutral-gray': '#7d8590', // For less important text/icons
-                        'transparent-red-subtle': 'rgba(222, 77, 85, 0.1)', // Adjusted red tint
-                        'transparent-red-hint': 'rgba(222, 77, 85, 0.2)',   // Adjusted red tint
-                        'transparent-green-hint': 'rgba(63, 185, 80, 0.15)', // Adjusted green tint
+                        'light-text': '#e6edf3',
+                        'medium-text': '#bdc1c6',
+                        'neutral-gray': '#7d8590',
+                        'transparent-red-subtle': 'rgba(222, 77, 85, 0.1)',
+                        'transparent-red-hint': 'rgba(222, 77, 85, 0.2)',
+                        'transparent-green-hint': 'rgba(63, 185, 80, 0.15)',
                     },
                     fontFamily: {
-                        // Use Poppins as default sans-serif, Nunito as secondary option if needed
                         sans: ['Poppins', 'sans-serif'],
                         serif: ['Roboto Serif', 'serif'],
                         mono: ['Inconsolata', 'monospace'],
@@ -40,35 +40,28 @@
                         xl: '16px',
                     },
                     boxShadow: {
-                        'glass': '0 4px 30px rgba(0, 0, 0, 0.1)', // Subtle shadow for glass effect
-                         'glow-teal': '0 0 15px 2px rgba(45, 212, 191, 0.4)', // Subtle glow effect
-                         'glow-blue': '0 0 15px 2px rgba(99, 102, 241, 0.4)', // Subtle glow effect
+                        'glass': '0 4px 30px rgba(0, 0, 0, 0.1)',
+                        'glow-teal': '0 0 15px 2px rgba(45, 212, 191, 0.4)',
+                        'glow-blue': '0 0 15px 2px rgba(99, 102, 241, 0.4)',
                     }
                 },
             },
         }
     </script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="./css/toastr.min.css"> <!-- Toastr CSS -->
-    <script src="./js/jquery.min.js"></script> <!-- jQuery FIRST -->
-    <script src="./js/toastr.min.js"></script> <!-- Then Toastr JS -->
-    <script src="./js/pageView.js" defer></script> <!-- Page View Script -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css" integrity="sha512-ApSLB1Pd3/bZN8fWB/RG9YhN/7bd9Hkf3AGaE2mPfebjrxagjuBtx2GcgdqIlJkUzwylBo61r9Xa9NmgBI0swA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="./js/pageView.js" defer></script>
 </head>
 
-<body class="bg-black-base text-light-text font-sans">
+<body class="bg-black-base text-light-text font-sans antialiased min-h-screen flex flex-col justify-between">
 
     <!-- Navigation Bar -->
     <nav class="fixed top-0 left-0 right-0 z-50 bg-dark-nav backdrop-blur-lg border-b border-border-glass shadow-md transition-all duration-300 ease-in-out">
         <div class="container mx-auto flex justify-between items-center px-4 py-3">
-            <a href="./" class="text-light-text text-xl font-bold hover:text-vibrant-teal">Subhadra Bro</a>
+            <a href="./" class="text-light-text text-xl font-bold hover:text-vibrant-teal transition-colors">Subhadra Bro</a>
             <div class="hidden md:flex space-x-6 items-center">
                 <a href="./" class="text-vibrant-teal border-b-2 border-vibrant-teal pb-1 font-medium hover-effect">Home</a>
                 <a href="./pages/projects.html" class="text-medium-text hover:text-vibrant-teal pb-1 hover-effect">Projects</a>
-                <a href="./pages/services.html" class="text-medium-text hover:text-vibrant-teal pb-1 hover-effect">Services</a>
                 <a href="https://aidarkezio.netlify.app" class="text-medium-text hover:text-vibrant-teal pb-1 hover-effect">Blog</a>
-                <a href="./pages/terms.html" class="text-medium-text hover:text-vibrant-teal pb-1 hover-effect">Terms</a>
                 <a href="./pages/contact.html" class="text-medium-text hover:text-vibrant-teal pb-1 hover-effect">Contact</a>
             </div>
             <div class="md:hidden">
@@ -77,14 +70,12 @@
                 </button>
             </div>
         </div>
-        <!-- Mobile Menu (Hidden by default) -->
+        <!-- Mobile Menu -->
         <div class="md:hidden hidden absolute top-full left-0 right-0 bg-dark-nav backdrop-blur-lg border-b border-border-glass shadow-lg" id="mobile-menu">
              <div class="px-4 pt-2 pb-3 space-y-1">
                 <a href="./" class="block text-vibrant-teal bg-black-base/30 px-3 py-2 rounded-md text-base font-medium">Home</a>
                 <a href="./pages/projects.html" class="block text-medium-text hover:bg-black-base/30 hover:text-vibrant-teal px-3 py-2 rounded-md text-base font-medium">Projects</a>
-                <a href="./pages/services.html" class="block text-medium-text hover:bg-black-base/30 hover:text-vibrant-teal px-3 py-2 rounded-md text-base font-medium">Services</a>
                 <a href="https://aidarkezio.netlify.app" class="block text-medium-text hover:bg-black-base/30 hover:text-vibrant-teal px-3 py-2 rounded-md text-base font-medium">Blog</a>
-                <a href="./pages/terms.html" class="block text-medium-text hover:bg-black-base/30 hover:text-vibrant-teal px-3 py-2 rounded-md text-base font-medium">Terms</a>
                 <a href="./pages/contact.html" class="block text-medium-text hover:bg-black-base/30 hover:text-vibrant-teal px-3 py-2 rounded-md text-base font-medium">Contact</a>
             </div>
         </div>
@@ -93,99 +84,395 @@
     <!-- Spacer for fixed navbar -->
     <div class="pt-16"></div>
 
-    <!-- Hero Section -->
-    <header class="bg-gradient-to-br from-black-base via-slate-900 to-black-base text-light-text py-20 md:py-32 min-h-[60vh] flex items-center justify-center">
-        <div class="container mx-auto text-center px-4">
-            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 fade-in-element">Welcome to My Web Portfolio</h1>
-            <p class="text-lg md:text-xl mb-8 text-medium-text max-w-3xl mx-auto fade-in-element delay-1">Showcasing my projects and services in web development and more.</p>
-            <a href="./pages/projects.html"
-                class="inline-block bg-vibrant-teal text-black-base font-bold py-3 px-8 rounded-full hover:bg-vibrant-blue hover:text-light-text hover:shadow-glow-teal transform hover:scale-105 transition-all duration-300 fade-in-element delay-2">
-                View My Projects
-            </a>
-        </div>
-    </header>
+    <!-- Seamless Gradient Wrapper for Main Content -->
+    <div class="bg-gradient-to-br from-black-base via-slate-900 to-black-base flex-grow">
 
-    <!-- About Me Section -->
-    <section class="py-16 md:py-24 bg-black-base">
-        <div class="container mx-auto text-center px-4">
-            <h2 class="text-3xl md:text-4xl font-bold mb-8 text-light-text">About Me</h2>
-            <img src="./img/user.jpg" alt="Subhadra Poshitha"
-                class="rounded-full w-32 h-32 md:w-40 md:h-40 mx-auto mb-6 border-4 border-vibrant-teal shadow-lg fade-in-element">
-            <p class="text-medium-text text-lg leading-relaxed max-w-3xl mx-auto fade-in-element delay-1">
-                Hello, I'm Subhadra Poshitha, a passionate individual interested in web development, open-source contribution,
-                and exploring the digital world. This website is a space to showcase my projects, offer my services, and
-                connect with people who share similar interests. I'm always learning and striving to improve my skills.
-                Feel free to explore my work and get in touch!
-            </p>
-        </div>
-    </section>
-
-    <!-- Featured Projects/Services Section -->
-    <section class="bg-gradient-to-br from-black-base via-slate-900 to-black-base py-16 md:py-24">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-light-text">Featured Projects & Services</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-                <!-- Card 1: Open Source -->
-                 <div class="glass-card glass-card-hover p-0 overflow-hidden flex flex-col hover-effect">
-                    <img class="w-full h-48 object-cover" src="./img/oss-contribution.png" alt="Open Source Contribution">
-                    <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="font-bold text-xl mb-2 text-light-text">Open Source Help</h3>
-                        <p class="text-medium-text mb-4 flex-grow">Contribute to open source? I offer free help for tasks to build my portfolio.</p>
-                        <div class="mt-auto pt-4">
-                            <a href="./pages/services/contribute.html"
-                                class="inline-block bg-vibrant-teal text-black-base py-2 px-4 rounded-full hover:bg-vibrant-blue hover:text-light-text font-medium transform hover:scale-105">Learn More</a>
-                        </div>
-                    </div>
+        <!-- Hero Section -->
+        <section class="min-h-[85vh] flex flex-col justify-between items-center text-center px-4 py-12 md:py-20 relative">
+            
+            <div class="max-w-4xl mx-auto my-auto pt-6">
+                <!-- Status Badges -->
+                <div class="inline-flex flex-wrap items-center justify-center gap-2 mb-6">
+                    <span class="inline-flex items-center text-xs font-medium px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 ">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 mr-2 animate-pulse"></span>
+                        BSc Honours in Information Systems Student
+                    </span>
+                    <span class="inline-flex items-center text-xs font-medium px-3 py-1 rounded-full bg-vibrant-blue/10 text-vibrant-blue ">
+                        <i class="fas fa-hammer text-[10px] mr-1.5"></i>Building AI Tools
+                    </span>
                 </div>
 
+                <!-- Main Identity Heading -->
+                <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-light-text tracking-tight">
+                    Hi, I'm <span class="text-vibrant-teal">Subhadra</span>
+                </h1>
 
-                <!-- Card 2: Projects -->
-                <div class="glass-card glass-card-hover p-0 overflow-hidden flex flex-col hover-effect">
-                    <img class="w-full h-48 object-cover" src="./img/proj.png" alt="My Projects">
-                     <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="font-bold text-xl mb-2 text-light-text">Projects</h3>
-                        <p class="text-medium-text mb-4 flex-grow">Explore the various web applications and tools I've built or contributed to.</p>
-                         <div class="mt-auto pt-4">
-                            <a href="./pages/projects.html"
-                                class="inline-block bg-vibrant-teal text-black-base py-2 px-4 rounded-full hover:bg-vibrant-blue hover:text-light-text font-medium transform hover:scale-105">View Projects</a>
-                        </div>
-                    </div>
+                <!-- Core Pitch Statement -->
+                <p class="text-lg sm:text-xl md:text-2xl text-medium-text max-w-2xl mx-auto leading-relaxed mb-8">
+                    Student developer building intelligent AI tools and data-driven applications.
+                </p>
+
+                <!-- Current Focus Tags -->
+                <div class="flex flex-wrap justify-center items-center gap-2 mb-10 text-xs sm:text-sm font-mono text-neutral-gray">
+                    <span class="px-3 py-1 rounded-md bg-black-base/50 border border-border-glass"><i class="fas fa-robot text-vibrant-teal mr-1.5"></i>AI</span>
+                    <span>•</span>
+                    <span class="px-3 py-1 rounded-md bg-black-base/50 border border-border-glass"><i class="fas fa-code text-vibrant-blue mr-1.5"></i>Full-stack Development</span>
+                    <span>•</span>
+                    <span class="px-3 py-1 rounded-md bg-black-base/50 border border-border-glass"><i class="fas fa-chart-line text-vibrant-teal mr-1.5"></i>Data Analytics</span>
                 </div>
 
-                <!-- Card 3: Web Dev/Design (Example) -->
-                <div class="glass-card glass-card-hover p-0 overflow-hidden flex flex-col hover-effect">
-                    <img class="w-full h-48 object-cover" src="./img/web.jpg" alt="Web Development">
-                     <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="font-bold text-xl mb-2 text-light-text">Web Development</h3>
-                        <p class="text-medium-text mb-4 flex-grow">Modern, responsive websites tailored to specific needs (Service currently limited).</p>
-                         <div class="mt-auto pt-4">
-                            <a href="./pages/services.html"
-                                class="inline-block bg-vibrant-teal text-black-base py-2 px-4 rounded-full hover:bg-vibrant-blue hover:text-light-text font-medium transform hover:scale-105">Explore Services</a>
+                <!-- Call to Action Buttons -->
+                <div class="flex flex-wrap justify-center items-center gap-4">
+                    <a href="./pages/projects.html"
+                        class="bg-vibrant-teal text-black-base font-bold py-3 px-8 rounded-full hover:bg-vibrant-blue hover:text-light-text hover:shadow-glow-teal transform hover:scale-105 transition-all duration-300">
+                        <i class="fas fa-cubes mr-2"></i>View Projects
+                    </a>
+                    <a href="./pages/contact.html"
+                        class="border border-border-glass bg-black-base/40 text-light-text font-semibold py-3 px-8 rounded-full hover:border-vibrant-teal hover:text-vibrant-teal transform hover:scale-105 transition-all duration-300">
+                        <i class="fas fa-paper-plane mr-2"></i>Contact Me
+                    </a>
+                </div>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <div class="mt-10 pt-4">
+                <a href="#intro" class="inline-flex flex-col items-center text-neutral-gray hover:text-vibrant-teal transition-colors duration-300 group">
+                    <span class="text-sm md:text-base font-mono font-medium mb-2 group-hover:text-vibrant-teal">Explore More</span>
+                    <i class="fas fa-chevron-down text-lg md:text-xl animate-bounce text-vibrant-teal"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- Quick Introduction Section -->
+        <section id="intro" class="py-10 md:py-14">
+            <div class="container mx-auto px-4 max-w-5xl">
+                <div class="glass-card p-8 md:p-12 rounded-2xl border border-border-glass">
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                        
+                        <!-- Avatar Column -->
+                        <div class="md:col-span-4 text-center">
+                            <img src="./img/SP-Logo-For-Zoom-1K.png" alt="Subhadra Poshitha"
+                                class="rounded-full w-36 h-36 md:w-44 md:h-44 mx-auto border-2 border-vibrant-teal shadow-glow-teal object-cover mb-4">
+                            <h3 class="text-xl font-bold text-light-text">Subhadra Poshitha</h3>
+                            <p class="text-sm text-vibrant-teal font-mono">@AiDarkEzio</p>
+                        </div>
+
+                        <!-- Content Column -->
+                        <div class="md:col-span-8 text-left space-y-4">
+                            <h2 class="text-2xl md:text-3xl font-bold text-light-text">Building Useful Software & Systems</h2>
+                            <p class="text-medium-text leading-relaxed text-sm md:text-base">
+                                I'm a computing student passionate about solving practical problems through clean code, intelligent automation, and data analytics. I enjoy turning complex ideas into functional, real-world applications.
+                            </p>
+                            
+                            <!-- Interest Highlights -->
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                                <div class="flex items-center space-x-2 text-xs md:text-sm text-light-text">
+                                    <i class="fas fa-check-circle text-vibrant-teal"></i>
+                                    <span>Artificial Intelligence Tools</span>
+                                </div>
+                                <div class="flex items-center space-x-2 text-xs md:text-sm text-light-text">
+                                    <i class="fas fa-check-circle text-vibrant-teal"></i>
+                                    <span>Full-stack Web Applications</span>
+                                </div>
+                                <div class="flex items-center space-x-2 text-xs md:text-sm text-light-text">
+                                    <i class="fas fa-check-circle text-vibrant-teal"></i>
+                                    <span>Data Analytics & Insights</span>
+                                </div>
+                                <div class="flex items-center space-x-2 text-xs md:text-sm text-light-text">
+                                    <i class="fas fa-check-circle text-vibrant-teal"></i>
+                                    <span>Workflow & Script Automation</span>
+                                </div>
+                            </div>
+
+                            <div class="pt-4">
+                                <a href="./pages/contact.html" class="inline-flex items-center text-sm font-semibold text-vibrant-teal hover:text-vibrant-blue transition-colors">
+                                    Connect Across Platforms <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Projects Section -->
+        <section class="py-10 md:py-14">
+            <div class="container mx-auto px-4 max-w-6xl">
+                
+                <!-- Section Header -->
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-light-text mb-3">Featured Projects</h2>
+                    <p class="text-medium-text text-sm md:text-base max-w-xl mx-auto">
+                        A curated selection of software, AI tools, and applications I've developed.
+                    </p>
+                </div>
+
+                <!-- Projects Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                    <!-- Project 1: Interactive Learning Hub -->
+                    <div class="glass-card p-6 rounded-xl border border-border-glass hover:border-vibrant-teal transition-all duration-300 flex flex-col justify-between group">
+                        <div>
+                            <div class="flex items-center justify-between mb-3">
+                                <h3 class="font-bold text-xl text-light-text group-hover:text-vibrant-teal transition-colors">Learning Hub</h3>
+                                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-400">Active</span>
+                            </div>
+                            <p class="text-medium-text text-xs md:text-sm leading-relaxed mb-4">
+                                Interactive web pages that visually explain complex topics from my blog and learning journey.
+                            </p>
+                            <!-- Tech Stack Pills -->
+                            <div class="flex flex-wrap gap-1.5 mb-6">
+                                <span class="text-[10px] font-mono bg-black-base/60 text-neutral-gray border border-border-glass px-2 py-0.5 rounded">HTML</span>
+                                <span class="text-[10px] font-mono bg-black-base/60 text-neutral-gray border border-border-glass px-2 py-0.5 rounded">CSS</span>
+                                <span class="text-[10px] font-mono bg-black-base/60 text-neutral-gray border border-border-glass px-2 py-0.5 rounded">JavaScripts</span>
+                            </div>
+                        </div>
+
+                        <!-- Card Actions -->
+                        <div class="pt-4 border-t border-border-glass flex items-center justify-between">
+                            <a href="https://github.com/AiDarkEzio/interactive-learning-hub" target="_blank" rel="noopener noreferrer" class="text-xs font-medium text-neutral-gray hover:text-vibrant-teal flex items-center">
+                                <i class="fab fa-github mr-1.5"></i>GitHub
+                            </a>
+                            <a href="https://aidarkezio.github.io/interactive-learning-hub" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-vibrant-teal hover:underline flex items-center">
+                                Live Demo <i class="fas fa-external-link-alt ml-1 text-[10px]"></i>
+                            </a>
                         </div>
                     </div>
+
+                    <!-- Project: Iris Studio
+                    AI-powered image processing and enhancement suite designed for creative image manipulation and media pipelines. -->
+
+                    <!-- Project 2: WhatsBot-V2 -->
+                    <div class="glass-card p-6 rounded-xl border border-border-glass hover:border-vibrant-teal transition-all duration-300 flex flex-col justify-between group">
+                        <div>
+                            <div class="flex items-center justify-between mb-3">
+                                <h3 class="font-bold text-xl text-light-text group-hover:text-vibrant-teal transition-colors">WhatsBot V2</h3>
+                                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-gray-500/15 text-gray-400">Archived</span>
+                            </div>
+                            <p class="text-medium-text text-xs md:text-sm leading-relaxed mb-4">
+                                WhatsApp Bot Using Lib Baileys Multi Device Public - Makes it easy and fun to use WhatsApp. Also user bot for WhatsApp.
+                            </p>
+                            <!-- Tech Stack Pills -->
+                            <div class="flex flex-wrap gap-1.5 mb-6">
+                                <span class="text-[10px] font-mono bg-black-base/60 text-neutral-gray border border-border-glass px-2 py-0.5 rounded">NodeJs</span>
+                                <span class="text-[10px] font-mono bg-black-base/60 text-neutral-gray border border-border-glass px-2 py-0.5 rounded">MongoDB</span>
+                                <span class="text-[10px] font-mono bg-black-base/60 text-neutral-gray border border-border-glass px-2 py-0.5 rounded">Python</span>
+                                <span class="text-[10px] font-mono bg-black-base/60 text-neutral-gray border border-border-glass px-2 py-0.5 rounded">Heroku</span>
+                            </div>
+                        </div>
+
+                        <!-- Card Actions -->
+                        <div class="pt-4 border-t border-border-glass flex items-center justify-between">
+                            <a href="https://github.com/AiDarkEzio/WhatsBot-V2" target="_blank" rel="noopener noreferrer" class="text-xs font-medium text-neutral-gray hover:text-vibrant-teal flex items-center">
+                                <i class="fab fa-github mr-1.5"></i>GitHub
+                            </a>
+                            <!-- <a href="https://github.com/AiDarkEzio" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-vibrant-teal hover:underline flex items-center">
+                                Live Demo <i class="fas fa-external-link-alt ml-1 text-[10px]"></i>
+                            </a> -->
+                            <!-- <a href="https://github.com/AiDarkEzio" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-vibrant-teal hover:underline flex items-center">
+                                Case Study <i class="fas fa-arrow-right ml-1 text-[10px]"></i>
+                            </a> -->
+                        </div>
+                    </div>
+
+                    <!-- Project 3: AURA AI -->
+                    <div class="glass-card p-6 rounded-xl border border-border-glass hover:border-vibrant-teal transition-all duration-300 flex flex-col justify-between group">
+                        <div>
+                            <div class="flex items-center justify-between mb-3">
+                                <h3 class="font-bold text-xl text-light-text group-hover:text-vibrant-teal transition-colors">AURA AI</h3>
+                                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-amber-500/15 text-amber-300">Prototype</span>
+                            </div>
+                            <p class="text-medium-text text-xs md:text-sm leading-relaxed mb-4">
+                                Personal AI assistant built for contextual productivity, automated task orchestration, and intelligent workflows.
+                            </p>
+                            <!-- Tech Stack Pills -->
+                            <div class="flex flex-wrap gap-1.5 mb-6">
+                                <span class="text-[10px] font-mono bg-black-base/60 text-neutral-gray border border-border-glass px-2 py-0.5 rounded">Next.js</span>
+                                <span class="text-[10px] font-mono bg-black-base/60 text-neutral-gray border border-border-glass px-2 py-0.5 rounded">Prisma</span>
+                                <span class="text-[10px] font-mono bg-black-base/60 text-neutral-gray border border-border-glass px-2 py-0.5 rounded">PostgreSQL</span>
+                                <span class="text-[10px] font-mono bg-black-base/60 text-neutral-gray border border-border-glass px-2 py-0.5 rounded">TypeScript</span>
+                            </div>
+                        </div>
+
+                        <!-- Card Actions -->
+                        <div class="pt-4 border-t border-border-glass flex items-center justify-between">
+                            <a href="https://github.com/AiDarkEzio/aura-ai-companion" target="_blank" rel="noopener noreferrer" class="text-xs font-medium text-neutral-gray hover:text-vibrant-teal flex items-center">
+                                <i class="fab fa-github mr-1.5"></i>GitHub
+                            </a>
+                            <!-- <a href="https://github.com/AiDarkEzio" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-vibrant-teal hover:underline flex items-center">
+                                Live Demo <i class="fas fa-external-link-alt ml-1 text-[10px]"></i>
+                            </a> -->
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Section Footer Link -->
+                <div class="text-center mt-10">
+                    <a href="./pages/projects.html"
+                        class="inline-flex items-center text-sm font-bold text-vibrant-teal hover:text-vibrant-blue transition-colors">
+                        Explore All Repositories on Projects Page <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                    </a>
                 </div>
 
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Call to Action Section -->
-    <section class="bg-black-base text-light-text py-16 md:py-24">
-        <div class="container mx-auto text-center px-4">
-            <h2 class="text-3xl md:text-4xl font-bold mb-8">Ready to work together?</h2>
-            <p class="text-xl mb-8 text-medium-text">Let's discuss your project or how I can help you.</p>
-            <a href="./pages/contact.html"
-                class="inline-block bg-vibrant-blue text-light-text font-bold py-3 px-8 rounded-full hover:bg-vibrant-teal hover:text-black-base hover:shadow-glow-blue transform hover:scale-105 transition-all duration-300">
-                Contact Me Now
-            </a>
-        </div>
-    </section>
+        <!-- Technical Skills Overview Section -->
+        <section class="py-10 md:py-14">
+            <div class="container mx-auto px-4 max-w-5xl">
+                
+                <!-- Section Header -->
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-light-text mb-3">Technical Skills</h2>
+                    <p class="text-medium-text text-sm md:text-base max-w-md mx-auto">
+                        Technologies and tools I use to build applications and analyze data.
+                    </p>
+                </div>
+
+                <!-- Skills Grid (2x2) -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                    <!-- Skill Category 1: Frontend -->
+                    <div class="glass-card p-6 rounded-xl border border-border-glass">
+                        <div class="flex items-center space-x-3 mb-4">
+                            <div class="w-8 h-8 rounded-lg bg-vibrant-teal/10 text-vibrant-teal flex items-center justify-center">
+                                <i class="fas fa-desktop text-sm"></i>
+                            </div>
+                            <h3 class="font-bold text-lg text-light-text">Frontend</h3>
+                        </div>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="flex items-center space-x-2.5 p-2 rounded-lg bg-black-base/40 border border-border-glass/20">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" class="w-5 h-5">
+                                <span class="text-xs font-medium text-light-text">TypeScript</span>
+                            </div>
+                            <div class="flex items-center space-x-2.5 p-2 rounded-lg bg-black-base/40 border border-border-glass/20">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" class="w-5 h-5">
+                                <span class="text-xs font-medium text-light-text">React</span>
+                            </div>
+                            <div class="flex items-center space-x-2.5 p-2 rounded-lg bg-black-base/40 border border-border-glass/20">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next.js" class="w-5 h-5 invert">
+                                <span class="text-xs font-medium text-light-text">Next.js</span>
+                            </div>
+                            <div class="flex items-center space-x-2.5 p-2 rounded-lg bg-black-base/40 border border-border-glass/20">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind CSS" class="w-5 h-5">
+                                <span class="text-xs font-medium text-light-text">Tailwind CSS</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skill Category 2: Backend -->
+                    <div class="glass-card p-6 rounded-xl border border-border-glass">
+                        <div class="flex items-center space-x-3 mb-4">
+                            <div class="w-8 h-8 rounded-lg bg-vibrant-blue/10 text-vibrant-blue flex items-center justify-center">
+                                <i class="fas fa-server text-sm"></i>
+                            </div>
+                            <h3 class="font-bold text-lg text-light-text">Backend</h3>
+                        </div>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="flex items-center space-x-2.5 p-2 rounded-lg bg-black-base/40 border border-border-glass/20">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" class="w-5 h-5">
+                                <span class="text-xs font-medium text-light-text">Node.js</span>
+                            </div>
+                            <div class="flex items-center space-x-2.5 p-2 rounded-lg bg-black-base/40 border border-border-glass/20">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="w-5 h-5">
+                                <span class="text-xs font-medium text-light-text">Python</span>
+                            </div>
+                            <div class="flex items-center space-x-2.5 p-2 rounded-lg bg-black-base/40 border border-border-glass/20">
+                                <i class="fas fa-network-wired text-vibrant-teal text-base w-5 text-center"></i>
+                                <span class="text-xs font-medium text-light-text">API Design</span>
+                            </div>
+                            <div class="flex items-center space-x-2.5 p-2 rounded-lg bg-black-base/40 border border-border-glass/20">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prisma/prisma-original.svg" alt="Prisma" class="w-5 h-5 invert">
+                                <span class="text-xs font-medium text-light-text">Prisma ORM</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skill Category 3: Database & Cloud -->
+                    <div class="glass-card p-6 rounded-xl border border-border-glass">
+                        <div class="flex items-center space-x-3 mb-4">
+                            <div class="w-8 h-8 rounded-lg bg-vibrant-teal/10 text-vibrant-teal flex items-center justify-center">
+                                <i class="fas fa-database text-sm"></i>
+                            </div>
+                            <h3 class="font-bold text-lg text-light-text">Database & Cloud</h3>
+                        </div>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="flex items-center space-x-2.5 p-2 rounded-lg bg-black-base/40 border border-border-glass/20">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" class="w-5 h-5">
+                                <span class="text-xs font-medium text-light-text">PostgreSQL</span>
+                            </div>
+                            <div class="flex items-center space-x-2.5 p-2 rounded-lg bg-black-base/40 border border-border-glass/20">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg" alt="SQLite" class="w-5 h-5">
+                                <span class="text-xs font-medium text-light-text">SQLite</span>
+                            </div>
+                            <div class="flex items-center space-x-2.5 p-2 rounded-lg bg-black-base/40 border border-border-glass/20">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" class="w-5 h-5">
+                                <span class="text-xs font-medium text-light-text">Docker</span>
+                            </div>
+                            <div class="flex items-center space-x-2.5 p-2 rounded-lg bg-black-base/40 border border-border-glass/20">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" class="w-5 h-5">
+                                <span class="text-xs font-medium text-light-text">Git & GitHub</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skill Category 4: AI & Analytics -->
+                    <div class="glass-card p-6 rounded-xl border border-border-glass">
+                        <div class="flex items-center space-x-3 mb-4">
+                            <div class="w-8 h-8 rounded-lg bg-vibrant-blue/10 text-vibrant-blue flex items-center justify-center">
+                                <i class="fas fa-brain text-sm"></i>
+                            </div>
+                            <h3 class="font-bold text-lg text-light-text">AI & Data Analytics</h3>
+                        </div>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="flex items-center space-x-2.5 p-2 rounded-lg bg-black-base/40 border border-border-glass/20">
+                                <i class="fas fa-robot text-vibrant-teal text-base w-5 text-center"></i>
+                                <span class="text-xs font-medium text-light-text">LLMs & Tools</span>
+                            </div>
+                            <div class="flex items-center space-x-2.5 p-2 rounded-lg bg-black-base/40 border border-border-glass/20">
+                                <i class="fas fa-terminal text-vibrant-blue text-base w-5 text-center"></i>
+                                <span class="text-xs font-medium text-light-text">Prompt Eng.</span>
+                            </div>
+                            <div class="flex items-center space-x-2.5 p-2 rounded-lg bg-black-base/40 border border-border-glass/20">
+                                <i class="fas fa-cogs text-vibrant-teal text-base w-5 text-center"></i>
+                                <span class="text-xs font-medium text-light-text">AI Automation</span>
+                            </div>
+                            <div class="flex items-center space-x-2.5 p-2 rounded-lg bg-black-base/40 border border-border-glass/20">
+                                <i class="fas fa-chart-pie text-vibrant-blue text-base w-5 text-center"></i>
+                                <span class="text-xs font-medium text-light-text">Data Insights</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Call to Action Section -->
+        <section class="py-10 md:py-12">
+            <div class="container mx-auto px-4 text-center max-w-3xl">
+                <div class="p-8 md:p-12 rounded-2xl">
+                    <h2 class="text-2xl md:text-3xl font-bold text-light-text mb-4">Interested in Collaborating?</h2>
+                    <p class="text-medium-text text-sm md:text-base mb-8">
+                        Whether you want to connect regarding software development, AI tools, or open-source projects, feel free to reach out.
+                    </p>
+                    <a href="./pages/contact.html"
+                        class="inline-block bg-vibrant-blue text-light-text font-bold py-3 px-8 rounded-full hover:bg-vibrant-teal hover:text-black-base hover:shadow-glow-blue transform hover:scale-105 transition-all duration-300">
+                        Connect with Me
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </div>
 
     <!-- Footer -->
     <footer class="bg-dark-nav text-medium-text py-8 border-t border-border-glass">
         <div class="container mx-auto text-center px-4">
-            <p>© 2023-2025 Subhadra Bro. All rights reserved.</p>
+            <p>© 2023-2026 Subhadra Bro. All rights reserved.</p>
             <div class="mt-4 flex justify-center space-x-5">
                 <a href="https://www.youtube.com/channel/UCeDeaDD8dpdMT2gO3VHY1JQ" target="_blank" rel="noopener noreferrer"
                     class="text-neutral-gray hover:text-vibrant-teal transition duration-300 transform hover:scale-110"><i class="fab fa-youtube text-xl"></i></a>
@@ -199,16 +486,15 @@
         </div>
     </footer>
 
+    <!-- Mobile Menu Script -->
     <script>
-        // Mobile Menu Toggle Script
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
-        const menuIcon = mobileMenuButton.querySelector('i'); // Font Awesome icon
+        const menuIcon = mobileMenuButton.querySelector('i');
 
         mobileMenuButton.addEventListener('click', (event) => {
-            event.stopPropagation(); // Prevent click from closing menu immediately
+            event.stopPropagation();
             mobileMenu.classList.toggle('hidden');
-            // Toggle Icon
             if (mobileMenu.classList.contains('hidden')) {
                 menuIcon.classList.remove('fa-times');
                 menuIcon.classList.add('fa-bars');
@@ -218,8 +504,7 @@
             }
         });
 
-        // Close mobile menu if clicked outside
-         document.addEventListener('click', function(event) {
+        document.addEventListener('click', function(event) {
           const isClickInsideNav = mobileMenuButton.contains(event.target) || mobileMenu.contains(event.target);
           if (!isClickInsideNav && !mobileMenu.classList.contains('hidden')) {
             mobileMenu.classList.add('hidden');

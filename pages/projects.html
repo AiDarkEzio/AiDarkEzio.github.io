@@ -13,21 +13,20 @@
             theme: {
                 extend: {
                     colors: {
-                        'black-base': '#0d1117', // Very dark, GitHub-like dark base
-                        'dark-card': 'rgba(30, 41, 59, 0.6)', // Semi-transparent dark for cards
-                        'dark-nav': 'rgba(13, 17, 23, 0.8)', // Darker, more opaque for nav/footer bg
-                        'border-glass': 'rgba(255, 255, 255, 0.1)', // Subtle border for glassy elements
+                        'black-base': '#0d1117',
+                        'dark-card': 'rgba(30, 41, 59, 0.6)',
+                        'dark-nav': 'rgba(13, 17, 23, 0.8)',
+                        'border-glass': 'rgba(255, 255, 255, 0.1)',
                         'vibrant-teal': '#2dd4bf',
                         'vibrant-blue': '#6366f1',
-                        'light-text': '#e6edf3', // Slightly off-white for better readability
-                        'medium-text': '#bdc1c6', // For secondary text
-                        'neutral-gray': '#7d8590', // For less important text/icons
-                        'transparent-red-subtle': 'rgba(222, 77, 85, 0.1)', // Adjusted red tint
-                        'transparent-red-hint': 'rgba(222, 77, 85, 0.2)',   // Adjusted red tint
-                        'transparent-green-hint': 'rgba(63, 185, 80, 0.15)', // Adjusted green tint
+                        'light-text': '#e6edf3',
+                        'medium-text': '#bdc1c6',
+                        'neutral-gray': '#7d8590',
+                        'transparent-red-subtle': 'rgba(222, 77, 85, 0.1)',
+                        'transparent-red-hint': 'rgba(222, 77, 85, 0.2)',
+                        'transparent-green-hint': 'rgba(63, 185, 80, 0.15)',
                     },
                     fontFamily: {
-                        // Use Poppins as default sans-serif, Nunito as secondary option if needed
                         sans: ['Poppins', 'sans-serif'],
                         serif: ['Roboto Serif', 'serif'],
                         mono: ['Inconsolata', 'monospace'],
@@ -40,32 +39,28 @@
                         xl: '16px',
                     },
                     boxShadow: {
-                        'glass': '0 4px 30px rgba(0, 0, 0, 0.1)', // Subtle shadow for glass effect
-                         'glow-teal': '0 0 15px 2px rgba(45, 212, 191, 0.4)', // Subtle glow effect
-                         'glow-blue': '0 0 15px 2px rgba(99, 102, 241, 0.4)', // Subtle glow effect
+                        'glass': '0 4px 30px rgba(0, 0, 0, 0.1)',
+                        'glow-teal': '0 0 15px 2px rgba(45, 212, 191, 0.4)',
+                        'glow-blue': '0 0 15px 2px rgba(99, 102, 241, 0.4)',
                     }
                 },
             },
         }
     </script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css" integrity="sha512-ApSLB1Pd3/bZN8fWB/RG9YhN/7bd9Hkf3AGaE2mPfebjrxagjuBtx2GcgdqIlJkUzwylBo61r9Xa9NmgBI0swA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="../js/pageView.js" defer></script>
 </head>
 
 <body class="bg-black-base text-light-text font-sans">
 
     <!-- Navigation Bar -->
-     <nav class="fixed top-0 left-0 right-0 z-50 bg-dark-nav backdrop-blur-lg border-b border-border-glass shadow-md transition-all duration-300 ease-in-out">
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-dark-nav backdrop-blur-lg border-b border-border-glass shadow-md transition-all duration-300 ease-in-out">
         <div class="container mx-auto flex justify-between items-center px-4 py-3">
             <a href="../" class="text-light-text text-xl font-bold hover:text-vibrant-teal">Subhadra Bro</a>
             <div class="hidden md:flex space-x-6 items-center">
                 <a href="../" class="text-medium-text hover:text-vibrant-teal pb-1 hover-effect">Home</a>
                 <a href="./projects.html" class="text-vibrant-teal border-b-2 border-vibrant-teal pb-1 font-medium hover-effect">Projects</a>
-                <a href="./services.html" class="text-medium-text hover:text-vibrant-teal pb-1 hover-effect">Services</a>
                 <a href="https://aidarkezio.netlify.app" class="text-medium-text hover:text-vibrant-teal pb-1 hover-effect">Blog</a>
-                <a href="./terms.html" class="text-medium-text hover:text-vibrant-teal pb-1 hover-effect">Terms</a>
                 <a href="./contact.html" class="text-medium-text hover:text-vibrant-teal pb-1 hover-effect">Contact</a>
             </div>
             <div class="md:hidden">
@@ -75,13 +70,11 @@
             </div>
         </div>
         <!-- Mobile Menu -->
-         <div class="md:hidden hidden absolute top-full left-0 right-0 bg-dark-nav backdrop-blur-lg border-b border-border-glass shadow-lg" id="mobile-menu">
-             <div class="px-4 pt-2 pb-3 space-y-1">
+        <div class="md:hidden hidden absolute top-full left-0 right-0 bg-dark-nav backdrop-blur-lg border-b border-border-glass shadow-lg" id="mobile-menu">
+            <div class="px-4 pt-2 pb-3 space-y-1">
                 <a href="../" class="block text-medium-text hover:bg-black-base/30 hover:text-vibrant-teal px-3 py-2 rounded-md text-base font-medium">Home</a>
                 <a href="./projects.html" class="block text-vibrant-teal bg-black-base/30 px-3 py-2 rounded-md text-base font-medium">Projects</a>
-                <a href="./services.html" class="block text-medium-text hover:bg-black-base/30 hover:text-vibrant-teal px-3 py-2 rounded-md text-base font-medium">Services</a>
                 <a href="https://aidarkezio.netlify.app" class="block text-medium-text hover:bg-black-base/30 hover:text-vibrant-teal px-3 py-2 rounded-md text-base font-medium">Blog</a>
-                <a href="./terms.html" class="block text-medium-text hover:bg-black-base/30 hover:text-vibrant-teal px-3 py-2 rounded-md text-base font-medium">Terms</a>
                 <a href="./contact.html" class="block text-medium-text hover:bg-black-base/30 hover:text-vibrant-teal px-3 py-2 rounded-md text-base font-medium">Contact</a>
             </div>
         </div>
@@ -94,33 +87,37 @@
     <section class="py-16 md:py-24 bg-gradient-to-br from-black-base via-slate-900 to-black-base min-h-[80vh]">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-light-text">My Projects</h2>
-             <div class="flex flex-wrap -mx-4" id="projects-container">
-                 <div class="w-full text-center text-medium-text" id="loading-message">
-                     <i class="fas fa-spinner fa-spin mr-2"></i>Loading projects from GitHub...
-                 </div>
-             </div>
+            
+            <!-- Loading Indicator -->
+            <div class="w-full text-center text-medium-text text-lg py-12" id="loading-message">
+                <i class="fas fa-spinner fa-spin mr-2 text-vibrant-teal"></i>Loading projects from GitHub...
+            </div>
+
+            <!-- Responsive Masonry Container -->
+            <div class="columns-1 md:columns-2 lg:columns-3 gap-6 max-w-6xl mx-auto hidden" id="projects-container"></div>
         </div>
     </section>
 
     <!-- Footer -->
-     <footer class="bg-dark-nav text-medium-text py-8 border-t border-border-glass">
-         <div class="container mx-auto text-center px-4">
-             <p>© 2023-2025 Subhadra Bro. All rights reserved.</p>
-             <div class="mt-4 flex justify-center space-x-5">
-                 <a href="https://www.youtube.com/channel/UCeDeaDD8dpdMT2gO3VHY1JQ" target="_blank" rel="noopener noreferrer"
-                     class="text-neutral-gray hover:text-vibrant-teal transition duration-300 transform hover:scale-110"><i class="fab fa-youtube text-xl"></i></a>
-                 <a href="https://t.me/Subadra_Poshitha" target="_blank" rel="noopener noreferrer"
-                     class="text-neutral-gray hover:text-vibrant-teal transition duration-300 transform hover:scale-110"><i class="fab fa-telegram text-xl"></i></a>
-                 <a href="mailto:subadraposhithapr@gmail.com"
-                     class="text-neutral-gray hover:text-vibrant-teal transition duration-300 transform hover:scale-110"><i class="fas fa-envelope text-xl"></i></a>
-                 <a href="https://github.com/AiDarkEzio" target="_blank" rel="noopener noreferrer"
-                     class="text-neutral-gray hover:text-vibrant-teal transition duration-300 transform hover:scale-110"><i class="fab fa-github text-xl"></i></a>
-             </div>
-         </div>
-     </footer>
+    <footer class="bg-dark-nav text-medium-text py-8 border-t border-border-glass">
+        <div class="container mx-auto text-center px-4">
+            <p>© 2023-2026 Subhadra Bro. All rights reserved.</p>
+            <div class="mt-4 flex justify-center space-x-5">
+                <a href="https://www.youtube.com/channel/UCeDeaDD8dpdMT2gO3VHY1JQ" target="_blank" rel="noopener noreferrer"
+                    class="text-neutral-gray hover:text-vibrant-teal transition duration-300 transform hover:scale-110"><i class="fab fa-youtube text-xl"></i></a>
+                <a href="https://t.me/Subadra_Poshitha" target="_blank" rel="noopener noreferrer"
+                    class="text-neutral-gray hover:text-vibrant-teal transition duration-300 transform hover:scale-110"><i class="fab fa-telegram text-xl"></i></a>
+                <a href="mailto:subadraposhithapr@gmail.com"
+                    class="text-neutral-gray hover:text-vibrant-teal transition duration-300 transform hover:scale-110"><i class="fas fa-envelope text-xl"></i></a>
+                <a href="https://github.com/AiDarkEzio" target="_blank" rel="noopener noreferrer"
+                    class="text-neutral-gray hover:text-vibrant-teal transition duration-300 transform hover:scale-110"><i class="fab fa-github text-xl"></i></a>
+            </div>
+        </div>
+    </footer>
 
+    <!-- Scripts -->
     <script>
-        // Mobile Menu Toggle Script (Use the improved version from index.html)
+        // Mobile Menu Toggle Script
         const mobileMenuButtonProjects = document.getElementById('mobile-menu-button');
         const mobileMenuProjects = document.getElementById('mobile-menu');
         const menuIconProjects = mobileMenuButtonProjects.querySelector('i');
@@ -129,43 +126,145 @@
             event.stopPropagation();
             mobileMenuProjects.classList.toggle('hidden');
             if (mobileMenuProjects.classList.contains('hidden')) {
-                menuIconProjects.classList.remove('fa-times'); menuIconProjects.classList.add('fa-bars');
+                menuIconProjects.classList.remove('fa-times');
+                menuIconProjects.classList.add('fa-bars');
             } else {
-                menuIconProjects.classList.remove('fa-bars'); menuIconProjects.classList.add('fa-times');
+                menuIconProjects.classList.remove('fa-bars');
+                menuIconProjects.classList.add('fa-times');
             }
         });
-         document.addEventListener('click', function(event) {
-          const isClickInsideNav = mobileMenuButtonProjects.contains(event.target) || mobileMenuProjects.contains(event.target);
-          if (!isClickInsideNav && !mobileMenuProjects.classList.contains('hidden')) {
-            mobileMenuProjects.classList.add('hidden');
-            menuIconProjects.classList.remove('fa-times'); menuIconProjects.classList.add('fa-bars');
-          }
+
+        document.addEventListener('click', function(event) {
+            const isClickInsideNav = mobileMenuButtonProjects.contains(event.target) || mobileMenuProjects.contains(event.target);
+            if (!isClickInsideNav && !mobileMenuProjects.classList.contains('hidden')) {
+                mobileMenuProjects.classList.add('hidden');
+                menuIconProjects.classList.remove('fa-times');
+                menuIconProjects.classList.add('fa-bars');
+            }
         });
     </script>
 
     <script>
-        // GitHub username
-        const githubUsername = 'aidarkezio'; // Make sure this is correct
-        const maxColumns = 2; // Max columns (e.g., 3 for large screens)
-
+        const githubUsername = 'aidarkezio';
         const projectsContainer = document.getElementById('projects-container');
         const loadingMessage = document.getElementById('loading-message');
 
+        // Helper function to format relative date
+        function formatRelativeDate(dateString) {
+            if (!dateString) return '';
+            const date = new Date(dateString);
+            const now = new Date();
+            const diffInSeconds = Math.floor((now - date) / 1000);
+
+            if (diffInSeconds < 60) return 'Just now';
+            if (diffInSeconds < 3600) return `${Math.floor(diffInSeconds / 60)}m ago`;
+            if (diffInSeconds < 86400) return `${Math.floor(diffInSeconds / 3600)}h ago`;
+            if (diffInSeconds < 2592000) return `${Math.floor(diffInSeconds / 86400)}d ago`;
+            
+            return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+        }
+
+        // Helper function to render a single Masonry project card
+        function renderProjectCard(repo) {
+            const card = document.createElement('div');
+            // 'break-inside-avoid mb-6 inline-block w-full' ensures smooth Masonry column behavior
+            card.className = 'glass-card glass-card-hover p-6 flex flex-col justify-between hover-effect break-inside-avoid mb-6 inline-block w-full';
+
+            const topicsHtml = (repo.topics && repo.topics.length > 0)
+                ? `<div class="flex flex-wrap gap-1.5 pt-2">
+                    ${repo.topics.map(topic => `
+                        <span class="text-[11px] bg-black-base/60 text-neutral-gray border border-border-glass px-2 py-0.5 rounded-md">
+                            #${topic}
+                        </span>
+                    `).join('')}
+                   </div>`
+                : '';
+
+            const languageHtml = repo.language
+                ? `<div class="inline-flex items-center text-xs font-medium text-vibrant-teal bg-vibrant-teal/10 border border-vibrant-teal/20 px-2.5 py-1 rounded-md">
+                    <i class="fas fa-code text-[10px] mr-1.5"></i>${repo.language}
+                   </div>`
+                : '';
+
+            const archivedBadgeHtml = repo.archived
+                ? `<span class="text-xs font-medium bg-transparent-red-hint text-red-300 px-2 py-0.5 rounded-full border border-red-500/20 shrink-0">
+                    <i class="fas fa-box-archive text-[10px] mr-1"></i>Archived
+                   </span>`
+                : '';
+
+            const demoButtonHtml = (repo.homepage && repo.homepage.trim() !== '')
+                ? `<a href="${repo.homepage}" target="_blank" rel="noopener noreferrer"
+                      class="inline-flex items-center text-xs font-semibold px-3 py-1.5 rounded-full bg-vibrant-teal text-black-base hover:bg-vibrant-blue hover:text-light-text transition-all duration-300 shadow-sm">
+                    <i class="fas fa-external-link-alt mr-1.5"></i>Live Demo
+                   </a>`
+                : '';
+
+            card.innerHTML = `
+                <div>
+                    <!-- Card Top Header -->
+                    <div class="flex items-start justify-between mb-3 gap-2">
+                        <h3 class="font-bold text-xl text-light-text break-words">
+                            <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" class="hover:text-vibrant-teal transition-colors duration-200">
+                                ${repo.name}
+                            </a>
+                        </h3>
+                        ${archivedBadgeHtml}
+                    </div>
+
+                    <!-- Description -->
+                    <p class="text-medium-text text-sm leading-relaxed mb-4">
+                        ${repo.description || 'No description provided.'}
+                    </p>
+
+                    <!-- Language & Topics -->
+                    <div class="mb-4 space-y-2">
+                        ${languageHtml}
+                        ${topicsHtml}
+                    </div>
+                </div>
+
+                <!-- Card Footer & Actions -->
+                <div class="pt-4 border-t border-border-glass mt-2">
+                    <div class="flex items-center justify-between text-xs text-neutral-gray mb-4">
+                        <div class="flex items-center space-x-3">
+                            <span title="Stars" class="flex items-center">
+                                <i class="fas fa-star text-yellow-400/90 mr-1 text-[11px]"></i>${repo.stargazers_count || 0}
+                            </span>
+                            <span title="Forks" class="flex items-center">
+                                <i class="fas fa-code-branch text-neutral-gray mr-1 text-[11px]"></i>${repo.forks_count || 0}
+                            </span>
+                        </div>
+                        <div title="Last Updated" class="flex items-center">
+                            <i class="far fa-clock mr-1 text-[11px]"></i>${formatRelativeDate(repo.pushed_at || repo.updated_at)}
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-end space-x-2">
+                        ${demoButtonHtml}
+                        <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer"
+                           class="inline-flex items-center text-xs font-medium px-3 py-1.5 rounded-full border border-border-glass bg-black-base/50 text-light-text hover:border-vibrant-teal hover:text-vibrant-teal hover:bg-black-base transition-all duration-300">
+                            <i class="fab fa-github mr-1.5 text-sm"></i>Code
+                        </a>
+                    </div>
+                </div>
+            `;
+
+            return card;
+        }
+
         async function fetchGitHubProjects() {
             let allProjects = [];
-            let nextPageUrl = `https://api.github.com/users/${githubUsername}/repos?sort=updated&direction=desc&type=all&per_page=100`;
-
-            loadingMessage.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Loading projects from GitHub...'; // Update loading message
-            loadingMessage.style.display = 'block'; // Ensure it's visible
+            let nextPageUrl = `https://api.github.com/users/${githubUsername}/repos?sort=updated&direction=desc&per_page=100`;
 
             try {
                 while (nextPageUrl) {
                     const response = await fetch(nextPageUrl);
-                    if (!response.ok) throw new Error(`GitHub API error! Status: ${response.status}`);
+                    if (!response.ok) throw new Error(`GitHub API HTTP status ${response.status}`);
 
                     const projects = await response.json();
                     allProjects = allProjects.concat(projects);
 
+                    // Handle GitHub API Pagination Link header
                     const linkHeader = response.headers.get('Link');
                     nextPageUrl = null;
                     if (linkHeader) {
@@ -176,78 +275,35 @@
                             if (urlMatch) nextPageUrl = urlMatch[1];
                         }
                     }
-                    await new Promise(resolve => setTimeout(resolve, 100)); // Optional small delay
                 }
 
-                loadingMessage.style.display = 'none';
+                // Filter out forked repositories
+                const originalProjects = allProjects.filter(project => !project.fork);
 
-                if (allProjects.length === 0) {
-                    projectsContainer.innerHTML = '<p class="w-full text-medium-text text-center py-8">No public projects found on GitHub.</p>';
+                loadingMessage.style.display = 'none';
+                projectsContainer.classList.remove('hidden');
+
+                if (originalProjects.length === 0) {
+                    projectsContainer.className = "w-full text-center text-medium-text py-8";
+                    projectsContainer.innerHTML = '<p>No public projects found.</p>';
                     return;
                 }
 
-                projectsContainer.innerHTML = ''; // Clear loading/previous content
-
-                // Create column wrappers - distribute cards evenly
-                const columns = [];
-                for (let i = 0; i < maxColumns; i++) {
-                    const column = document.createElement('div');
-                    // Adjust column widths for responsiveness
-                    // Base: 1 column, sm: 1, md: 2, lg: 3
-                    column.className = `w-full 
-                    sm:w-full md:w-1/2 lg:w-1/${maxColumns} 
-                    px-4 mb-8 flex flex-col`; // Added flex-col and mb-8
-                    columns.push(column);
-                    projectsContainer.appendChild(column);
-                }
-
-                allProjects.forEach((project, index) => {
-                    // Create the card with new glassy styles
-                    const projectCard = document.createElement('div');
-                     // Added flex flex-col flex-grow to make cards equal height in a row
-                    projectCard.className = 'glass-card glass-card-hover p-0 overflow-hidden hover-effect flex flex-col flex-grow h-auto my-3';
-
-                    const projectContent = document.createElement('div');
-                    projectContent.className = 'p-6 flex flex-col flex-grow'; // Added flex-grow
-
-                    const projectTitle = document.createElement('h3');
-                    projectTitle.className = 'font-bold text-xl mb-2 text-light-text';
-                    projectTitle.textContent = project.name;
-
-                    const projectDescription = document.createElement('p');
-                    projectDescription.className = 'text-medium-text mb-4 flex-grow'; // Added flex-grow
-                    projectDescription.textContent = project.description || 'No description provided.';
-
-                    // Container for the link to push it to the bottom
-                    const linkContainer = document.createElement('div');
-                    linkContainer.className = 'mt-auto text-right'; // Push to bottom
-
-                    const viewProjectLink = document.createElement('a');
-                    viewProjectLink.href = project.html_url;
-                    viewProjectLink.target = '_blank';
-                    viewProjectLink.rel = 'noopener noreferrer'; // Security best practice
-                    // viewProjectLink.className = 'inline-block bg-vibrant-blue text-light-text py-2 px-4 rounded-full hover:bg-vibrant-teal hover:text-black-base font-medium transform hover:scale-105 transition-colors duration-300';
-                    viewProjectLink.className = 'text-vibrant-teal hover:text-vibrant-blue hover:underline font-medium';
-                    viewProjectLink.textContent = 'View on GitHub';
-
-                    linkContainer.appendChild(viewProjectLink);
-
-                    projectContent.appendChild(projectTitle);
-                    projectContent.appendChild(projectDescription);
-                    projectContent.appendChild(linkContainer); // Append the link container
-
-                    projectCard.appendChild(projectContent);
-
-                    // Append card to the appropriate column
-                    columns[index % maxColumns].appendChild(projectCard);
+                projectsContainer.innerHTML = '';
+                originalProjects.forEach(project => {
+                    const cardElement = renderProjectCard(project);
+                    projectsContainer.appendChild(cardElement);
                 });
 
             } catch (error) {
                 loadingMessage.style.display = 'none';
-                projectsContainer.className = "w-full text-center text-medium-text text-lg p-8"; // Center error message
+                projectsContainer.classList.remove('hidden');
+                projectsContainer.className = "w-full text-center text-medium-text text-lg p-8";
                 projectsContainer.innerHTML = `
-                    <p class="text-red-500 mb-3 font-semibold"><i class="fas fa-exclamation-triangle mr-2"></i>Error loading projects.</p>
-                    <p>Please try again later or view them directly on <a class="font-bold text-vibrant-teal hover:underline" href="https://github.com/${githubUsername}" target="_blank" rel="noopener noreferrer">GitHub</a>.</p>
+                    <div class="text-center text-medium-text text-lg p-8">
+                        <p class="text-red-400 mb-3 font-semibold"><i class="fas fa-exclamation-triangle mr-2"></i>Error loading projects from GitHub.</p>
+                        <p>Please try again later or view them directly on <a class="font-bold text-vibrant-teal hover:underline" href="https://github.com/${githubUsername}" target="_blank" rel="noopener noreferrer">GitHub</a>.</p>
+                    </div>
                 `;
                 console.error('Error fetching GitHub projects:', error);
             }

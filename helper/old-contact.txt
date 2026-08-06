@@ -1,0 +1,308 @@
+<!-- pages\contact.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Subhadra Bro</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="../img/icon/favicon.ico" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'black-base': '#0d1117', // Very dark, GitHub-like dark base
+                        'dark-card': 'rgba(30, 41, 59, 0.6)', // Semi-transparent dark for cards
+                        'dark-nav': 'rgba(13, 17, 23, 0.8)', // Darker, more opaque for nav/footer bg
+                        'border-glass': 'rgba(255, 255, 255, 0.1)', // Subtle border for glassy elements
+                        'vibrant-teal': '#2dd4bf',
+                        'vibrant-blue': '#6366f1',
+                        'light-text': '#e6edf3', // Slightly off-white for better readability
+                        'medium-text': '#bdc1c6', // For secondary text
+                        'neutral-gray': '#7d8590', // For less important text/icons
+                        'transparent-red-subtle': 'rgba(222, 77, 85, 0.1)', // Adjusted red tint
+                        'transparent-red-hint': 'rgba(222, 77, 85, 0.2)',   // Adjusted red tint
+                        'transparent-green-hint': 'rgba(63, 185, 80, 0.15)', // Adjusted green tint
+                    },
+                    fontFamily: {
+                        // Use Poppins as default sans-serif, Nunito as secondary option if needed
+                        sans: ['Poppins', 'sans-serif'],
+                        serif: ['Roboto Serif', 'serif'],
+                        mono: ['Inconsolata', 'monospace'],
+                    },
+                    backdropBlur: {
+                        xs: '2px',
+                        sm: '4px',
+                        md: '8px',
+                        lg: '12px',
+                        xl: '16px',
+                    },
+                    boxShadow: {
+                        'glass': '0 4px 30px rgba(0, 0, 0, 0.1)', // Subtle shadow for glass effect
+                         'glow-teal': '0 0 15px 2px rgba(45, 212, 191, 0.4)', // Subtle glow effect
+                         'glow-blue': '0 0 15px 2px rgba(99, 102, 241, 0.4)', // Subtle glow effect
+                    }
+                },
+            },
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Toastr CSS -->
+    <link rel="stylesheet" href="../css/toastr.min.css">
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/toastr.min.js"></script>
+    <script src="../js/pageView.js" defer></script>
+</head>
+
+<body class="bg-black-base text-light-text font-sans">
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-dark-nav backdrop-blur-lg border-b border-border-glass shadow-md transition-all duration-300 ease-in-out">
+        <div class="container mx-auto flex justify-between items-center px-4 py-3">
+            <a href="../" class="text-light-text text-xl font-bold hover:text-vibrant-teal">Subhadra Bro</a>
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="../" class="text-medium-text hover:text-vibrant-teal pb-1 hover-effect">Home</a>
+                <a href="./projects.html" class="text-medium-text hover:text-vibrant-teal pb-1 hover-effect">Projects</a>
+                <a href="https://aidarkezio.netlify.app" class="text-medium-text hover:text-vibrant-teal pb-1 hover-effect">Blog</a>
+                <a href="./contact.html" class="text-vibrant-teal border-b-2 border-vibrant-teal pb-1 font-medium hover-effect">Contact</a>
+            </div>
+            <div class="md:hidden">
+                 <button id="mobile-menu-button" class="text-light-text focus:outline-none p-1 hover:text-vibrant-teal">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+         <div class="md:hidden hidden absolute top-full left-0 right-0 bg-dark-nav backdrop-blur-lg border-b border-border-glass shadow-lg" id="mobile-menu">
+             <div class="px-4 pt-2 pb-3 space-y-1">
+                <a href="../" class="block text-medium-text hover:bg-black-base/30 hover:text-vibrant-teal px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="./projects.html" class="block text-medium-text hover:bg-black-base/30 hover:text-vibrant-teal px-3 py-2 rounded-md text-base font-medium">Projects</a>
+                <a href="https://aidarkezio.netlify.app" class="block text-medium-text hover:bg-black-base/30 hover:text-vibrant-teal px-3 py-2 rounded-md text-base font-medium">Blog</a>
+                <a href="./contact.html" class="block text-vibrant-teal bg-black-base/30 px-3 py-2 rounded-md text-base font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Spacer for fixed navbar -->
+    <div class="pt-16"></div>
+
+    <!-- Contact Section -->
+    <section class="py-16 md:py-24 bg-gradient-to-br from-black-base via-slate-900 to-black-base">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 text-light-text">Contact Me</h2>
+            <p class="text-center text-medium-text mb-12 max-w-2xl mx-auto">Have questions, project ideas, or just want to say hi? Fill out the form below or use the contact details provided.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+
+                <!-- Contact Form - Glassy -->
+                <div class="glass-card p-6 md:p-8 hover-effect">
+                    <form id="contact-form" novalidate>
+                        <div class="mb-5">
+                            <label class="block text-light-text text-sm font-bold mb-2" for="name">
+                                Name <span class="text-red-400">*</span>
+                            </label>
+                            <input class="glass-input" id="name" type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="mb-5">
+                            <label class="block text-light-text text-sm font-bold mb-2" for="email">
+                                Email <span class="text-red-400">*</span>
+                            </label>
+                            <input class="glass-input" id="email" type="email" placeholder="your.email@example.com" required>
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-light-text text-sm font-bold mb-2" for="message">
+                                Message <span class="text-red-400">*</span>
+                            </label>
+                            <textarea class="glass-textarea" id="message" rows="5" placeholder="Write your message here..." required></textarea>
+                        </div>
+                        <div class="flex items-center justify-end">
+                            <button
+                                class="bg-vibrant-blue hover:bg-vibrant-teal text-light-text hover:text-black-base font-bold py-2 px-6 rounded-lg focus:outline-none focus:shadow-outline focus:ring-2 focus:ring-vibrant-blue/50 transform hover:scale-105 transition-all duration-300"
+                                type="submit" id="submit-button">
+                                Send Message
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Contact Information - Glassy -->
+                <div class="glass-card p-6 md:p-8 hover-effect">
+                    <h3 class="text-xl font-bold mb-4 text-light-text">Contact Information</h3>
+                    <p class="text-medium-text mb-6">Feel free to reach out directly:</p>
+                    <ul class="list-none text-medium-text space-y-4">
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-vibrant-blue w-5 text-center"></i>
+                            <span class="font-medium mr-2">Email:</span>
+                             <a href="mailto:subadraposhithapr@gmail.com" class="text-vibrant-teal hover:underline hover:text-vibrant-blue break-all">subadraposhithapr@gmail.com</a>
+                        </li>
+                         <li class="flex items-center">
+                            <i class="fab fa-telegram mr-3 text-vibrant-blue w-5 text-center"></i>
+                            <span class="font-medium mr-2">Telegram:</span>
+                             <a href="https://t.me/Subadra_Poshitha" target="_blank" rel="noopener noreferrer" class="text-vibrant-teal hover:underline hover:text-vibrant-blue">@Subadra_Poshitha</a>
+                        </li>
+                         <li class="flex items-center">
+                            <i class="fab fa-youtube mr-3 text-vibrant-blue w-5 text-center"></i>
+                             <span class="font-medium mr-2">YouTube:</span>
+                            <a href="https://www.youtube.com/channel/UCeDeaDD8dpdMT2gO3VHY1JQ" target="_blank" rel="noopener noreferrer" class="text-vibrant-teal hover:underline hover:text-vibrant-blue">Subhadra Bro</a>
+                        </li>
+                        <li class="flex items-center">
+                             <i class="fab fa-github mr-3 text-vibrant-blue w-5 text-center"></i>
+                             <span class="font-medium mr-2">GitHub:</span>
+                             <a href="https://github.com/AiDarkEzio" target="_blank" rel="noopener noreferrer" class="text-vibrant-teal hover:underline hover:text-vibrant-blue">AiDarkEzio</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-nav text-medium-text py-8 border-t border-border-glass">
+         <div class="container mx-auto text-center px-4">
+             <p>© 2023-2025 Subhadra Bro. All rights reserved.</p>
+             <div class="mt-4 flex justify-center space-x-5">
+                 <a href="https://www.youtube.com/channel/UCeDeaDD8dpdMT2gO3VHY1JQ" target="_blank" rel="noopener noreferrer"
+                     class="text-neutral-gray hover:text-vibrant-teal transition duration-300 transform hover:scale-110"><i class="fab fa-youtube text-xl"></i></a>
+                 <a href="https://t.me/Subadra_Poshitha" target="_blank" rel="noopener noreferrer"
+                     class="text-neutral-gray hover:text-vibrant-teal transition duration-300 transform hover:scale-110"><i class="fab fa-telegram text-xl"></i></a>
+                 <a href="mailto:subadraposhithapr@gmail.com"
+                     class="text-neutral-gray hover:text-vibrant-teal transition duration-300 transform hover:scale-110"><i class="fas fa-envelope text-xl"></i></a>
+                 <a href="https://github.com/AiDarkEzio" target="_blank" rel="noopener noreferrer"
+                     class="text-neutral-gray hover:text-vibrant-teal transition duration-300 transform hover:scale-110"><i class="fab fa-github text-xl"></i></a>
+             </div>
+         </div>
+     </footer>
+
+    <script>
+        // Mobile Menu Toggle Script (Use the improved version from index.html)
+        const mobileMenuButtonContact = document.getElementById('mobile-menu-button');
+        const mobileMenuContact = document.getElementById('mobile-menu');
+        const menuIconContact = mobileMenuButtonContact.querySelector('i');
+
+        mobileMenuButtonContact.addEventListener('click', (event) => {
+            event.stopPropagation();
+            mobileMenuContact.classList.toggle('hidden');
+            if (mobileMenuContact.classList.contains('hidden')) {
+                menuIconContact.classList.remove('fa-times'); menuIconContact.classList.add('fa-bars');
+            } else {
+                menuIconContact.classList.remove('fa-bars'); menuIconContact.classList.add('fa-times');
+            }
+        });
+         document.addEventListener('click', function(event) {
+          const isClickInsideNav = mobileMenuButtonContact.contains(event.target) || mobileMenuContact.contains(event.target);
+          if (!isClickInsideNav && !mobileMenuContact.classList.contains('hidden')) {
+            mobileMenuContact.classList.add('hidden');
+            menuIconContact.classList.remove('fa-times'); menuIconContact.classList.add('fa-bars');
+          }
+        });
+    </script>
+    <script>
+        // Contact Form Submission Logic (using IDs now)
+        document.addEventListener('DOMContentLoaded', function () {
+            const contactForm = document.getElementById('contact-form'); // Use ID
+            const submitButton = document.getElementById('submit-button');
+            const originalButtonText = submitButton.textContent;
+
+            // Toastr options
+            toastr.options = {
+              "closeButton": true,
+              "progressBar": true,
+              "positionClass": "toast-top-right", // Or "toast-bottom-right", etc.
+              "preventDuplicates": true,
+              "timeOut": "5000", // 5 seconds
+              "showEasing": "swing",
+              "hideEasing": "linear",
+              "showMethod": "fadeIn",
+              "hideMethod": "fadeOut"
+            };
+
+            contactForm.addEventListener('submit', function (event) {
+                event.preventDefault(); // Prevent default form submission
+
+                submitButton.disabled = true;
+                submitButton.textContent = 'Sending...';
+
+                const nameInput = document.getElementById('name');
+                const emailInput = document.getElementById('email');
+                const messageInput = document.getElementById('message');
+
+                const name = nameInput.value.trim();
+                const email = emailInput.value.trim();
+                const message = messageInput.value.trim();
+
+                let isValid = true;
+
+                // Basic Validation
+                if (!name) {
+                    toastr.error('Please enter your name.');
+                    nameInput.focus();
+                    isValid = false;
+                } else if (!email) {
+                    toastr.error('Please enter your email.');
+                     if(isValid) emailInput.focus(); // Focus only if previous field was valid
+                    isValid = false;
+                } else if (!/^\S+@\S+\.\S+$/.test(email)) { // Basic email format check
+                    toastr.error('Please enter a valid email address.');
+                    if(isValid) emailInput.focus();
+                    isValid = false;
+                } else if (!message) {
+                    toastr.error('Please enter your message.');
+                     if(isValid) messageInput.focus();
+                    isValid = false;
+                }
+
+                if (!isValid) {
+                    submitButton.textContent = originalButtonText;
+                    submitButton.disabled = false;
+                    return; // Stop submission
+                }
+
+                const formData = { name, email, message };
+                const apiEndpoint = 'https://aidarkezio.vercel.app/api/contact-me';
+
+                fetch(apiEndpoint, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                         'Accept': 'application/json' // Good practice
+                    },
+                    body: JSON.stringify(formData)
+                })
+                .then(response => {
+                    if (!response.ok) {
+                         // Try to get error message from server response
+                        return response.json().catch(() => {
+                            // If response isn't JSON or parsing fails
+                            throw new Error(`Network response was not ok. Status: ${response.status}`);
+                        }).then(errData => {
+                             // Throw error with server message or default
+                             throw new Error(errData.message || `HTTP error! Status: ${response.status}`);
+                        });
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Success:', data);
+                    toastr.success(data.message || 'Message sent successfully!'); // Use server message if available
+                    contactForm.reset();
+                    submitButton.textContent = originalButtonText;
+                    submitButton.disabled = false;
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    // Display the specific error message caught
+                    toastr.error('Error sending message: ' + error.message);
+                    submitButton.textContent = originalButtonText;
+                    submitButton.disabled = false;
+                });
+            });
+        });
+    </script>
+</body>
+</html>

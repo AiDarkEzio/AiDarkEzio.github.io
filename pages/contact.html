@@ -1,10 +1,11 @@
+<!-- pages/contact.html -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Subhadra Bro</title>
+    <title>Contact & Links - Subhadra Bro</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="icon" href="../img/icon/favicon.ico" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -13,21 +14,20 @@
             theme: {
                 extend: {
                     colors: {
-                        'black-base': '#0d1117', // Very dark, GitHub-like dark base
-                        'dark-card': 'rgba(30, 41, 59, 0.6)', // Semi-transparent dark for cards
-                        'dark-nav': 'rgba(13, 17, 23, 0.8)', // Darker, more opaque for nav/footer bg
-                        'border-glass': 'rgba(255, 255, 255, 0.1)', // Subtle border for glassy elements
+                        'black-base': '#0d1117',
+                        'dark-card': 'rgba(30, 41, 59, 0.6)',
+                        'dark-nav': 'rgba(13, 17, 23, 0.8)',
+                        'border-glass': 'rgba(255, 255, 255, 0.1)',
                         'vibrant-teal': '#2dd4bf',
                         'vibrant-blue': '#6366f1',
-                        'light-text': '#e6edf3', // Slightly off-white for better readability
-                        'medium-text': '#bdc1c6', // For secondary text
-                        'neutral-gray': '#7d8590', // For less important text/icons
-                        'transparent-red-subtle': 'rgba(222, 77, 85, 0.1)', // Adjusted red tint
-                        'transparent-red-hint': 'rgba(222, 77, 85, 0.2)',   // Adjusted red tint
-                        'transparent-green-hint': 'rgba(63, 185, 80, 0.15)', // Adjusted green tint
+                        'light-text': '#e6edf3',
+                        'medium-text': '#bdc1c6',
+                        'neutral-gray': '#7d8590',
+                        'transparent-red-subtle': 'rgba(222, 77, 85, 0.1)',
+                        'transparent-red-hint': 'rgba(222, 77, 85, 0.2)',
+                        'transparent-green-hint': 'rgba(63, 185, 80, 0.15)',
                     },
                     fontFamily: {
-                        // Use Poppins as default sans-serif, Nunito as secondary option if needed
                         sans: ['Poppins', 'sans-serif'],
                         serif: ['Roboto Serif', 'serif'],
                         mono: ['Inconsolata', 'monospace'],
@@ -40,25 +40,20 @@
                         xl: '16px',
                     },
                     boxShadow: {
-                        'glass': '0 4px 30px rgba(0, 0, 0, 0.1)', // Subtle shadow for glass effect
-                         'glow-teal': '0 0 15px 2px rgba(45, 212, 191, 0.4)', // Subtle glow effect
-                         'glow-blue': '0 0 15px 2px rgba(99, 102, 241, 0.4)', // Subtle glow effect
+                        'glass': '0 4px 30px rgba(0, 0, 0, 0.1)',
+                        'glow-teal': '0 0 15px 2px rgba(45, 212, 191, 0.4)',
+                        'glow-blue': '0 0 15px 2px rgba(99, 102, 241, 0.4)',
                     }
                 },
             },
         }
     </script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- Toastr CSS -->
-    <link rel="stylesheet" href="../css/toastr.min.css">
-    <script src="../js/jquery.min.js"></script>
-    <script src="../js/toastr.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css" integrity="sha512-ApSLB1Pd3/bZN8fWB/RG9YhN/7bd9Hkf3AGaE2mPfebjrxagjuBtx2GcgdqIlJkUzwylBo61r9Xa9NmgBI0swA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="../js/pageView.js" defer></script>
 </head>
 
-<body class="bg-black-base text-light-text font-sans">
+<body class="bg-black-base text-light-text font-sans min-h-screen flex flex-col justify-between">
+
     <!-- Navigation Bar -->
     <nav class="fixed top-0 left-0 right-0 z-50 bg-dark-nav backdrop-blur-lg border-b border-border-glass shadow-md transition-all duration-300 ease-in-out">
         <div class="container mx-auto flex justify-between items-center px-4 py-3">
@@ -66,9 +61,7 @@
             <div class="hidden md:flex space-x-6 items-center">
                 <a href="../" class="text-medium-text hover:text-vibrant-teal pb-1 hover-effect">Home</a>
                 <a href="./projects.html" class="text-medium-text hover:text-vibrant-teal pb-1 hover-effect">Projects</a>
-                <a href="./services.html" class="text-medium-text hover:text-vibrant-teal pb-1 hover-effect">Services</a>
                 <a href="https://aidarkezio.netlify.app" class="text-medium-text hover:text-vibrant-teal pb-1 hover-effect">Blog</a>
-                <a href="./terms.html" class="text-medium-text hover:text-vibrant-teal pb-1 hover-effect">Terms</a>
                 <a href="./contact.html" class="text-vibrant-teal border-b-2 border-vibrant-teal pb-1 font-medium hover-effect">Contact</a>
             </div>
             <div class="md:hidden">
@@ -82,9 +75,7 @@
              <div class="px-4 pt-2 pb-3 space-y-1">
                 <a href="../" class="block text-medium-text hover:bg-black-base/30 hover:text-vibrant-teal px-3 py-2 rounded-md text-base font-medium">Home</a>
                 <a href="./projects.html" class="block text-medium-text hover:bg-black-base/30 hover:text-vibrant-teal px-3 py-2 rounded-md text-base font-medium">Projects</a>
-                <a href="./services.html" class="block text-medium-text hover:bg-black-base/30 hover:text-vibrant-teal px-3 py-2 rounded-md text-base font-medium">Services</a>
                 <a href="https://aidarkezio.netlify.app" class="block text-medium-text hover:bg-black-base/30 hover:text-vibrant-teal px-3 py-2 rounded-md text-base font-medium">Blog</a>
-                <a href="./terms.html" class="block text-medium-text hover:bg-black-base/30 hover:text-vibrant-teal px-3 py-2 rounded-md text-base font-medium">Terms</a>
                 <a href="./contact.html" class="block text-vibrant-teal bg-black-base/30 px-3 py-2 rounded-md text-base font-medium">Contact</a>
             </div>
         </div>
@@ -93,81 +84,226 @@
     <!-- Spacer for fixed navbar -->
     <div class="pt-16"></div>
 
-    <!-- Contact Section -->
-    <section class="py-16 md:py-24 bg-gradient-to-br from-black-base via-slate-900 to-black-base">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 text-light-text">Contact Me</h2>
-            <p class="text-center text-medium-text mb-12 max-w-2xl mx-auto">Have questions, project ideas, or just want to say hi? Fill out the form below or use the contact details provided.</p>
+    <!-- Main Content -->
+    <main class="py-12 md:py-16 bg-gradient-to-br from-black-base via-slate-900 to-black-base flex-grow">
+        <div class="container mx-auto px-4 max-w-2xl">
+            
+            <!-- Profile Hero Header -->
+            <div class="text-center mb-10">
+                <div class="mb-4">
+                    <img src="../img/SP-Logo-For-Zoom-1K.png" alt="Subhadra Poshitha"
+                        class="rounded-full w-28 h-28 md:w-32 md:h-32 mx-auto border-2 border-vibrant-teal shadow-glow-teal object-cover">
+                </div>
+                <h1 class="text-2xl md:text-3xl font-bold text-light-text mb-1">Subhadra Poshitha</h1>
+                <p class="text-vibrant-teal font-mono text-sm font-bold mb-3">@AiDarkEzio</p>   
+                <p class="text-medium-text text-sm max-w-md mx-auto leading-relaxed">
+                    Student Developer & Tech enthusiast. Reach out directly or find me across my active platforms below.
+                </p>
+            </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <!-- Link Cards Container -->
+            <div class="space-y-8">
 
-                <!-- Contact Form - Glassy -->
-                <div class="glass-card p-6 md:p-8 hover-effect">
-                    <form id="contact-form" novalidate>
-                        <div class="mb-5">
-                            <label class="block text-light-text text-sm font-bold mb-2" for="name">
-                                Name <span class="text-red-400">*</span>
-                            </label>
-                            <input class="glass-input" id="name" type="text" placeholder="Your Name" required>
-                        </div>
-                        <div class="mb-5">
-                            <label class="block text-light-text text-sm font-bold mb-2" for="email">
-                                Email <span class="text-red-400">*</span>
-                            </label>
-                            <input class="glass-input" id="email" type="email" placeholder="your.email@example.com" required>
-                        </div>
-                        <div class="mb-6">
-                            <label class="block text-light-text text-sm font-bold mb-2" for="message">
-                                Message <span class="text-red-400">*</span>
-                            </label>
-                            <textarea class="glass-textarea" id="message" rows="5" placeholder="Write your message here..." required></textarea>
-                        </div>
-                        <div class="flex items-center justify-end">
-                            <button
-                                class="bg-vibrant-blue hover:bg-vibrant-teal text-light-text hover:text-black-base font-bold py-2 px-6 rounded-lg focus:outline-none focus:shadow-outline focus:ring-2 focus:ring-vibrant-blue/50 transform hover:scale-105 transition-all duration-300"
-                                type="submit" id="submit-button">
-                                Send Message
-                            </button>
-                        </div>
-                    </form>
+                <!-- SECTION 1: Active Contacts -->
+                <div>
+                    <h2 class="text-xs font-semibold tracking-wider uppercase text-neutral-gray mb-3 px-1">
+                        <i class="fas fa-bolt text-vibrant-teal mr-1.5"></i>Primary & Active Contacts
+                    </h2>
+                    <div class="space-y-3">
+
+                        <!-- Email -->
+                        <a href="mailto:subadraposhithapr@gmail.com"
+                            class="glass-card p-4 rounded-xl flex items-center justify-between border border-border-glass hover:border-vibrant-teal transition-all duration-300 group">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-10 h-10 rounded-lg flex items-center justify-center bg-red-500/10 text-red-400 shrink-0">
+                                    <i class="fas fa-envelope text-lg"></i>
+                                </div>
+                                <div class="text-left">
+                                    <h3 class="font-semibold text-light-text group-hover:text-vibrant-teal transition-colors text-sm md:text-base">Email</h3>
+                                    <p class="text-xs text-neutral-gray break-all">subadraposhithapr@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-2 shrink-0 ml-2">
+                                <span class="hidden sm:inline-block text-[10px] font-medium px-2.5 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400">Active</span>
+                                <i class="fas fa-arrow-up-right-from-square text-xs text-neutral-gray group-hover:text-vibrant-teal transition-colors"></i>
+                            </div>
+                        </a>
+
+                        <!-- Telegram -->
+                        <a href="https://t.me/Subadra_Poshitha" target="_blank" rel="noopener noreferrer"
+                            class="glass-card p-4 rounded-xl flex items-center justify-between border border-border-glass hover:border-vibrant-teal transition-all duration-300 group">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-10 h-10 rounded-lg flex items-center justify-center bg-sky-500/10 text-sky-400 shrink-0">
+                                    <i class="fab fa-telegram text-lg"></i>
+                                </div>
+                                <div class="text-left">
+                                    <h3 class="font-semibold text-light-text group-hover:text-vibrant-teal transition-colors text-sm md:text-base">Telegram</h3>
+                                    <p class="text-xs text-neutral-gray">@Subadra_Poshitha</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-2 shrink-0 ml-2">
+                                <span class="hidden sm:inline-block text-[10px] font-medium px-2.5 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400">Active</span>
+                                <i class="fas fa-arrow-up-right-from-square text-xs text-neutral-gray group-hover:text-vibrant-teal transition-colors"></i>
+                            </div>
+                        </a>
+
+                        <!-- GitHub -->
+                        <a href="https://github.com/AiDarkEzio" target="_blank" rel="noopener noreferrer"
+                            class="glass-card p-4 rounded-xl flex items-center justify-between border border-border-glass hover:border-vibrant-teal transition-all duration-300 group">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-10 h-10 rounded-lg flex items-center justify-center bg-slate-100/10 text-slate-100 shrink-0">
+                                    <i class="fab fa-github text-lg"></i>
+                                </div>
+                                <div class="text-left">
+                                    <h3 class="font-semibold text-light-text group-hover:text-vibrant-teal transition-colors text-sm md:text-base">GitHub</h3>
+                                    <p class="text-xs text-neutral-gray">@AiDarkEzio</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-2 shrink-0 ml-2">
+                                <span class="hidden sm:inline-block text-[10px] font-medium px-2.5 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400">Active</span>
+                                <i class="fas fa-arrow-up-right-from-square text-xs text-neutral-gray group-hover:text-vibrant-teal transition-colors"></i>
+                            </div>
+                        </a>
+
+                        <!-- LinkedIn -->
+                        <a href="https://www.linkedin.com/in/subadraposhitha" target="_blank" rel="noopener noreferrer"
+                            class="glass-card p-4 rounded-xl flex items-center justify-between border border-border-glass hover:border-vibrant-teal transition-all duration-300 group">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-10 h-10 rounded-lg flex items-center justify-center bg-blue-500/10 text-blue-400 shrink-0">
+                                    <i class="fab fa-linkedin-in text-lg"></i>
+                                </div>
+                                <div class="text-left">
+                                    <h3 class="font-semibold text-light-text group-hover:text-vibrant-teal transition-colors text-sm md:text-base">LinkedIn</h3>
+                                    <p class="text-xs text-neutral-gray">Subhadra Poshitha</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-2 shrink-0 ml-2">
+                                <span class="hidden sm:inline-block text-[10px] font-medium px-2.5 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400">Active</span>
+                                <i class="fas fa-arrow-up-right-from-square text-xs text-neutral-gray group-hover:text-vibrant-teal transition-colors"></i>
+                            </div>
+                        </a>
+
+                    </div>
                 </div>
 
-                <!-- Contact Information - Glassy -->
-                <div class="glass-card p-6 md:p-8 hover-effect">
-                    <h3 class="text-xl font-bold mb-4 text-light-text">Contact Information</h3>
-                    <p class="text-medium-text mb-6">Feel free to reach out directly:</p>
-                    <ul class="list-none text-medium-text space-y-4">
-                        <li class="flex items-center">
-                            <i class="fas fa-envelope mr-3 text-vibrant-blue w-5 text-center"></i>
-                            <span class="font-medium mr-2">Email:</span>
-                             <a href="mailto:subadraposhithapr@gmail.com" class="text-vibrant-teal hover:underline hover:text-vibrant-blue break-all">subadraposhithapr@gmail.com</a>
-                        </li>
-                         <li class="flex items-center">
-                            <i class="fab fa-telegram mr-3 text-vibrant-blue w-5 text-center"></i>
-                            <span class="font-medium mr-2">Telegram:</span>
-                             <a href="https://t.me/Subadra_Poshitha" target="_blank" rel="noopener noreferrer" class="text-vibrant-teal hover:underline hover:text-vibrant-blue">@Subadra_Poshitha</a>
-                        </li>
-                         <li class="flex items-center">
-                            <i class="fab fa-youtube mr-3 text-vibrant-blue w-5 text-center"></i>
-                             <span class="font-medium mr-2">YouTube:</span>
-                            <a href="https://www.youtube.com/channel/UCeDeaDD8dpdMT2gO3VHY1JQ" target="_blank" rel="noopener noreferrer" class="text-vibrant-teal hover:underline hover:text-vibrant-blue">Subhadra Bro</a>
-                        </li>
-                        <li class="flex items-center">
-                             <i class="fab fa-github mr-3 text-vibrant-blue w-5 text-center"></i>
-                             <span class="font-medium mr-2">GitHub:</span>
-                             <a href="https://github.com/AiDarkEzio" target="_blank" rel="noopener noreferrer" class="text-vibrant-teal hover:underline hover:text-vibrant-blue">AiDarkEzio</a>
-                        </li>
-                    </ul>
+                <!-- SECTION 2: Secondary / Community Profiles -->
+                <div>
+                    <h2 class="text-xs font-semibold tracking-wider uppercase text-neutral-gray mb-3 px-1">
+                        <i class="fas fa-globe text-vibrant-blue mr-1.5"></i>Other Platforms
+                    </h2>
+                    <div class="space-y-3">
+
+                        <!-- Discord -->
+                        <!-- <a href="https://discord.com/users/subadraposhitha" target="_blank" rel="noopener noreferrer" -->
+                        <a href="https://discord.com/users/1059154379757850644" target="_blank" rel="noopener noreferrer"
+                            class="glass-card p-4 rounded-xl flex items-center justify-between border border-border-glass hover:border-vibrant-teal transition-all duration-300 group">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-10 h-10 rounded-lg flex items-center justify-center bg-indigo-500/10 text-indigo-400 shrink-0">
+                                    <i class="fab fa-discord text-lg"></i>
+                                </div>
+                                <div class="text-left">
+                                    <h3 class="font-semibold text-light-text group-hover:text-vibrant-teal transition-colors text-sm md:text-base">Discord</h3>
+                                    <!-- <p class="text-xs text-neutral-gray">Community / DM</p> -->
+                                    <p class="text-xs text-neutral-gray">subadraposhitha</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-2 shrink-0 ml-2">
+                                <span class="hidden sm:inline-block text-[10px] font-medium px-2.5 py-0.5 rounded-full bg-amber-500/15 text-amber-400">Less Active</span>
+                                <i class="fas fa-arrow-up-right-from-square text-xs text-neutral-gray group-hover:text-vibrant-teal transition-colors"></i>
+                            </div>
+                        </a>
+
+                        <!-- YouTube -->
+                        <a href="https://www.youtube.com/channel/UCeDeaDD8dpdMT2gO3VHY1JQ" target="_blank" rel="noopener noreferrer"
+                            class="glass-card p-4 rounded-xl flex items-center justify-between border border-border-glass hover:border-vibrant-teal transition-all duration-300 group">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-10 h-10 rounded-lg flex items-center justify-center bg-red-600/10 text-red-500 shrink-0">
+                                    <i class="fab fa-youtube text-lg"></i>
+                                </div>
+                                <div class="text-left">
+                                    <h3 class="font-semibold text-light-text group-hover:text-vibrant-teal transition-colors text-sm md:text-base">YouTube</h3>
+                                    <p class="text-xs text-neutral-gray">Subhadra Bro</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-2 shrink-0 ml-2">
+                                <span class="hidden sm:inline-block text-[10px] font-medium px-2.5 py-0.5 rounded-full bg-neutral-gray/20 text-neutral-gray">Inactive</span>
+                                <i class="fas fa-arrow-up-right-from-square text-xs text-neutral-gray group-hover:text-vibrant-teal transition-colors"></i>
+                            </div>
+                        </a>
+
+                        <!-- X (Twitter) -->
+                        <a href="https://x.com/BroSubadra" target="_blank" rel="noopener noreferrer"
+                            class="glass-card p-4 rounded-xl flex items-center justify-between border border-border-glass hover:border-vibrant-teal transition-all duration-300 group">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-10 h-10 rounded-lg flex items-center justify-center bg-slate-300/10 text-slate-200 shrink-0">
+                                    <i class="fab fa-x-twitter text-lg"></i>
+                                </div>
+                                <div class="text-left">
+                                    <h3 class="font-semibold text-light-text group-hover:text-vibrant-teal transition-colors text-sm md:text-base">X (Twitter)</h3>
+                                    <p class="text-xs text-neutral-gray">@BroSubadra</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-2 shrink-0 ml-2">
+                                <span class="hidden sm:inline-block text-[10px] font-medium px-2.5 py-0.5 rounded-full bg-neutral-gray/20 text-neutral-gray">Inactive</span>
+                                <i class="fas fa-arrow-up-right-from-square text-xs text-neutral-gray group-hover:text-vibrant-teal transition-colors"></i>
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
+
+                <!-- SECTION 3: Support & Sponsorship -->
+                <div>
+                    <h2 class="text-xs font-semibold tracking-wider uppercase text-neutral-gray mb-3 px-1">
+                        <i class="fas fa-heart text-pink-400 mr-1.5"></i>Support & Sponsorship
+                    </h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+
+                        <!-- Buy Me a Coffee -->
+                        <a href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer"
+                            class="glass-card p-3.5 rounded-xl flex flex-col items-center text-center border border-border-glass hover:border-vibrant-teal transition-all duration-300 group">
+                            <div class="w-9 h-9 rounded-full bg-amber-500/10 text-amber-400 flex items-center justify-center mb-2">
+                                <i class="fas fa-coffee text-sm"></i>
+                            </div>
+                            <span class="text-xs font-semibold text-light-text mb-0.5 group-hover:text-vibrant-teal transition-colors">Buy Me a Coffee</span>
+                            <span class="text-[10px] text-neutral-gray mb-2">support my work</span>
+                            <span class="text-[9px] font-mono font-medium px-2 py-0.5 rounded bg-purple-500/20 text-purple-300">In Progress</span>
+                        </a>
+
+                        <!-- Ko-fi -->
+                        <a href="https://ko-fi.com/subhadraposhitha" target="_blank" rel="noopener noreferrer"
+                            class="glass-card p-3.5 rounded-xl flex flex-col items-center text-center border border-border-glass hover:border-vibrant-teal transition-all duration-300 group">
+                            <div class="w-9 h-9 rounded-full bg-rose-500/10 text-rose-400 flex items-center justify-center mb-2">
+                                <i class="fas fa-mug-hot text-sm"></i>
+                            </div>
+                            <span class="text-xs font-semibold text-light-text mb-0.5 group-hover:text-vibrant-teal transition-colors">Ko-fi</span>
+                            <span class="text-[10px] text-neutral-gray mb-2">support and tips</span>
+                            <span class="text-[9px] font-mono font-medium px-2 py-0.5 rounded bg-purple-500/20 text-purple-300">In Progress</span>
+                        </a>
+
+                        <!-- GitHub Sponsors -->
+                        <a href="https://github.com/sponsors/AiDarkEzio" target="_blank" rel="noopener noreferrer"
+                            class="glass-card p-3.5 rounded-xl flex flex-col items-center text-center border border-border-glass hover:border-vibrant-teal transition-all duration-300 group">
+                            <div class="w-9 h-9 rounded-full bg-pink-500/10 text-pink-400 flex items-center justify-center mb-2">
+                                <i class="fab fa-github-alt text-sm"></i>
+                            </div>
+                            <span class="text-xs font-semibold text-light-text mb-0.5 group-hover:text-vibrant-teal transition-colors">GitHub Sponsors</span>
+                            <span class="text-[10px] text-neutral-gray mb-2">sponsor my open source</span>
+                            <span class="text-[9px] font-mono font-medium px-2 py-0.5 rounded bg-purple-500/20 text-purple-300">In Progress</span>
+                        </a>
+
+                    </div>
                 </div>
 
             </div>
+
         </div>
-    </section>
+    </main>
 
     <!-- Footer -->
     <footer class="bg-dark-nav text-medium-text py-8 border-t border-border-glass">
          <div class="container mx-auto text-center px-4">
-             <p>© 2023-2025 Subhadra Bro. All rights reserved.</p>
+             <p>© 2023-2026 Subhadra Bro. All rights reserved.</p>
              <div class="mt-4 flex justify-center space-x-5">
                  <a href="https://www.youtube.com/channel/UCeDeaDD8dpdMT2gO3VHY1JQ" target="_blank" rel="noopener noreferrer"
                      class="text-neutral-gray hover:text-vibrant-teal transition duration-300 transform hover:scale-110"><i class="fab fa-youtube text-xl"></i></a>
@@ -182,7 +318,7 @@
      </footer>
 
     <script>
-        // Mobile Menu Toggle Script (Use the improved version from index.html)
+        // Mobile Menu Toggle Script
         const mobileMenuButtonContact = document.getElementById('mobile-menu-button');
         const mobileMenuContact = document.getElementById('mobile-menu');
         const menuIconContact = mobileMenuButtonContact.querySelector('i');
@@ -191,119 +327,21 @@
             event.stopPropagation();
             mobileMenuContact.classList.toggle('hidden');
             if (mobileMenuContact.classList.contains('hidden')) {
-                menuIconContact.classList.remove('fa-times'); menuIconContact.classList.add('fa-bars');
+                menuIconContact.classList.remove('fa-times'); 
+                menuIconContact.classList.add('fa-bars');
             } else {
-                menuIconContact.classList.remove('fa-bars'); menuIconContact.classList.add('fa-times');
+                menuIconContact.classList.remove('fa-bars'); 
+                menuIconContact.classList.add('fa-times');
             }
         });
-         document.addEventListener('click', function(event) {
+
+        document.addEventListener('click', function(event) {
           const isClickInsideNav = mobileMenuButtonContact.contains(event.target) || mobileMenuContact.contains(event.target);
           if (!isClickInsideNav && !mobileMenuContact.classList.contains('hidden')) {
             mobileMenuContact.classList.add('hidden');
-            menuIconContact.classList.remove('fa-times'); menuIconContact.classList.add('fa-bars');
+            menuIconContact.classList.remove('fa-times'); 
+            menuIconContact.classList.add('fa-bars');
           }
-        });
-    </script>
-    <script>
-        // Contact Form Submission Logic (using IDs now)
-        document.addEventListener('DOMContentLoaded', function () {
-            const contactForm = document.getElementById('contact-form'); // Use ID
-            const submitButton = document.getElementById('submit-button');
-            const originalButtonText = submitButton.textContent;
-
-            // Toastr options
-            toastr.options = {
-              "closeButton": true,
-              "progressBar": true,
-              "positionClass": "toast-top-right", // Or "toast-bottom-right", etc.
-              "preventDuplicates": true,
-              "timeOut": "5000", // 5 seconds
-              "showEasing": "swing",
-              "hideEasing": "linear",
-              "showMethod": "fadeIn",
-              "hideMethod": "fadeOut"
-            };
-
-            contactForm.addEventListener('submit', function (event) {
-                event.preventDefault(); // Prevent default form submission
-
-                submitButton.disabled = true;
-                submitButton.textContent = 'Sending...';
-
-                const nameInput = document.getElementById('name');
-                const emailInput = document.getElementById('email');
-                const messageInput = document.getElementById('message');
-
-                const name = nameInput.value.trim();
-                const email = emailInput.value.trim();
-                const message = messageInput.value.trim();
-
-                let isValid = true;
-
-                // Basic Validation
-                if (!name) {
-                    toastr.error('Please enter your name.');
-                    nameInput.focus();
-                    isValid = false;
-                } else if (!email) {
-                    toastr.error('Please enter your email.');
-                     if(isValid) emailInput.focus(); // Focus only if previous field was valid
-                    isValid = false;
-                } else if (!/^\S+@\S+\.\S+$/.test(email)) { // Basic email format check
-                    toastr.error('Please enter a valid email address.');
-                    if(isValid) emailInput.focus();
-                    isValid = false;
-                } else if (!message) {
-                    toastr.error('Please enter your message.');
-                     if(isValid) messageInput.focus();
-                    isValid = false;
-                }
-
-                if (!isValid) {
-                    submitButton.textContent = originalButtonText;
-                    submitButton.disabled = false;
-                    return; // Stop submission
-                }
-
-                const formData = { name, email, message };
-                const apiEndpoint = 'https://aidarkezio.vercel.app/api/contact-me';
-
-                fetch(apiEndpoint, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                         'Accept': 'application/json' // Good practice
-                    },
-                    body: JSON.stringify(formData)
-                })
-                .then(response => {
-                    if (!response.ok) {
-                         // Try to get error message from server response
-                        return response.json().catch(() => {
-                            // If response isn't JSON or parsing fails
-                            throw new Error(`Network response was not ok. Status: ${response.status}`);
-                        }).then(errData => {
-                             // Throw error with server message or default
-                             throw new Error(errData.message || `HTTP error! Status: ${response.status}`);
-                        });
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    console.log('Success:', data);
-                    toastr.success(data.message || 'Message sent successfully!'); // Use server message if available
-                    contactForm.reset();
-                    submitButton.textContent = originalButtonText;
-                    submitButton.disabled = false;
-                })
-                .catch((error) => {
-                    console.error('Error:', error);
-                    // Display the specific error message caught
-                    toastr.error('Error sending message: ' + error.message);
-                    submitButton.textContent = originalButtonText;
-                    submitButton.disabled = false;
-                });
-            });
         });
     </script>
 </body>
