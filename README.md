@@ -33,6 +33,7 @@ This is a collection of coding projects, organized by skill level. Each project 
 - [ ] Notes App with Local Storage
 - [x] [Blog](https://aidarkezio.netlify.app)
 - [ ] Authentication System (login/register)
+- [x] [Local-Tools](https://github.com/AiDarkEzio/Local-Tools) — Fast, privacy-first collection of browser-native utilities built with Next.js, TypeScript, and Tailwind CSS. ([Live Demo](https://aidarkezio.github.io/Local-Tools))
 
 ---
 
